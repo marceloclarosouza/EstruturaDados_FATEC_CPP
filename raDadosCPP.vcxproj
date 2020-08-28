@@ -24,6 +24,7 @@
     <ProjectGuid>{6dc4d2d6-3575-4657-b379-6f2808ff9108}</ProjectGuid>
     <RootNamespace>raDadosCPP</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>EstruturaDadosCPP</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
