@@ -24,5 +24,8 @@
     <ClCompile Include="03_tipos_abstratos_dados.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="04_ponteiros.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
