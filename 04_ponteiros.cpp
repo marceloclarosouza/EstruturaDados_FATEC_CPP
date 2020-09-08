@@ -74,24 +74,35 @@
 //
 //using namespace std;
 //
-//void calculo(int num1, int num2, int num3, int num4, int* media);
+//void calcula_media(float *num1, float *num2, float *num3, float *num4, float* media);
 //
 //int main() {
 //	setlocale(LC_ALL, "Portuguese");
-//	int num1, num2, num3, num4, media;
-//	num1 = 
-//	num2 = 
-//	num3 = 
-//	num4 = 
-//
+//	float *num1, *num2, *num3, *num4, *media;
 //	
+//
+//	calcula_media(&num1, &num2, &num3, &num4, &media);
+//	out << "Nota 1 = " << num1<< endl << endl;
+//	out << "Nota 2 = " << num2 << endl << endl;
+//	out << "Nota 3 = " << num3 << endl << endl;
+//	out << "Nota 3 = " << num4 << endl << endl;
+//	cout << "Nota media = " << media << endl << endl;	
 //
 //	system("pause");
 //	return 0;
 //}
 //
+//void calcula_media(int *num1, int *num2, int *num3, int *num4, int* media) {
 //
+//	*media = (num1 + num2 + num3 + num4) / 4;
+//}
 //
+
+
+
+
+
+
 //
 //3) Fazer uma função que recebe um número, calcule e retorne se o
 //número é positivo ou negativo e se é múltiplo ou não de três.Após a
