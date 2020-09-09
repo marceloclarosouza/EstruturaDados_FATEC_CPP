@@ -212,13 +212,21 @@
 //	veiculo vei;
 //	
 //	receber_dados(&vei);//passando a struct
-//	cout<<
+//	cout << "Modelo: " << vei.modelo << endl;
+//	cout << "Ano : " << vei.ano_f << endl;
+//	cout << "N POrtas " << vei.n_portas << endl;
 //
 //	system("pause");
 //	return 0;
 //}
 //void receber_dados(veiculo *vei) {//recebendo a struct por ponteiro
+//	cout << "Digite o modelo: "<<endl;
+//	cin >> vei->modelo;
 //
+//	cout << "Digite o ano: "<<endl;
+//	cin >> vei->ano_f;
 //
+//	cout << "Digite o n_portaa: "<<endl;
+//	cin >> vei->n_portas;
 //}
 //

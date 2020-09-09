@@ -145,6 +145,7 @@
     <ClCompile Include="03_tipos_abstratos_dados.cpp" />
     <ClCompile Include="04_ponteiros.cpp" />
     <ClCompile Include="05_ponteiro2.cpp" />
+    <ClCompile Include="06_Alocacao_memoria.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

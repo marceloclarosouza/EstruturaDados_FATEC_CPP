@@ -30,5 +30,8 @@
     <ClCompile Include="05_ponteiro2.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="06_Alocacao_memoria.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
