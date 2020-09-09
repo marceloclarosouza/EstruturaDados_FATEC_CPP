@@ -107,11 +107,58 @@
 //função, imprima os dados na tela.
 //Ex: void validarNro(int nro1, bool* positivo, bool* multiploTres)
 
-
-
-
-
-
-
-
-
+//#include <iostream>
+//#include <locale.h> // setlocale
+//#include <stdlib.h> // system
+//#include <string> // Textos em geral
+//#include <iomanip>
+//
+//using namespace std;
+//
+//void validar_nro(int *num, bool* positivo, bool* multiplo_3);
+//
+//int main() {
+//	setlocale(LC_ALL, "Portuguese");
+//
+//	int num;
+//	bool positivo, multiplo_3;
+//
+//	validar_nro(&num, &positivo, &multiplo_3);
+//
+//	cout << "O Num selecionado é: " << num << endl;
+//
+//	if (positivo == true)
+//		cout << "É positivo" << endl;
+//	else {
+//		cout << "É negativo" << endl;
+//	}
+//
+//	if (multiplo_3 ==true)
+//		cout << "E multiplo de 3" << endl;
+//	else {
+//		cout << "Nao e multiplo de 3" << endl;
+//	}
+//
+//	system("pause");
+//	return 0;
+//}
+//		
+//
+//void validar_nro(int *num, bool* positivo, bool* multiplo_3)
+//{
+//	cout << "Digite um numero inteiro: " << endl;
+//	cin >> *num;
+//
+//	if (*num >= 0)
+//		*positivo = true;
+//	else {
+//		*positivo = false;
+//	}
+//
+//	if (*num % 3 == 0)
+//		*multiplo_3 = true;
+//	else {
+//		*multiplo_3 = false;
+//	}
+//
+//}
