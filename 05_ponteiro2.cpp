@@ -184,22 +184,41 @@
 //	return 0;
 //}
 
-
-
-#include <iostream>
-#include <locale.h> // setlocale
-#include <stdlib.h> // system
-#include <string> // Textos em geral
-#include <iomanip>
-
-using namespace std;
-
-int main() {
-	setlocale(LC_ALL, "Portuguese");
-
-
-
-	system("pause");
-	return 0;
-}
-
+////Exercicio2: crie um programa que tenha uma estrutura para guardar
+////dados de veiculos: modelo, ano de fabricacao e numero de portas
+////crie uma variavel desta estrutura e passe-a para uma funcao
+////a funcao deve receber a estrutura por um ponteiro
+////utilizando cin, a funcao deverá preencher os valores da estrutura
+////após a funcao, imprima os dados fornecidos pelo ususario
+//
+//#include <iostream>
+//#include <locale.h> // setlocale
+//#include <stdlib.h> // system
+//#include <string> // Textos em geral
+//#include <iomanip>
+//
+//using namespace std;
+//
+//struct veiculo {
+//	string modelo;
+//	int ano_f;
+//	int n_portas;
+//};
+//
+//void receber_dados(veiculo *vei);
+//
+//int main() {
+//	setlocale(LC_ALL, "Portuguese");
+//	veiculo vei;
+//	
+//	receber_dados(&vei);//passando a struct
+//	cout<<
+//
+//	system("pause");
+//	return 0;
+//}
+//void receber_dados(veiculo *vei) {//recebendo a struct por ponteiro
+//
+//
+//}
+//
