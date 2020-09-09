@@ -63,9 +63,15 @@ int main() {
 	//cout << "Valor2: " << *pv << endl << endl << endl;
 
 	for (ind = 0; ind < 5; ind++) {
+		cout << "valor: " << *(pv + ind) << endl;//trava o vetor na primeira posicao e corre os demais valores sem alterar o valor de pv
+	}//usar este!!!
+
+	cout << endl << endl;		
+	
+	for (ind = 0; ind < 5; ind++) {//correr o vetor pelos pponteiros alterando o valor de pv
 		cout << "Valor: " << *pv << endl;
 		pv++;
-	}
+	}//nao usar!!!
 
 
 	system("pause");
