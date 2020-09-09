@@ -117,6 +117,74 @@
 //chame a funcao passando um vetor de 5 posicoes
 //em seguida, imprima os valores recebidos pwlo ponteiro
 
+//
+//#include <iostream>
+//#include <locale.h> // setlocale
+//#include <stdlib.h> // system
+//#include <string> // Textos em geral
+//#include <iomanip>
+//
+//using namespace std;
+//void imprimirDados(int* pv);
+//
+//int main() {
+//	setlocale(LC_ALL, "Portuguese");
+//	int vetor[5] = {10, 20,30,40,50};
+//	
+//	imprimirDados(vetor);
+//	
+//	system("pause");
+//	return 0;
+//}
+//void imprimirDados(int* pv) {
+//	int ind;
+//
+//	for (ind = 0; ind < 5; ind++) {
+//		cout << "Valor: " << *(pv + ind) << endl;
+//	}
+//
+//}
+//
+//
+//#include <iostream>
+//#include <locale.h> // setlocale
+//#include <stdlib.h> // system
+//#include <string> // Textos em geral
+//#include <iomanip>
+//
+//using namespace std;
+//struct Pessoa {
+//	string nome;
+//	int idade;
+//	float salario;
+//};
+//
+//int main() {
+//	setlocale(LC_ALL, "Portuguese");
+//	Pessoa aluno;
+//	Pessoa* pA;
+//
+//	pA = &aluno;
+//
+//	cout << "Digite o nome: ";
+//	cin >> pA->nome;
+//
+//	cout << "Digite a idade: ";
+//	cin >> pA->idade;
+//
+//	cout << "Digite o salario: ";
+//	cin >> pA->salario;
+//
+//	cout << "Nome: " << pA->nome << endl;
+//	cout << "Idade: " << pA->idade << endl;
+//	cout << "Salario: " << pA->salario << endl;
+//
+//
+//	system("pause");
+//	return 0;
+//}
+
+
 
 #include <iostream>
 #include <locale.h> // setlocale
@@ -125,22 +193,13 @@
 #include <iomanip>
 
 using namespace std;
-void imprimirDados(int* pv);
 
 int main() {
 	setlocale(LC_ALL, "Portuguese");
-	int vetor[5] = {10, 20,30,40,50};
-	
-	imprimirDados(vetor);
-	
+
+
+
 	system("pause");
 	return 0;
 }
-void imprimirDados(int* pv) {
-	int ind;
 
-	for (ind = 0; ind < 5; ind++) {
-		cout << "Valor: " << *(pv + ind) << endl;
-	}
-
-}
