@@ -215,8 +215,8 @@
 //	system("pause");
 //	return 0;
 //}
-
-
+//
+//
 //#include <iostream>
 //#include <locale.h> // setlocale
 //#include <stdlib.h> // system
@@ -262,5 +262,67 @@
 //
 //	cout << "Digite a media: ";
 //	cin>> ptr->media;
+//}
+//
+//
+//#include <iostream>
+//#include <locale.h> // setlocale
+//#include <stdlib.h> // system
+//#include <string> // Textos em geral
+//#include <iomanip>
+//
+//using namespace std;
+//
+//struct Aluno {
+//	string nome;
+//	int idade;
+//	float media;
+//};
+//
+//using namespace std;
+//void digitardados(Aluno* ptr);//chamar a funcao abaixo da struct
+//Aluno* alocar_memoria();
+//void desaloca_memoria(Aluno* ptr);
+//
+//int main() {
+//	setlocale(LC_ALL, "Portuguese");
+//
+//	Aluno* ptAluno;
+//	ptAluno = alocar_memoria();
+//	digitardados(ptAluno);
+//
+//	cout << "NOme: " << ptAluno->nome << endl;
+//	cout << "idade: " << ptAluno->idade << endl;
+//	cout << "media: " << ptAluno->media << endl << endl;;
+//
+//	desaloca_memoria(ptAluno);
+//
+//
+//	system("pause");
+//	return 0;
+//}
+//
+//void digitardados(Aluno* ptr) {
+//
+//	cout << "Digite o nome: ";
+//	getline(cin, ptr->nome);
+//
+//	cout << "Digite a idade: ";
+//	cin >> ptr->idade;
+//
+//	cout << "Digite a media: ";
+//	cin >> ptr->media;
+//}
+//
+//Aluno* alocar_memoria() {//retorna a struct Aluno
+//	Aluno* ptr;
+//	ptr = new Aluno;
+//	return ptr;
+//
+//}
+//
+//void desaloca_memoria(Aluno* ptr) {
+//
+//	delete ptr;
 //}
 
