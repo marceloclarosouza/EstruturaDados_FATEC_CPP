@@ -265,6 +265,58 @@
 //}
 //
 //
+//
+//#include <iostream>
+//#include <locale.h> // setlocale
+//#include <stdlib.h> // system
+//#include <string> // Textos em geral
+//#include <iomanip>
+//
+//
+//using namespace std;
+//
+//struct Aluno {
+//	string nome;
+//	int idade;
+//	float media;
+//};
+//
+//int main() {
+//	setlocale(LC_ALL, "Portuguese");
+//	int ind;
+//
+//	Aluno* ptAluno;
+//	ptAluno = new Aluno[3];
+//
+//
+//	(ptAluno + 0)->nome = "Maria";//nao coloca o asterirsco pq é vetor
+//	(ptAluno + 0)->idade = 35;
+//	(ptAluno + 0)->media = 2.2;
+//
+//
+//	(ptAluno + 1)->nome = "Marcia";
+//	(ptAluno + 1)->idade = 35;
+//	(ptAluno + 1)->media = 5;
+//
+//
+//	(ptAluno + 2)->nome = "Claudia";
+//	(ptAluno + 2)->idade = 99;
+//	(ptAluno + 2)->media = 2;
+//
+//	for (ind = 0; ind < 3; ind++) {
+//		cout << "Nome: " << (ptAluno + ind)->nome << endl;
+//		cout << "Idade: " << (ptAluno + ind)->idade << endl;
+//		cout << "media: " << (ptAluno + ind)->media << endl;
+//	}
+//
+//	delete[] ptAluno;
+//
+//	system("pause");
+//	return 0;
+//}
+
+
+//
 //#include <iostream>
 //#include <locale.h> // setlocale
 //#include <stdlib.h> // system
@@ -279,50 +331,127 @@
 //	float media;
 //};
 //
-//using namespace std;
-//void digitardados(Aluno* ptr);//chamar a funcao abaixo da struct
 //Aluno* alocar_memoria();
-//void desaloca_memoria(Aluno* ptr);
+//void desalocar_memoria(Aluno* ptr);
+//void obter_dados(Aluno* ptr);
+//void imprimir_dados(Aluno* ptr);
 //
 //int main() {
 //	setlocale(LC_ALL, "Portuguese");
+//	int ind;
 //
 //	Aluno* ptAluno;
 //	ptAluno = alocar_memoria();
-//	digitardados(ptAluno);
+//	obter_dados(ptAluno);
+//	imprimir_dados(ptAluno);
 //
-//	cout << "NOme: " << ptAluno->nome << endl;
-//	cout << "idade: " << ptAluno->idade << endl;
-//	cout << "media: " << ptAluno->media << endl << endl;;
+//	desalocar_memoria(ptAluno);
 //
-//	desaloca_memoria(ptAluno);
+//	system("pause");
+//	return 0;
+//}
+//Aluno* alocar_memoria() {
+//	Aluno* ptr;
+//	ptr = new Aluno[3];
+//	return ptr;
+//
+//}
+//
+//void desalocar_memoria(Aluno* ptr) {
+//	delete[] ptr;
+//
+//}
+//void obter_dados(Aluno* ptr) {
+//	(ptr + 0)->nome = "Maria";//nao coloca o asterirsco pq é vetor
+//	(ptr + 0)->idade = 35;
+//	(ptr + 0)->media = 2.2;
+//
+//
+//	(ptr + 1)->nome = "Marcia";
+//	(ptr + 1)->idade = 35;
+//	(ptr + 1)->media = 5;
+//
+//
+//	(ptr + 2)->nome = "Claudia";
+//	(ptr + 2)->idade = 99;
+//	(ptr + 2)->media = 2;
+//}
+//
+//void imprimir_dados(Aluno* ptr) {
+//	int ind;
+//
+//	for (ind = 0; ind < 3; ind++) {
+//		cout << "Nome: " << (ptr + ind)->nome << endl;
+//		cout << "Idade: " << (ptr + ind)->idade << endl;
+//		cout << "media: " << (ptr + ind)->media << endl;
+//	}
+//}
+
+///Conta bancaria
+
+//#include <iostream>
+//#include <locale.h> // setlocale
+//#include <stdlib.h> // system
+//#include <string> // Textos em geral
+//#include <iomanip>
+//
+//using namespace std;
+//
+//struct Cliente{
+//	string nome;
+//	int codigo;
+//	int n_conta;
+//	float saldo;
+//};
+//
+//Cliente* alocar_memoria();
+//void obter_dados(Cliente* cliente);
+//void desalocar_memoria(Cliente* cliente);
+//void imprimir_dados(Cliente* cliente);
+//
+//int main() {
+//	setlocale(LC_ALL, "Portuguese");
+//	Cliente* cliente;
+//
+//	cliente = alocar_memoria();
+//	obter_dados(cliente);
+//	imprimir_dados(cliente);
+//	desalocar_memoria(cliente);
 //
 //
 //	system("pause");
 //	return 0;
 //}
 //
-//void digitardados(Aluno* ptr) {
-//
-//	cout << "Digite o nome: ";
-//	getline(cin, ptr->nome);
-//
-//	cout << "Digite a idade: ";
-//	cin >> ptr->idade;
-//
-//	cout << "Digite a media: ";
-//	cin >> ptr->media;
+//Cliente* alocar_memoria() {//retorna a struct
+//	Cliente* cliente;
+//	cliente = new Cliente[2];
+//	return cliente;
 //}
 //
-//Aluno* alocar_memoria() {//retorna a struct Aluno
-//	Aluno* ptr;
-//	ptr = new Aluno;
-//	return ptr;
+//void obter_dados(Cliente* cliente) {
+//	(cliente + 0)->nome = "Marcelo";
+//	(cliente + 0)->codigo = 123456789;
+//	(cliente + 0)->n_conta = 96385522;
+//	(cliente + 0)->saldo = 2096;
 //
+//	(cliente + 1)->nome = "Lucas";
+//	(cliente + 1)->codigo = 1239;
+//	(cliente + 1)->n_conta =522;
+//	(cliente + 1)->saldo = 20;
+//}
+//void desalocar_memoria(Cliente* cliente) {
+//	
+//	delete[] cliente;//deletar o vetor
 //}
 //
-//void desaloca_memoria(Aluno* ptr) {
-//
-//	delete ptr;
+//void imprimir_dados(Cliente * cliente) {
+//	int ind;
+//	
+//	for (ind = 0; ind <2; ind++) {
+//		cout << "Nome: " << (cliente + ind)->nome << endl;
+//		cout << "codigo: " << (cliente+ ind)->codigo << endl;
+//		cout << "n_conta: " << (cliente + ind)->n_conta << endl;
+//		cout << "saldo: " << (cliente + ind)->saldo << endl;
+//	}
 //}
-
