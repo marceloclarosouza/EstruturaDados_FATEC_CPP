@@ -455,3 +455,86 @@
 //		cout << "saldo: " << (cliente + ind)->saldo << endl;
 //	}
 //}
+////////
+////////
+////////#include <iostream>
+////////#include <locale.h>
+////////#include <stdlib.h> // system
+////////#include <string> // Textos em geral
+////////
+////////
+////////using namespace std;
+////////
+////////
+////////struct ContaBancaria
+////////{
+////////	int codCliente;
+////////	string nome;
+////////	int nroCta = 0;
+////////	float saldo = 0;
+////////};
+////////
+////////
+////////ContaBancaria* alocarMemoria();
+////////void desalocarMemoria(ContaBancaria* ptr);
+////////void obterDados(ContaBancaria* ptr);
+////////void imprimirDados(ContaBancaria* ptr);
+////////
+////////int main() {
+////////
+////////	setlocale(LC_ALL, "Portuguese");
+////////	ContaBancaria* ptctaCorrente;
+////////	ptctaCorrente = alocarMemoria();
+////////	obterDados(ptctaCorrente);
+////////	imprimirDados(ptctaCorrente);
+////////	desalocarMemoria(ptctaCorrente);
+////////	system("pause");
+////////
+////////	return 0;
+////////}
+////////
+////////
+////////
+////////ContaBancaria* alocarMemoria() {
+////////	ContaBancaria* ptr;
+////////	ptr = new ContaBancaria[2];
+////////	return ptr;
+////////}
+////////
+////////
+////////
+////////void desalocarMemoria(ContaBancaria* ptr) {
+////////	delete[] ptr;
+////////}
+////////
+////////
+////////
+////////void obterDados(ContaBancaria* ptr) {
+////////	int ind;
+////////
+////////	for (ind = 0; ind < 2; ind++) {
+////////		cout << "Digite o Código: ";
+////////		cin >> (ptr + ind)->codCliente;
+////////		cin.ignore();
+////////
+////////		cout << "Digite o Nome: ";
+////////		getline(cin, (ptr + ind)->nome);
+////////		cout << "Digite o Nro Conta: ";
+////////		cin >> (ptr + ind)->nroCta;
+////////		cout << "Digite o saldo: ";
+////////		cin >> (ptr + ind)->saldo;
+////////		cout << "\n\n";
+////////	}
+////////}
+////////
+////////
+////////void imprimirDados(ContaBancaria* ptr) {
+////////	int ind;
+////////
+////////	for (ind = 0; ind < 2; ind++) {
+////////		cout << "Código Cliente: " << (ptr + ind)->codCliente << endl;
+////////		cout << "Nome: " << (ptr + ind)->nome << endl;
+////////		cout << "Nro Conta: " << (ptr + ind)->nroCta << endl;
+////////		cout << "Saldo: " << (ptr + ind)->saldo << endl << endl;
+////////	}
+////////}
