@@ -312,6 +312,87 @@
 //	return 0;
 //}
 
+//#include <iostream>
+//#include <locale.h>
+//#include <stdlib.h> // system
+//#include <string> // Textos em geral
+//
+//
+//using namespace std;
+//
+//struct Aluno {
+//	string nome;
+//	int idade;
+//	float media;
+//
+//	Aluno* proximo;//guarda o endereço do peóximo elemento da lista
+//};
+//
+//struct Lista {
+//	Aluno* inicio;
+//};
+//
+//int main() {
+//
+//	setlocale(LC_ALL, "Portuguese");
+//
+//	Lista* pLista;
+//	pLista = new Lista;
+//
+//	//Criando
+//	Aluno* pMaria;
+//	Aluno* pJose;
+//	Aluno* pJesus;
+//
+//
+//	//criacao dos Nó ou Nodo na memoria
+//	pMaria = new Aluno;//alocando memoria
+//	pMaria->nome = "Maria";
+//	pMaria->idade = 45;
+//	pMaria->media = 9.5;
+//	pMaria->proximo = NULL;
+//
+//	pJose = new Aluno;//alocando memoria
+//	pJose->nome = "Jose";
+//	pJose->idade = 50;
+//	pJose->media = 9;
+//	pJose->proximo = NULL;
+//
+//	pJesus = new Aluno;//alocando memoria
+//	pJesus->nome = "Jesus";
+//	pJesus->idade = 33;
+//	pJesus->media = 10;
+//	pJesus->proximo = NULL;
+//
+//	///Encadeamento do
+//	pLista->inicio = pMaria;
+//	pMaria->proximo = pJose;
+//	pJose->proximo = pJesus;
+//
+//
+//	Aluno* pAtual;
+//
+//	pAtual = pLista->inicio;
+//
+//	while (pAtual != NULL) {
+//		cout << "None: " << pAtual->nome << endl;
+//		cout << "Idade: " << pAtual->idade << endl;
+//		cout << "Media: " << pAtual->media << endl<<endl;
+//
+//		pAtual = pAtual->proximo;
+//	}
+//
+//	//libera memoria
+//	delete pMaria;
+//	delete pJose;
+//	delete pJesus;
+//	delete pLista;
+//
+//	system("pause");
+//
+//	return 0;
+//}
+
 #include <iostream>
 #include <locale.h>
 #include <stdlib.h> // system
@@ -328,9 +409,16 @@ struct Aluno {
 	Aluno* proximo;//guarda o endereço do peóximo elemento da lista
 };
 
+struct Lista {
+	Aluno* inicio;
+};
+
 int main() {
 
 	setlocale(LC_ALL, "Portuguese");
+
+	Lista* pLista;
+	pLista = new Lista;
 
 	//Criando
 	Aluno* pMaria;
@@ -358,18 +446,19 @@ int main() {
 	pJesus->proximo = NULL;
 
 	///Encadeamento do
+	pLista->inicio = pMaria;
 	pMaria->proximo = pJose;
 	pJose->proximo = pJesus;
 
 
 	Aluno* pAtual;
 
-	pAtual = pMaria;
+	pAtual = pLista->inicio;
 
 	while (pAtual != NULL) {
 		cout << "None: " << pAtual->nome << endl;
 		cout << "Idade: " << pAtual->idade << endl;
-		cout << "Media: " << pAtual->media << endl<<endl;
+		cout << "Media: " << pAtual->media << endl << endl;
 
 		pAtual = pAtual->proximo;
 	}
@@ -378,6 +467,7 @@ int main() {
 	delete pMaria;
 	delete pJose;
 	delete pJesus;
+	delete pLista;
 
 	system("pause");
 
