@@ -597,6 +597,91 @@
 //	return 0;
 //}
 
+//
+//#include <iostream>
+//#include <locale.h>
+//#include <stdlib.h> // system
+//#include <string> // Textos em geral
+//
+//
+//using namespace std;
+//
+//struct Dados {
+//	int codigo;
+//	string desc;
+//	float preco;
+//
+//};
+//
+//struct No {
+//	Dados dados;
+//	No* proximo;
+//};
+//
+//struct Lista {
+//	No* inicio;
+//};
+//
+//int main() {
+//	setlocale(LC_ALL, "Portuguese");
+//
+//	Lista* pLista;
+//	pLista = new Lista;
+//
+//	//Criando
+//	No* pProd1;//a struct No aponta para os dados
+//	No* pProd2;
+//	No* pProd3;
+//
+//
+//	//criacao dos Nó ou Nodo na memoria
+//	pProd1 = new No;//alocando memoria
+//	pProd1->dados.codigo = 100;
+//	pProd1->dados.desc = "ovo";
+//	pProd1->dados.preco = 5.5;
+//	pProd1->proximo = NULL;
+//
+//	pProd2 = new No;//alocando memoria
+//	pProd2->dados.codigo = 200;
+//	pProd2->dados.desc = "Coca Cola";
+//	pProd2->dados.preco = 8.0;
+//	pProd2->proximo = NULL;
+//
+//	pProd3 = new No;//alocando memoria
+//	pProd3->dados.codigo = 300;
+//	pProd3->dados.desc = "pao";
+//	pProd3->dados.preco = 4.5;
+//	pProd3->proximo = NULL;
+//
+//	///Encadeamento do
+//	pLista->inicio = pProd1;
+//	pProd1->proximo = pProd2;
+//	pProd2->proximo = pProd3;
+//
+//
+//	No* pAtual;
+//
+//	pAtual = pLista->inicio;
+//
+//	while (pAtual != NULL) {
+//		cout << "Codigo: " << pAtual->dados.codigo << endl;
+//		cout << "Desconto: " << pAtual->dados.desc << endl;
+//		cout << "Preço: " << pAtual->dados.preco << endl << endl;
+//
+//		pAtual = pAtual->proximo;
+//	}
+//
+//	//libera memoria
+//	delete pProd1;
+//	delete pProd2;
+//	delete pProd3;
+//	delete pLista;
+//
+//	system("pause");
+//
+//	return 0;
+//}
+
 
 #include <iostream>
 #include <locale.h>
@@ -607,10 +692,10 @@
 using namespace std;
 
 struct Dados {
-	int codigo;
-	string desc;
-	float preco;
-
+	int codigoV;
+	string nomeP;
+	int anof;
+	int anom;
 };
 
 struct No {
@@ -629,34 +714,37 @@ int main() {
 	pLista = new Lista;
 
 	//Criando
-	No* pProd1;//a struct No aponta para os dados
-	No* pProd2;
-	No* pProd3;
+	No* pCar1;//a struct No aponta para os dados
+	No* pCar2;
+	No* pCar3;
 
 
 	//criacao dos Nó ou Nodo na memoria
-	pProd1 = new No;//alocando memoria
-	pProd1->dados.codigo = 100;
-	pProd1->dados.desc = "ovo";
-	pProd1->dados.preco = 5.5;
-	pProd1->proximo = NULL;
+	pCar1 = new No;//alocando memoria
+	pCar1->dados.codigoV = 100;
+	pCar1->dados.nomeP = "luis";
+	pCar1->dados.anof = 2015;
+	pCar1->dados.anom = 2016;
+	pCar1->proximo = NULL;
 
-	pProd2 = new No;//alocando memoria
-	pProd2->dados.codigo = 200;
-	pProd2->dados.desc = "Coca Cola";
-	pProd2->dados.preco = 8.0;
-	pProd2->proximo = NULL;
+	pCar2 = new No;//alocando memoria
+	pCar2->dados.codigoV = 200;
+	pCar2->dados.nomeP = "jose";
+	pCar2->dados.anof = 2016;
+	pCar2->dados.anom = 2017;
+	pCar2->proximo = NULL;
 
-	pProd3 = new No;//alocando memoria
-	pProd3->dados.codigo = 300;
-	pProd3->dados.desc = "pao";
-	pProd3->dados.preco = 4.5;
-	pProd3->proximo = NULL;
+	pCar3 = new No;//alocando memoria
+	pCar3->dados.codigoV = 300;
+	pCar3->dados.nomeP = "carlos";
+	pCar3->dados.anof = 2017;
+	pCar3->dados.anom = 2018;
+	pCar3->proximo = NULL;
 
 	///Encadeamento do
-	pLista->inicio = pProd1;
-	pProd1->proximo = pProd2;
-	pProd2->proximo = pProd3;
+	pLista->inicio = pCar1;
+	pCar1->proximo = pCar2;
+	pCar2->proximo = pCar3;
 
 
 	No* pAtual;
@@ -664,17 +752,18 @@ int main() {
 	pAtual = pLista->inicio;
 
 	while (pAtual != NULL) {
-		cout << "Codigo: " << pAtual->dados.codigo << endl;
-		cout << "Desconto: " << pAtual->dados.desc << endl;
-		cout << "Preço: " << pAtual->dados.preco << endl << endl;
+		cout << "Codigo: " << pAtual->dados.codigoV << endl;
+		cout << "Nome: " << pAtual->dados.nomeP << endl;
+		cout << "Anof: " << pAtual->dados.anof << endl;
+		cout << "Anom: " << pAtual->dados.anom << endl << endl;
 
 		pAtual = pAtual->proximo;
 	}
 
 	//libera memoria
-	delete pProd1;
-	delete pProd2;
-	delete pProd3;
+	delete pCar1;
+	delete pCar2;
+	delete pCar3;
 	delete pLista;
 
 	system("pause");
