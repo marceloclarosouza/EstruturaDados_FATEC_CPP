@@ -7,6 +7,9 @@
 
 using namespace std;
 
+
+
+
 //Dados sobre o Aluno
 struct Dados {
 	int matricula;
@@ -28,9 +31,11 @@ struct Lista {
 	No* inicio;
 };
 
-
 Lista* criarLista();
 void liberarLista(Lista* ptrLista);
+void exibirLista(Lista* ptrLista);
+bool inserirListaInicio(Lista* ptrLista, int matricula, string nome, float media);
+
 
 int main() {
 	setlocale(LC_ALL, "Portuguese");
@@ -39,13 +44,22 @@ int main() {
 
 	pLista = criarLista();
 
+	int matricula;
+	string nome;
+	float media;
+	bool resultado;
 
 
+	matricula = 10;
+	nome = "Maria";
+	media = 8.0;
 
 
+	inserirListaInicio(pLista, matricula, nome, media);
+	inserirListaInicio(pLista, 7, "Jose", 6.8);
+	inserirListaInicio(pLista, 15, "Carlos", 9.2);
 
-
-
+	exibirLista(pLista);
 
 
 	liberarLista(pLista);	
@@ -63,7 +77,7 @@ Lista* criarLista() {
 
 	//Se a lista Não pode ser criada
 	if (ptrLista == NULL) {
-		cout << "N~;ao foi possível criar a lista!" << endl;
+		cout << "Não foi possível criar a lista!" << endl;
 		return NULL;
 	}
 
@@ -72,7 +86,6 @@ Lista* criarLista() {
 	ptrLista->inicio = NULL;
 
 	return ptrLista;
-
 }
 
 //Liberar a lista
@@ -94,7 +107,6 @@ void liberarLista(Lista* ptrLista) {
 	}
 
 	delete ptrLista;
-
 }
 
 //Inserir no início da lista
@@ -111,7 +123,7 @@ bool inserirListaInicio(Lista* ptrLista, int matricula, string nome, float media
 	//Cria o novo Nó
 	ptrNoNovo = new No;
 
-	if (ptrNoNovo = NULL) {
+	if (ptrNoNovo == NULL) {
 		cout << "Memória insuficiente! " << endl;
 		return false;
 	}
@@ -127,3 +139,31 @@ bool inserirListaInicio(Lista* ptrLista, int matricula, string nome, float media
 	ptrLista->qtdNo++;
 	return true;
 }
+
+//Exibir lista
+void exibirLista(Lista* ptrLista) {
+	No* ptrNoAtual;
+
+	//Se a lista NÃo foi craida
+	if (ptrLista == NULL) {
+		cout << "A Lista não está criada!" << endl;
+		return;
+	}
+
+	//Se n~;ao tiver nehum Nó na lista
+	if (ptrLista->inicio == NULL) {
+		cout << "A lista está vazia!" <<endl;
+		return;
+	}
+
+	ptrNoAtual = ptrLista->inicio;
+
+	while (ptrNoAtual != NULL) {
+		cout << "Matricula: " << ptrNoAtual->dados.matricula << endl;
+		cout << "Nome: " << ptrNoAtual->dados.nome << endl;
+		cout << "Media: " << ptrNoAtual->dados.media << endl;
+		ptrNoAtual = ptrNoAtual->proxNo;
+	}
+	cout << endl;
+}
+
