@@ -682,91 +682,91 @@
 //	return 0;
 //}
 
-
-#include <iostream>
-#include <locale.h>
-#include <stdlib.h> // system
-#include <string> // Textos em geral
-
-
-using namespace std;
-
-struct Dados {
-	int codigoV;
-	string nomeP;
-	int anof;
-	int anom;
-};
-
-struct No {
-	Dados dados;
-	No* proximo;
-};
-
-struct Lista {
-	No* inicio;
-};
-
-int main() {
-	setlocale(LC_ALL, "Portuguese");
-
-	Lista* pLista;
-	pLista = new Lista;
-
-	//Criando
-	No* pCar1;//a struct No aponta para os dados
-	No* pCar2;
-	No* pCar3;
-
-
-	//criacao dos Nó ou Nodo na memoria
-	pCar1 = new No;//alocando memoria
-	pCar1->dados.codigoV = 100;
-	pCar1->dados.nomeP = "luis";
-	pCar1->dados.anof = 2015;
-	pCar1->dados.anom = 2016;
-	pCar1->proximo = NULL;
-
-	pCar2 = new No;//alocando memoria
-	pCar2->dados.codigoV = 200;
-	pCar2->dados.nomeP = "jose";
-	pCar2->dados.anof = 2016;
-	pCar2->dados.anom = 2017;
-	pCar2->proximo = NULL;
-
-	pCar3 = new No;//alocando memoria
-	pCar3->dados.codigoV = 300;
-	pCar3->dados.nomeP = "carlos";
-	pCar3->dados.anof = 2017;
-	pCar3->dados.anom = 2018;
-	pCar3->proximo = NULL;
-
-	///Encadeamento do
-	pLista->inicio = pCar1;
-	pCar1->proximo = pCar2;
-	pCar2->proximo = pCar3;
-
-
-	No* pAtual;
-
-	pAtual = pLista->inicio;
-
-	while (pAtual != NULL) {
-		cout << "Codigo: " << pAtual->dados.codigoV << endl;
-		cout << "Nome: " << pAtual->dados.nomeP << endl;
-		cout << "Anof: " << pAtual->dados.anof << endl;
-		cout << "Anom: " << pAtual->dados.anom << endl << endl;
-
-		pAtual = pAtual->proximo;
-	}
-
-	//libera memoria
-	delete pCar1;
-	delete pCar2;
-	delete pCar3;
-	delete pLista;
-
-	system("pause");
-
-	return 0;
-}
+//
+//#include <iostream>
+//#include <locale.h>
+//#include <stdlib.h> // system
+//#include <string> // Textos em geral
+//
+//
+//using namespace std;
+//
+//struct Dados {
+//	int codigoV;
+//	string nomeP;
+//	int anof;
+//	int anom;
+//};
+//
+//struct No {
+//	Dados dados;
+//	No* proximo;
+//};
+//
+//struct Lista {
+//	No* inicio;
+//};
+//
+//int main() {
+//	setlocale(LC_ALL, "Portuguese");
+//
+//	Lista* pLista;
+//	pLista = new Lista;
+//
+//	//Criando
+//	No* pCar1;//a struct No aponta para os dados
+//	No* pCar2;
+//	No* pCar3;
+//
+//
+//	//criacao dos Nó ou Nodo na memoria
+//	pCar1 = new No;//alocando memoria
+//	pCar1->dados.codigoV = 100;
+//	pCar1->dados.nomeP = "luis";
+//	pCar1->dados.anof = 2015;
+//	pCar1->dados.anom = 2016;
+//	pCar1->proximo = NULL;
+//
+//	pCar2 = new No;//alocando memoria
+//	pCar2->dados.codigoV = 200;
+//	pCar2->dados.nomeP = "jose";
+//	pCar2->dados.anof = 2016;
+//	pCar2->dados.anom = 2017;
+//	pCar2->proximo = NULL;
+//
+//	pCar3 = new No;//alocando memoria
+//	pCar3->dados.codigoV = 300;
+//	pCar3->dados.nomeP = "carlos";
+//	pCar3->dados.anof = 2017;
+//	pCar3->dados.anom = 2018;
+//	pCar3->proximo = NULL;
+//
+//	///Encadeamento do
+//	pLista->inicio = pCar1;
+//	pCar1->proximo = pCar2;
+//	pCar2->proximo = pCar3;
+//
+//
+//	No* pAtual;
+//
+//	pAtual = pLista->inicio;
+//
+//	while (pAtual != NULL) {
+//		cout << "Codigo: " << pAtual->dados.codigoV << endl;
+//		cout << "Nome: " << pAtual->dados.nomeP << endl;
+//		cout << "Anof: " << pAtual->dados.anof << endl;
+//		cout << "Anom: " << pAtual->dados.anom << endl << endl;
+//
+//		pAtual = pAtual->proximo;
+//	}
+//
+//	//libera memoria
+//	delete pCar1;
+//	delete pCar2;
+//	delete pCar3;
+//	delete pLista;
+//
+//	system("pause");
+//
+//	return 0;
+//}
