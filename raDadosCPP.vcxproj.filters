@@ -39,5 +39,8 @@
     <ClCompile Include="08_ListaSimplesmenteEncadeada.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="Lista_exercicios_P1.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

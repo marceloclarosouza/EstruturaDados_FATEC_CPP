@@ -148,6 +148,7 @@
     <ClCompile Include="06_Alocacao_memoria.cpp" />
     <ClCompile Include="07_ListaEncadeadaIntroducao.cpp" />
     <ClCompile Include="08_ListaSimplesmenteEncadeada.cpp" />
+    <ClCompile Include="Lista_exercicios_P1.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
