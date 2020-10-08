@@ -152,4 +152,52 @@ atribua os valores ao ponteiro e exiba - os na tela.*/
 //	return 0;
 //}
 
+/*4) Faça um programa que aloque um ponteiro para armazenar 3 valores inteiros.Passe o
+ponteiro para uma função que solicitará ao usuário que digite(cin) os valores correspondentes.
+Após a função, exiba os valores do ponteiro*/
 
+//#include <iostream>
+//#include <locale.h> // setlocale
+//#include <stdlib.h> // system
+//#include <string> // Textos em geral
+//#include <iomanip>
+//
+//using namespace std;
+//void armazena_valores(int* ptr);
+//void visualiza_valores(int* ptr);
+//
+//int main() {
+//	setlocale(LC_ALL, "Portuguese");
+//		
+//	int* ptr;
+//	ptr = new int[3];
+//
+//	
+//	armazena_valores(ptr);
+//	visualiza_valores(ptr);
+//
+//	delete ptr;
+//
+//	system("pause");
+//	return 0;
+//}
+//
+//
+//void armazena_valores(int* ptr) {
+//	int ind;	
+//
+//	for (ind = 0; ind < 3; ind++) {
+//		cout << "Digite o "<<ind+1<<" valor:"<< endl;
+//		cin >> *(ptr + ind);
+//	}
+//
+//}
+//
+//void visualiza_valores(int* ptr) {
+//	int ind;
+//
+//	for (ind = 0; ind < 3; ind++) {
+//		cout << *(ptr + ind) << endl;
+//	}
+//
+//}
