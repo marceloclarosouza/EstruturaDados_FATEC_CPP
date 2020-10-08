@@ -105,7 +105,7 @@
 //	cin >> *(pv + 2);
 //
 //	for (ind = 0; ind < 3; ind++) {
-//		cout << *pv << endl;
+//		cout << *(pv +ind) << endl;
 //	}
 //
 //	system("pause");
