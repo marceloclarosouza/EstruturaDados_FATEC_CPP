@@ -16,7 +16,10 @@ ao mesmo.Em seguida exiba seu endereço, conteúdo e valor apontado.*/
 //	ptr = new int;
 //	*ptr = 100;
 //		
+//	cout << "Endereço de ptr:" << &ptr << endl;
+//	cout << "Conteudo: " << ptr << endl;
 //	cout << "Valor de ptr: " << *ptr << endl;
+//
 //	delete ptr;
 //	
 //	system("pause");
@@ -97,24 +100,27 @@ Após a função, exiba os novos valores dos ponteiros.*/
 //
 //void inverte_ponteiros(int* ptrX, int* ptrY) {
 //
+//	cout << "ptrX Inicial: " << *ptrX << endl << "ptrY Inicial: " << *ptrY << endl;
+//	
 //	int aux;
-//
 //
 //	aux = *ptrX;
 //	*ptrX = *ptrY;
 //	*ptrY = aux;
 //
-//	cout << "ptrX: " << *ptrX << endl << "ptrY: " << *ptrY << endl;
+//	cout << "ptrX Invertido: " << *ptrX << endl << "ptrY Invertido: " << *ptrY << endl;
 //	
 //}
 //
 //void novos_valores(int* ptrX, int* ptrY) {
+//	cout << "Digite um novo valor para *ptrX" << endl;
 //	cin >> *ptrX;
+//	cout << "Digite um novo valor para *ptrY" << endl;
 //	cin >> *ptrY;
 //
-//	cout << "Os novos valores dos ponteiros ptrX e ptrY sao: " << *ptrX << " e " << *ptrY << endl;
+//	cout << "Novo valor de ptrX: " << *ptrX << endl;
+//	cout << "Novo valor de ptrY: " << *ptrY << endl;
 //}
-
 
 
 
