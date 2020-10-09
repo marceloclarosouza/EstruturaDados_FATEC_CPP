@@ -201,3 +201,123 @@ Após a função, exiba os valores do ponteiro*/
 //	}
 //
 //}
+
+/*5) Faça um programa que aloque um ponteiro para armazenar 5 valores inteiros.Atribua valores
+ao ponteiro.Em seguida crie as seguintes funções.
+5.1) Função que retorne a some todos os valores.Após a função, exiba o resultado.
+5.2) Função que retorne o menor valor.Após a função, exiba o resultado.
+5.3) Função que retorne o maior valor.Após a função, exiba o resultado.
+5.4) Função que retorne a média valor.Após a função, exiba o resultado.*/
+
+#include <iostream>
+#include <locale.h> // setlocale
+#include <stdlib.h> // system
+#include <string> // Textos em geral
+#include <iomanip>
+
+using namespace std;
+void armazena_valores(int* ptr);
+void soma(int* ptr);
+void menor(int* ptr);
+void maior(int* ptr);
+void media(int* ptr);
+
+int main() {
+	setlocale(LC_ALL, "Portuguese");
+		
+	int* ptr;
+	ptr = new int[5];
+
+	
+	armazena_valores(ptr);
+	soma(ptr);
+	menor(ptr);
+	maior(ptr);
+	media(ptr);
+
+	delete ptr;
+
+	system("pause");
+	return 0;
+}
+
+
+void armazena_valores(int* ptr) {
+	int ind;	
+
+	for (ind = 0; ind < 5; ind++) {
+		cout << "Digite o "<<ind+1<<" valor:"<< endl;
+		cin >> *(ptr + ind);
+	}
+
+}
+
+
+void soma(int* ptr) {
+	int ind;
+	int* somar;
+	somar = new int;
+	*somar = 0;
+
+	for (ind = 0; ind < 5; ind++) {
+		*somar = *somar +  *(ptr + ind);
+	}
+
+	cout << "A soma dos numeros é: " << *somar << endl;
+
+	delete somar;
+}
+
+void menor(int* ptr) {
+
+	int ind;
+	int* menor = new int;
+	*menor = 10000;
+
+	for (ind = 0; ind < 5; ind++) {
+		if (*(ptr + ind) < *menor) {
+			*menor = *(ptr + ind);
+		}
+	}
+	cout << "O menor número é: " << *menor << endl;
+
+	delete menor;
+}
+
+void maior(int* ptr) {
+
+	int ind;
+	int* maior = new int;
+	*maior = 0;
+
+	for (ind = 0; ind < 5; ind++) {
+		if (*(ptr + ind) > *maior) {
+			*maior= *(ptr + ind);
+		}
+	}
+	cout << "O maior numero é: " << *maior << endl;
+
+	delete maior;
+}
+void media(int* ptr) {
+
+	int ind;
+	int* somar;
+	float* media;
+
+	somar = new int;
+	*somar = 0;
+
+	media = new float;
+
+	for (ind = 0; ind < 5; ind++) {
+		*somar = *somar + *(ptr + ind);
+	}
+
+	*media = *somar / 5;
+
+	cout << "A media dos numeros é: " << *media<< endl;
+
+	delete somar;
+	delete media;
+}
