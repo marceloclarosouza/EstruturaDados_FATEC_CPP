@@ -336,156 +336,161 @@ resultado.
 função, exiba o resultado.*/
 
 
-#include <iostream>
-#include <locale.h> // setlocale
-#include <stdlib.h> // system
-#include <string> // Textos em geral
-#include <iomanip>
-
-using namespace std;
-void armazena_valores(int* ptr);
-void soma(int* ptr);
-void subtrai(int* ptr);
-void multiplica(int* ptr);
-void divide(int* ptr);
+//#include <iostream>
+//#include <locale.h> // setlocale
+//#include <stdlib.h> // system
+//#include <string> // Textos em geral
+//#include <iomanip>
+//
+//using namespace std;
+//void armazena_valores(int* ptr);
+//void soma(int* ptr);
+//void subtrai(int* ptr);
+//void multiplica(int* ptr);
+//void divide(int* ptr);
 //bool posicao(int* ptr);
-
-int main() {
-	setlocale(LC_ALL, "Portuguese");
-		
-	int* ptr;
-	ptr = new int[10];
-
-	
-	armazena_valores(ptr);
-	soma(ptr);//ok
-	subtrai(ptr);
-	multiplica(ptr);
-	divide(ptr);
-	//posicao(ptr);
-
-	delete ptr;
-
-	system("pause");
-	return 0;
-}
-
-
-void armazena_valores(int* ptr) {
-	int ind;	
-
-	for (ind = 0; ind < 10; ind++) {
-		cout << "Digite o "<<ind+1<<" valor:"<< endl;
-		cin >> *(ptr + ind);
-	}
-}
-
-
-void soma(int* ptr) {
-	int ind;
-	int* somar;
-	somar = new int;
-	*somar = 0;
-
-	for (ind = 0; ind < 10; ind++) {
-		if (ind > 2 and ind < 8) {///entre as POSIÇOES 3 e 9, p1 = 0
-			*somar = *somar + *(ptr + ind);
-		}		
-	}
-
-	cout << "A soma dos numeros é: " << *somar << endl;
-
-	delete somar;
-}
-
-
-void subtrai(int* ptr) {
-	int ind = 0;
-	int* subtrair;
-	
-	subtrair = new int;
-	*subtrair = 0;
-
-	int aux1, aux2;
-	
-
-	for (ind = 0; ind < 10; ind++) {
-		if (ind == 1)
-			aux1 = *(ptr + ind);//posicao 2
-		else {
-			if (ind == 4)
-				aux2 = *(ptr + ind);//posicao 5
-		}	
-	}
-
-	*subtrair = aux1 - aux2;
-	cout << "A subtração dos numeros é: " << *subtrair << endl;
-
-	delete subtrair;
-}
-
-
-void multiplica(int* ptr) {
-	int ind = 0;
-	int* multiplicar;
-	
-	multiplicar = new int;
-	*multiplicar = 0;
-	int aux1, aux2;
-	
-
-	for (ind = 0; ind < 10; ind++) {
-		if (ind == 0)
-			aux1 = *(ptr + ind);//posicao 1
-		else {
-			if (ind == 9)
-				aux2 = *(ptr + ind);//posicao 10
-		}
-	}
-
-	*multiplicar = aux1 * aux2;
-	cout << "A multiplicação dos numeros é: " << *multiplicar << endl;
-
-	delete multiplicar;	
-}
-
-
-void divide(int* ptr) {
-	int ind = 0;
-	float* dividir;
-	int aux1, aux2;
-
-	dividir = new float;
-	*dividir = 0;
-
-
-	for (ind = 0; ind < 10; ind++) {
-		if (ind == 3)
-			aux1 = *(ptr + ind);//posicao 4
-		else {
-			if (ind == 6)
-				aux2 = *(ptr + ind);//posicao 7
-		}
-	}
-
-	*dividir = aux1 / aux2;
-	cout.precision(5);
-	cout << "A divisao dos numeros é: " <<fixed<< *dividir << endl;
-
-	delete dividir;
-	
-}
-
-
+//
+//int main() {
+//	setlocale(LC_ALL, "Portuguese");
+//			
+//	int* ptr;
+//	ptr = new int[10];
+//
+//	
+//	armazena_valores(ptr);
+//	soma(ptr);//ok
+//	subtrai(ptr);
+//	multiplica(ptr);
+//	divide(ptr);
+//	
+//	if (posicao(ptr) == true)
+//		cout << "O numero da posição 6 é multiplo de 5" << endl;
+//	else {
+//		cout <<"O numero da posição 6 não é multiplo de 5" << endl;
+//	}
+//
+//	delete ptr;
+//
+//	system("pause");
+//	return 0;
+//}
+//
+//
+//void armazena_valores(int* ptr) {
+//	int ind;	
+//
+//	for (ind = 0; ind < 10; ind++) {
+//		cout << "Digite o "<<ind+1<<" valor:"<< endl;
+//		cin >> *(ptr + ind);
+//	}
+//}
+//
+//
+//void soma(int* ptr) {
+//	int ind;
+//	int* somar;
+//	somar = new int;
+//	*somar = 0;
+//
+//	for (ind = 0; ind < 10; ind++) {
+//		if (ind > 2 and ind < 8) {///entre as POSIÇOES 3 e 9, p1 = 0
+//			*somar = *somar + *(ptr + ind);
+//		}		
+//	}
+//
+//	cout << "A soma dos numeros é: " << *somar << endl;
+//
+//	delete somar;
+//}
+//
+//
+//void subtrai(int* ptr) {
+//	int ind = 0;
+//	int* subtrair;
+//	
+//	subtrair = new int;
+//	*subtrair = 0;
+//
+//	int aux1, aux2;
+//	
+//
+//	for (ind = 0; ind < 10; ind++) {
+//		if (ind == 1)
+//			aux1 = *(ptr + ind);//posicao 2
+//		else {
+//			if (ind == 4)
+//				aux2 = *(ptr + ind);//posicao 5
+//		}	
+//	}
+//
+//	*subtrair = aux1 - aux2;
+//	cout << "A subtração dos numeros é: " << *subtrair << endl;
+//
+//	delete subtrair;
+//}
+//
+//
+//void multiplica(int* ptr) {
+//	int ind = 0;
+//	int* multiplicar;
+//	
+//	multiplicar = new int;
+//	*multiplicar = 0;
+//	int aux1, aux2;
+//	
+//
+//	for (ind = 0; ind < 10; ind++) {
+//		if (ind == 0)
+//			aux1 = *(ptr + ind);//posicao 1
+//		else {
+//			if (ind == 9)
+//				aux2 = *(ptr + ind);//posicao 10
+//		}
+//	}
+//
+//	*multiplicar = aux1 * aux2;
+//	cout << "A multiplicação dos numeros é: " << *multiplicar << endl;
+//
+//	delete multiplicar;	
+//}
+//
+//
+//void divide(int* ptr) {
+//	int ind = 0;
+//	float* dividir;
+//	float aux1, aux2;
+//
+//	dividir = new float;
+//	*dividir = 0;
+//
+//
+//	for (ind = 0; ind < 10; ind++) {
+//		if (ind == 3)
+//			aux1 = *(ptr + ind);//posicao 4
+//		else {
+//			if (ind == 6)
+//				aux2 = *(ptr + ind);//posicao 7
+//		}
+//	}
+//
+//	*dividir = aux1 / aux2;
+//	cout.precision(2);
+//	cout << "A divisao dos numeros é: " <<fixed<< *dividir << endl;
+//
+//	delete dividir;
+//	
+//}
+//
+//
 //bool posicao(int* ptr) {
 //	int ind = 0;
 //	
 //	for (ind = 0; ind < 10; ind++) {
-//		for (ind = 5) {
+//		if (ind == 5) {
 //			if (*(ptr + ind) % 5 == 0)
-//				return True;
+//				return true;
 //			else {
-//				return False;
+//				return false;
 //			}
 //		}			
 //	}
