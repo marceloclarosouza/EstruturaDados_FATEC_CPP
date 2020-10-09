@@ -1,5 +1,5 @@
-/*1) Faça um programa que aloque memória para um ponteiro do tipo inteiro a atribua o valor 100
-ao mesmo.Em seguida exiba seu endereço, conteúdo e valor apontado.*/
+ï»¿/*1) FaÃ§a um programa que aloque memÃ³ria para um ponteiro do tipo inteiro a atribua o valor 100
+ao mesmo.Em seguida exiba seu endereÃ§o, conteÃºdo e valor apontado.*/
 
 //#include <iostream>
 //#include <locale.h> // setlocale
@@ -25,16 +25,16 @@ ao mesmo.Em seguida exiba seu endereço, conteúdo e valor apontado.*/
 
 
 
-/*2) Faça um programa aloque dois ponteiros ptrX e ptrY e atribua valores a eles.Em seguida, crie
-as seguintes funções :
-2.1) Função que some os valores dos ponteiros e retorne o resultado.Após a função, exiba o
+/*2) FaÃ§a um programa aloque dois ponteiros ptrX e ptrY e atribua valores a eles.Em seguida, crie
+as seguintes funÃ§Ãµes :
+2.1) FunÃ§Ã£o que some os valores dos ponteiros e retorne o resultado.ApÃ³s a funÃ§Ã£o, exiba o
 resultado.
-2.2) Função que verifique e retorne o maior valor entre os ponteiros.Após a função, exiba o
+2.2) FunÃ§Ã£o que verifique e retorne o maior valor entre os ponteiros.ApÃ³s a funÃ§Ã£o, exiba o
 resultado.
-2.3) Função que troque os conteúdos de dois ponteiros.O programa deverá exibir os valores dos
-ponteiros antes e depois da chamada da função.
-2.4) Função que solicite na tela que o usuário digite novos valores para ptrX e ptrY(utilize cin).
-Após a função, exiba os novos valores dos ponteiros.*/
+2.3) FunÃ§Ã£o que troque os conteÃºdos de dois ponteiros.O programa deverÃ¡ exibir os valores dos
+ponteiros antes e depois da chamada da funÃ§Ã£o.
+2.4) FunÃ§Ã£o que solicite na tela que o usuÃ¡rio digite novos valores para ptrX e ptrY(utilize cin).
+ApÃ³s a funÃ§Ã£o, exiba os novos valores dos ponteiros.*/
 
 //#include <iostream>
 //#include <locale.h> // setlocale
@@ -85,12 +85,12 @@ Após a função, exiba os novos valores dos ponteiros.*/
 //
 //void maior_ponteiro(int* ptrX, int* ptrY) {
 //	if (*ptrX > * ptrY)
-//		cout << "ptrX é maior que ptrY: ptrX = " << *ptrX << endl;
+//		cout << "ptrX Ã© maior que ptrY: ptrX = " << *ptrX << endl;
 //	else{
 //		if (*ptrY > *ptrX)
-//			cout<< "ptrY é maior que ptrX: ptrY = " << *ptrY << endl;
+//			cout<< "ptrY Ã© maior que ptrX: ptrY = " << *ptrY << endl;
 //		else {
-//			cout << "*ptrX e *ptrY são iguais" << endl;
+//			cout << "*ptrX e *ptrY sÃ£o iguais" << endl;
 //		}
 //	}
 //}
@@ -118,7 +118,7 @@ Após a função, exiba os novos valores dos ponteiros.*/
 
 
 
-/*3) Faça um programa que aloque um ponteiro para armazenar 3 valores inteiros.Em seguida,
+/*3) FaÃ§a um programa que aloque um ponteiro para armazenar 3 valores inteiros.Em seguida,
 atribua os valores ao ponteiro e exiba - os na tela.*/
 //
 //#include <iostream>
@@ -137,11 +137,11 @@ atribua os valores ao ponteiro e exiba - os na tela.*/
 //	int ind;
 //
 //	pv = vetor;
-//	cout << "Digite o 1° valor: " << endl;
+//	cout << "Digite o 1Â° valor: " << endl;
 //	cin >> *(pv + 0);
-//	cout << "Digite o 2° valor: " << endl;
+//	cout << "Digite o 2Â° valor: " << endl;
 //	cin >> *(pv + 1);
-//	cout << "Digite o 3° valor: " << endl;
+//	cout << "Digite o 3Â° valor: " << endl;
 //	cin >> *(pv + 2);
 //
 //	for (ind = 0; ind < 3; ind++) {
@@ -152,9 +152,9 @@ atribua os valores ao ponteiro e exiba - os na tela.*/
 //	return 0;
 //}
 
-/*4) Faça um programa que aloque um ponteiro para armazenar 3 valores inteiros.Passe o
-ponteiro para uma função que solicitará ao usuário que digite(cin) os valores correspondentes.
-Após a função, exiba os valores do ponteiro*/
+/*4) FaÃ§a um programa que aloque um ponteiro para armazenar 3 valores inteiros.Passe o
+ponteiro para uma funÃ§Ã£o que solicitarÃ¡ ao usuÃ¡rio que digite(cin) os valores correspondentes.
+ApÃ³s a funÃ§Ã£o, exiba os valores do ponteiro*/
 
 //#include <iostream>
 //#include <locale.h> // setlocale
@@ -202,12 +202,12 @@ Após a função, exiba os valores do ponteiro*/
 //
 //}
 
-/*5) Faça um programa que aloque um ponteiro para armazenar 5 valores inteiros.Atribua valores
-ao ponteiro.Em seguida crie as seguintes funções.
-5.1) Função que retorne a some todos os valores.Após a função, exiba o resultado.
-5.2) Função que retorne o menor valor.Após a função, exiba o resultado.
-5.3) Função que retorne o maior valor.Após a função, exiba o resultado.
-5.4) Função que retorne a média valor.Após a função, exiba o resultado.*/
+/*5) FaÃ§a um programa que aloque um ponteiro para armazenar 5 valores inteiros.Atribua valores
+ao ponteiro.Em seguida crie as seguintes funÃ§Ãµes.
+5.1) FunÃ§Ã£o que retorne a some todos os valores.ApÃ³s a funÃ§Ã£o, exiba o resultado.
+5.2) FunÃ§Ã£o que retorne o menor valor.ApÃ³s a funÃ§Ã£o, exiba o resultado.
+5.3) FunÃ§Ã£o que retorne o maior valor.ApÃ³s a funÃ§Ã£o, exiba o resultado.
+5.4) FunÃ§Ã£o que retorne a mÃ©dia valor.ApÃ³s a funÃ§Ã£o, exiba o resultado.*/
 
 //#include <iostream>
 //#include <locale.h> // setlocale
@@ -263,7 +263,7 @@ ao ponteiro.Em seguida crie as seguintes funções.
 //		*somar = *somar +  *(ptr + ind);
 //	}
 //
-//	cout << "A soma dos numeros é: " << *somar << endl;
+//	cout << "A soma dos numeros Ã©: " << *somar << endl;
 //
 //	delete somar;
 //}
@@ -279,7 +279,7 @@ ao ponteiro.Em seguida crie as seguintes funções.
 //			*menor = *(ptr + ind);
 //		}
 //	}
-//	cout << "O menor número é: " << *menor << endl;
+//	cout << "O menor nÃºmero Ã©: " << *menor << endl;
 //
 //	delete menor;
 //}
@@ -295,7 +295,7 @@ ao ponteiro.Em seguida crie as seguintes funções.
 //			*maior= *(ptr + ind);
 //		}
 //	}
-//	cout << "O maior numero é: " << *maior << endl;
+//	cout << "O maior numero Ã©: " << *maior << endl;
 //
 //	delete maior;
 //}
@@ -316,24 +316,24 @@ ao ponteiro.Em seguida crie as seguintes funções.
 //
 //	*media = *somar / 5;
 //
-//	cout << "A media dos numeros é: " << *media<< endl;
+//	cout << "A media dos numeros Ã©: " << *media<< endl;
 //
 //	delete somar;
 //	delete media;
 //}
 
-/*6) Faça um programa que aloque um ponteiro para armazenar 10 valores inteiros.Atribua valores
-ao ponteiro.Em seguida crie as seguintes funções.
-6.1) Função que retorne a soma dos valores entre as posições de 3 a 9. Após a função, exiba o
+/*6) FaÃ§a um programa que aloque um ponteiro para armazenar 10 valores inteiros.Atribua valores
+ao ponteiro.Em seguida crie as seguintes funÃ§Ãµes.
+6.1) FunÃ§Ã£o que retorne a soma dos valores entre as posiÃ§Ãµes de 3 a 9. ApÃ³s a funÃ§Ã£o, exiba o
 resultado.
-6.2) Função que retorne a subtração dos valores das posições 2 e 5. Após a função, exiba o
+6.2) FunÃ§Ã£o que retorne a subtraÃ§Ã£o dos valores das posiÃ§Ãµes 2 e 5. ApÃ³s a funÃ§Ã£o, exiba o
 resultado.
-6.3) Função que retorne a multiplicação dos valores das posições 1 e 10. Após a função, exiba o
+6.3) FunÃ§Ã£o que retorne a multiplicaÃ§Ã£o dos valores das posiÃ§Ãµes 1 e 10. ApÃ³s a funÃ§Ã£o, exiba o
 resultado.
-6.4) Função que retorne a divisão dos valores das posições 4 e 7. Após a função, exiba o
+6.4) FunÃ§Ã£o que retorne a divisÃ£o dos valores das posiÃ§Ãµes 4 e 7. ApÃ³s a funÃ§Ã£o, exiba o
 resultado.
-6.5) Função que retorne verdadeiro ou falso se o valor da posição 6 é múltiplo de 5. Após a
-função, exiba o resultado.*/
+6.5) FunÃ§Ã£o que retorne verdadeiro ou falso se o valor da posiÃ§Ã£o 6 Ã© mÃºltiplo de 5. ApÃ³s a
+funÃ§Ã£o, exiba o resultado.*/
 
 
 //#include <iostream>
@@ -364,9 +364,9 @@ função, exiba o resultado.*/
 //	divide(ptr);
 //	
 //	if (posicao(ptr) == true)
-//		cout << "O numero da posição 6 é multiplo de 5" << endl;
+//		cout << "O numero da posiÃ§Ã£o 6 Ã© multiplo de 5" << endl;
 //	else {
-//		cout <<"O numero da posição 6 não é multiplo de 5" << endl;
+//		cout <<"O numero da posiÃ§Ã£o 6 nÃ£o Ã© multiplo de 5" << endl;
 //	}
 //
 //	delete ptr;
@@ -393,12 +393,12 @@ função, exiba o resultado.*/
 //	*somar = 0;
 //
 //	for (ind = 0; ind < 10; ind++) {
-//		if (ind > 2 and ind < 8) {///entre as POSIÇOES 3 e 9, p1 = 0
+//		if (ind > 2 and ind < 8) {///entre as POSIÃ‡OES 3 e 9, p1 = 0
 //			*somar = *somar + *(ptr + ind);
 //		}		
 //	}
 //
-//	cout << "A soma dos numeros é: " << *somar << endl;
+//	cout << "A soma dos numeros Ã©: " << *somar << endl;
 //
 //	delete somar;
 //}
@@ -424,7 +424,7 @@ função, exiba o resultado.*/
 //	}
 //
 //	*subtrair = aux1 - aux2;
-//	cout << "A subtração dos numeros é: " << *subtrair << endl;
+//	cout << "A subtraÃ§Ã£o dos numeros Ã©: " << *subtrair << endl;
 //
 //	delete subtrair;
 //}
@@ -449,7 +449,7 @@ função, exiba o resultado.*/
 //	}
 //
 //	*multiplicar = aux1 * aux2;
-//	cout << "A multiplicação dos numeros é: " << *multiplicar << endl;
+//	cout << "A multiplicaÃ§Ã£o dos numeros Ã©: " << *multiplicar << endl;
 //
 //	delete multiplicar;	
 //}
@@ -475,7 +475,7 @@ função, exiba o resultado.*/
 //
 //	*dividir = aux1 / aux2;
 //	cout.precision(2);
-//	cout << "A divisao dos numeros é: " <<fixed<< *dividir << endl;
+//	cout << "A divisao dos numeros Ã©: " <<fixed<< *dividir << endl;
 //
 //	delete dividir;
 //	
@@ -494,4 +494,91 @@ função, exiba o resultado.*/
 //			}
 //		}			
 //	}
+//}
+
+
+/*Para os prÃ³ximos exercÃ­cios deve se utilizar a seguinte estrutura chamada "Veiculo" para
+armazenar os seguintes dados :
+ï‚· Modelo do veÃ­culo
+ï‚· Ano de fabricaÃ§Ã£o
+ï‚· Quilometragem
+ï‚· Valor de venda
+7) Crie um programa que aloque memÃ³ria para um ponteiro da estrutura â€œVeiculoâ€, em seguida,
+crie as seguintes funÃ§Ãµes :
+7.1) FunÃ§Ã£o que receba o ponteiro e solicite a digitaÃ§Ã£o dos valores pelo usuÃ¡rio.
+7.2) FunÃ§Ã£o que receba o ponteiro e solicite a alteraÃ§Ã£o do valor da quilometragem e valor de
+venda.
+7.3) FunÃ§Ã£o que receba o ponteiro e exiba os valores na tela*/
+
+//#include <iostream>
+//#include <locale.h> // setlocale
+//#include <stdlib.h> // system
+//#include <string> // Textos em geral
+//#include <iomanip>
+//
+//using namespace std;
+//
+//struct Veiculos {
+//	string modelo;
+//	int ano_f;
+//	int quilometragem;
+//	float valor_venda;
+//};
+//
+//Veiculos* alocar_memoria();
+//void desalocar_memoria(Veiculos* veiculos);
+//void inserir_dados(Veiculos* veiculos);
+//void alterar_dados(Veiculos* veiculos);
+//void exibir(Veiculos* veiculos);
+//
+//
+//int main() {
+//	setlocale(LC_ALL, "Portuguese");
+//
+//	Veiculos* veiculos;
+//	veiculos = alocar_memoria();
+//
+//	inserir_dados(veiculos);
+//	alterar_dados(veiculos);
+//	exibir(veiculos);
+//	desalocar_memoria(veiculos);
+//
+//	system("pause");
+//	return 0;
+//}
+//
+//Veiculos* alocar_memoria() {//retorna a struct
+//	Veiculos* veiculos;
+//	veiculos = new Veiculos[1];
+//	return veiculos;
+//}
+//
+//void desalocar_memoria(Veiculos* veiculos) {
+//	
+//	delete[] veiculos;
+//}
+//
+//void inserir_dados(Veiculos* veiculos) {
+//	cout << "Digite o modelo do veÃ­culo" << endl;
+//	cin >> veiculos->modelo;
+//	cout << "Digite o ano de fabricaÃ§Ã£o do veÃ­culo" << endl;
+//	cin >> veiculos->ano_f;
+//	cout << "Digite a quilometragem do veÃ­culo" << endl;
+//	cin >> veiculos->quilometragem;
+//	cout << "Digite o valor de venda do veÃ­culo" << endl;
+//	cin >> veiculos->valor_venda;		
+//}
+//
+//void alterar_dados(Veiculos* veiculos) {
+//	cout << "Digite a nova quilometragem do veÃ­culo" << endl;
+//	cin >> veiculos->quilometragem;
+//	cout << "Digite o novo valor de venda do veÃ­culo" << endl;
+//	cin >> veiculos->valor_venda;	
+//}
+//
+//void exibir(Veiculos * veiculos) {	
+//	cout << "Modelo do veiculo " << veiculos->modelo << endl;
+//	cout << "Ano de FabricaÃ§ao " << veiculos->ano_f << endl;
+//	cout << "Quilometragem " << veiculos->quilometragem << endl;
+//	cout << "Valor de venda " << veiculos->valor_venda << endl;		
 //}
