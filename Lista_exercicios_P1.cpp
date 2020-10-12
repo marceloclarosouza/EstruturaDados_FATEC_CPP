@@ -588,3 +588,4 @@ venda.
 //	cout << "Quilometragem " << veiculos->quilometragem << endl;
 //	cout << "Valor de venda " << veiculos->valor_venda << endl;		
 //}
+//
