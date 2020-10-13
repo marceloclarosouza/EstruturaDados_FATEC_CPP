@@ -247,7 +247,7 @@ bool inserirListaOrdenada(Lista* ptrLista, int matricula, string nome, float med
 	ptrNoNovo->dados.media = media;
 	ptrNoNovo->proxNo = NULL;
 	
-
+	//se a lista estiver vazia
 	if (ptrNoNovo == NULL) {
 		ptrLista->inicio == ptrNoNovo;
 				
@@ -276,7 +276,6 @@ bool inserirListaOrdenada(Lista* ptrLista, int matricula, string nome, float med
 	ptrLista->qtdNo++;
 	return true;
 }
-
 
 
 
