@@ -32,9 +32,13 @@ struct Lista {
 Lista* criarLista();
 void liberarLista(Lista* ptrLista);
 void exibirLista(Lista* ptrLista);
+
 bool inserirListaInicio(Lista* ptrLista, int matricula, string nome, float media);
 bool inserirListaFim(Lista* ptrLista, int matricula, string nome, float media);
 bool inserirListaOrdenada(Lista* ptrLista, int matricula, string nome, float media);
+
+bool removerListaInicio(Lista* ptrLista);
+bool removerListaFim(Lista* ptrLista);
 
 
 int main() {
@@ -69,7 +73,13 @@ int main() {
 	inserirListaOrdenada(pLista, 10, "Lui", 5);
 	inserirListaOrdenada(pLista, 75, "Valerio", 9.7);
 
+	//Antes de exluir
+	exibirLista(pLista);
 
+
+	//depois de excluir
+	//removerListaInicio(pLista);
+	removerListaFim(pLista);
 	exibirLista(pLista);
 
 	liberarLista(pLista);	
@@ -304,6 +314,51 @@ bool removerListaInicio(Lista* ptrLista) {
 	//Decrementa a quantidade de Nós
 	ptrLista->qtdNo--;
 	return true;
+}
+
+//Remover o fial da lista
+bool removerListaFim(Lista* ptrLista) {
+	No* ptrNoAnterior;
+	No* ptrNoAtual;
+
+	//Se a lista n~;ao foi criada
+	if (ptrLista == NULL) {
+		cout << "A lista n~;ao está criada" << endl;
+		return false;
+	}
+
+	//Se n~;ao tiver nenhum NÓ na lista
+	if (ptrLista->inicio == NULL) {
+		cout << "A lista está vazia" << endl;
+		return false;
+	}
+
+	ptrNoAnterior = NULL;
+	ptrNoAtual = ptrLista->inicio;
+
+	//Localiza o nó final da lista
+	while (ptrNoAtual->proxNo != NULL) {
+		ptrNoAnterior = ptrNoAtual;
+		ptrNoAtual = ptrNoAtual->proxNo;
+
+	}
+
+	//Se for o primeiro nó da ista
+	if (ptrNoAtual == ptrLista->inicio) {
+		ptrLista->inicio = NULL;
+	}
+	else {
+		ptrNoAnterior->proxNo = NULL;
+	}
+	
+	//Exclui o nó
+	delete ptrNoAtual;
+
+	//Decrementa a quantidade de nós
+	ptrLista->qtdNo--;
+
+	return true;
+
 }
 
 
