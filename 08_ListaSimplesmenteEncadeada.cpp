@@ -66,10 +66,11 @@ int main() {
 	inserirListaOrdenada(pLista, matricula, nome, media);
 	inserirListaOrdenada(pLista, 7, "Jose", 6.8);
 	inserirListaOrdenada(pLista, 15, "Carlos", 9.2);
+	inserirListaOrdenada(pLista, 10, "Lui", 5);
+	inserirListaOrdenada(pLista, 75, "Valerio", 9.7);
 
 
 	exibirLista(pLista);
-
 
 	liberarLista(pLista);	
 
@@ -276,6 +277,54 @@ bool inserirListaOrdenada(Lista* ptrLista, int matricula, string nome, float med
 	ptrLista->qtdNo++;
 	return true;
 }
+
+//Remover do inicio da lista
+bool removerListaInicio(Lista* ptrLista) {
+	No* ptrNoAtual;
+
+	//Se a lista n~;ao foi criada
+	if (ptrLista == NULL) {
+		cout << "A lista n~;ao está criada" << endl;
+		return false;
+	}
+
+	//Se n~;ao tiver nenhum Nó na ista
+	if (ptrLista->inicio == NULL) {
+		cout << "A lista está vazia" << endl;
+		return false;
+	}
+
+	//Ajusta o inicio
+	ptrNoAtual = ptrLista->inicio;
+	ptrLista->inicio = ptrNoAtual->proxNo;
+
+	//Exclui o primeiro nó
+	delete ptrNoAtual;
+
+	//Decrementa a quantidade de Nós
+	ptrLista->qtdNo--;
+	return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
