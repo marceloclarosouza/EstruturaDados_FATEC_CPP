@@ -39,6 +39,7 @@ bool inserirListaOrdenada(Lista* ptrLista, int matricula, string nome, float med
 
 bool removerListaInicio(Lista* ptrLista);
 bool removerListaFim(Lista* ptrLista);
+bool removerListaOrdenada(Lista* ptrLista, int matricula);
 
 
 int main() {
@@ -79,7 +80,9 @@ int main() {
 
 	//depois de excluir
 	//removerListaInicio(pLista);
-	removerListaFim(pLista);
+	//removerListaFim(pLista);
+	removerListaOrdenada(pLista, 15);
+
 	exibirLista(pLista);
 
 	liberarLista(pLista);	
@@ -88,6 +91,8 @@ int main() {
 
 	return 0;
 }
+
+
 
 //Iniciar a lista
 Lista* criarLista() {
@@ -107,6 +112,8 @@ Lista* criarLista() {
 
 	return ptrLista;
 }
+
+
 
 //Liberar a lista
 void liberarLista(Lista* ptrLista) {
@@ -128,6 +135,8 @@ void liberarLista(Lista* ptrLista) {
 
 	delete ptrLista;
 }
+
+
 
 //Inserir no início da lista
 bool inserirListaInicio(Lista* ptrLista, int matricula, string nome, float media) {
@@ -160,6 +169,8 @@ bool inserirListaInicio(Lista* ptrLista, int matricula, string nome, float media
 	return true;
 }
 
+
+
 //Exibir lista
 void exibirLista(Lista* ptrLista) {
 	No* ptrNoAtual;
@@ -186,6 +197,8 @@ void exibirLista(Lista* ptrLista) {
 	}
 	cout << endl;
 }
+
+
 
 //Inserir no final da lista
 bool inserirListaFim(Lista* ptrLista, int matricula, string nome, float media) {
@@ -230,6 +243,7 @@ bool inserirListaFim(Lista* ptrLista, int matricula, string nome, float media) {
 
 	return true;
 }
+
 
 
 //Inserir Lista Ordenada
@@ -288,6 +302,8 @@ bool inserirListaOrdenada(Lista* ptrLista, int matricula, string nome, float med
 	return true;
 }
 
+
+
 //Remover do inicio da lista
 bool removerListaInicio(Lista* ptrLista) {
 	No* ptrNoAtual;
@@ -316,7 +332,9 @@ bool removerListaInicio(Lista* ptrLista) {
 	return true;
 }
 
-//Remover o fial da lista
+
+
+//Remover o final da lista
 bool removerListaFim(Lista* ptrLista) {
 	No* ptrNoAnterior;
 	No* ptrNoAtual;
@@ -362,6 +380,54 @@ bool removerListaFim(Lista* ptrLista) {
 }
 
 
+//Remover ordenado
+bool removerListaOrdenada(Lista* ptrLista, int matricula) {
+	No* ptrNoAnterior;
+	No* ptrNoAtual;
+
+	//Se a lista n~;ao foi criada
+	if (ptrLista == NULL) {
+		cout << "Alista n~;ao esta criada" << endl;
+		return false;
+	}
+
+	//Se n~;ao tiver nenhum Nó na lista
+	if (ptrLista->inicio == NULL) {
+		cout<<"A lista está vazia" << endl;
+		return false;
+	}
+
+	ptrNoAnterior = NULL;
+	ptrNoAtual = ptrLista->inicio;
+
+	//localizar o nó que será exluido
+	while (ptrNoAtual != NULL && ptrNoAtual->dados.matricula != matricula) {
+		ptrNoAnterior = ptrNoAtual;
+		ptrNoAtual = ptrNoAtual->proxNo;
+	}
+
+	if (ptrNoAtual == NULL) {
+		cout << "A matricula " << matricula << "não foi encontrada" << endl;
+		return false;
+	}
+
+	//Se for o primeiro nó da lista
+	if (ptrNoAtual == ptrLista->inicio) {
+		ptrLista->inicio = ptrNoAtual->proxNo;
+	}
+	else {
+		ptrNoAnterior->proxNo = ptrNoAtual->proxNo;
+	}
+
+	//Exclui o nó atual
+	delete ptrNoAtual;
+
+	//Decrementa a quantidade de nós
+	ptrLista->qtdNo--;
+
+	return true;
+
+}
 
 
 
