@@ -42,6 +42,9 @@ bool removerListaFim(Lista* ptrLista);
 bool removerListaOrdenada(Lista* ptrLista, int matricula);
 
 
+No* pesquisarDados(Lista* ptrLista, int matricula);
+
+
 int main() {
 	setlocale(LC_ALL, "Portuguese");
 
@@ -81,7 +84,24 @@ int main() {
 	//depois de excluir
 	//removerListaInicio(pLista);
 	//removerListaFim(pLista);
-	removerListaOrdenada(pLista, 15);
+	//removerListaOrdenada(pLista, 15);
+	//exibirLista(pLista);
+
+	
+
+	//pesquisa e altera aluo
+
+	No* pNoAluno;
+	pNoAluno = pesquisarDados(pLista, 15);
+
+	if (pNoAluno != NULL) {
+
+		pNoAluno->dados.nome = "Jose";
+		pNoAluno->dados.media = 6.8;
+	}
+	else {
+		cout << "Ocorreu um erro na procura dos dados" << endl;
+	}
 
 	exibirLista(pLista);
 
@@ -427,6 +447,35 @@ bool removerListaOrdenada(Lista* ptrLista, int matricula) {
 
 	return true;
 
+}
+
+//pesquisar matricula
+No* pesquisarDados(Lista* ptrLista, int matricula) {
+	No* ptrNoAtual;
+
+	//Se a lista n~;ao foi criada
+	if (ptrLista == NULL) {
+		cout << "Alista n~;ao esta criada" << endl;
+		return NULL;
+	}
+
+	//Se n~;ao tiver nenhum Nó na lista
+	if (ptrLista->inicio == NULL) {
+		cout << NULL;
+	}
+
+	ptrNoAtual = ptrLista->inicio;
+
+	//Localiza o nó a ser alterado
+	while (ptrNoAtual != NULL && ptrNoAtual->dados.matricula != matricula) {
+		ptrNoAtual = ptrNoAtual->proxNo;
+	}
+
+	if (ptrNoAtual == NULL) {
+		cout << "A matricula " << matricula << " nao foi encontrada" << endl;
+		return NULL;
+	}
+	return ptrNoAtual;
 }
 
 
