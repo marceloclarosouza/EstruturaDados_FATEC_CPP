@@ -589,3 +589,4 @@ venda.
 //	cout << "Valor de venda " << veiculos->valor_venda << endl;		
 //}
 //
+
