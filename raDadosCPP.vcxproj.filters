@@ -54,7 +54,7 @@
     <ClCompile Include="Exercicio_Discos.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Exercicio_profundidade.cpp">
+    <ClCompile Include="Exercicio_Arvore.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
   </ItemGroup>
