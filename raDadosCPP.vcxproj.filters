@@ -57,5 +57,8 @@
     <ClCompile Include="Exercicio_Arvore.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="AvaliacaoP1.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
