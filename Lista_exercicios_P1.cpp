@@ -47,8 +47,8 @@ Após a função, exiba os novos valores dos ponteiros.*/
 //
 //using namespace std;
 //
-//void soma_ponteiros(int* ptrX, int* ptrY);
-//void maior_ponteiro(int* ptrX, int* ptrY);
+//int soma_ponteiros(int* ptrX, int* ptrY);
+//int maior_ponteiro(int* ptrX, int* ptrY);
 //void inverte_ponteiros(int* ptrX, int* ptrY);
 //void novos_valores(int* ptrX, int* ptrY);
 //
@@ -57,6 +57,7 @@ Após a função, exiba os novos valores dos ponteiros.*/
 //
 //	int* ptrX;
 //	int* ptrY;
+//	int soma, maior;
 //
 //	ptrX = new int;
 //	ptrY = new int;
@@ -64,8 +65,12 @@ Após a função, exiba os novos valores dos ponteiros.*/
 //	*ptrX = 200;
 //	*ptrY = 100;
 //
-//	soma_ponteiros(ptrX, ptrY);
-//	maior_ponteiro(ptrX, ptrY);
+//	soma = soma_ponteiros(ptrX, ptrY);
+//	cout << "A soma dos ponteiros ptrX e ptrY e: " << soma << endl;
+//
+//	maior = maior_ponteiro(ptrX, ptrY);
+//	cout << "O Maior valor e: " << maior<< endl;
+//
 //	inverte_ponteiros(ptrX, ptrY);
 //	novos_valores(ptrX, ptrY);
 //
@@ -75,27 +80,22 @@ Após a função, exiba os novos valores dos ponteiros.*/
 //	system("pause");
 //	return 0;
 //}
-//
-//void soma_ponteiros(int* ptrX, int* ptrY) {
-//	int* res;
-//	res = new int;
-//
-//	*res = *ptrX + *ptrY;
-//	cout << "A soma dos ponteiros ptrX e ptrY e: "<< *res << endl;
-//
-//	delete res;
+//int soma_ponteiros(int* ptrX, int* ptrY) {
+//	int res;
+//	res = *ptrX + *ptrY;
+//	
+//	return res;
 //}
 //
-//void maior_ponteiro(int* ptrX, int* ptrY) {
+//int maior_ponteiro(int* ptrX, int* ptrY) {
+//	int maior = 0;
+//
 //	if (*ptrX > * ptrY)
-//		cout << "ptrX é maior que ptrY: ptrX = " << *ptrX << endl;
+//		maior = *ptrX;
 //	else{
-//		if (*ptrY > *ptrX)
-//			cout<< "ptrY é maior que ptrX: ptrY = " << *ptrY << endl;
-//		else {
-//			cout << "*ptrX e *ptrY são iguais" << endl;
-//		}
+//		maior = *ptrY;
 //	}
+//	return maior;
 //}
 //
 //void inverte_ponteiros(int* ptrX, int* ptrY) {
