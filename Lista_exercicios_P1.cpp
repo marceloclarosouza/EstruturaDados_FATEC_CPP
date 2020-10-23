@@ -260,7 +260,7 @@ ao ponteiro.Em seguida crie as seguintes funções.
 //
 //
 //void armazena_valores(int* ptr) {
-//	int ind;	
+//	int ind;
 //
 //	for (ind = 0; ind < 5; ind++) {
 //		cout << "Digite o "<<ind+1<<" valor:"<< endl;
@@ -342,7 +342,7 @@ resultado.
 6.5) Função que retorne verdadeiro ou falso se o valor da posição 6 é múltiplo de 5. Após a
 função, exiba o resultado.*/
 
-
+//
 //#include <iostream>
 //#include <locale.h> // setlocale
 //#include <stdlib.h> // system
@@ -351,24 +351,36 @@ função, exiba o resultado.*/
 //
 //using namespace std;
 //void armazena_valores(int* ptr);
-//void soma(int* ptr);
-//void subtrai(int* ptr);
-//void multiplica(int* ptr);
-//void divide(int* ptr);
+//int soma(int* ptr);
+//int subtrai(int* ptr);
+//int multiplica(int* ptr);
+//float divide(int* ptr);
 //bool posicao(int* ptr);
 //
 //int main() {
 //	setlocale(LC_ALL, "Portuguese");
+//	cout << fixed << setprecision(2);//2 casas decimais
+//
+//
+//	int somar, subtrair, multiplicar;
+//	float dividir;
 //			
 //	int* ptr;
 //	ptr = new int[10];
 //
 //	
 //	armazena_valores(ptr);
-//	soma(ptr);//ok
-//	subtrai(ptr);
-//	multiplica(ptr);
-//	divide(ptr);
+//	somar = soma(ptr);//ok
+//	cout << "A soma dos numeros é: " << somar << endl;
+//
+//	subtrair = subtrai(ptr);
+//	cout << "A subtracao dos numeros é: " << subtrair << endl;
+//
+//	multiplicar = multiplica(ptr);
+//	cout << "A multiplicacao dos numeros é: " << multiplicar << endl;
+//
+//	dividir = divide(ptr);
+//	cout << "A divisao dos numeros é: " << dividir << endl;
 //	
 //	if (posicao(ptr) == true)
 //		cout << "O numero da posição 6 é multiplo de 5" << endl;
@@ -393,31 +405,23 @@ função, exiba o resultado.*/
 //}
 //
 //
-//void soma(int* ptr) {
+//int soma(int* ptr) {
 //	int ind;
-//	int* somar;
-//	somar = new int;
-//	*somar = 0;
+//	int somar = 0;
+//	
 //
 //	for (ind = 0; ind < 10; ind++) {
-//		if (ind > 2 and ind < 8) {///entre as POSIÇOES 3 e 9, p1 = 0
-//			*somar = *somar + *(ptr + ind);
+//		if (ind >= 2 && ind <= 8) {///entre as POSIÇOES 3 e 9, p1 = 0
+//			somar = somar + *(ptr + ind);
 //		}		
-//	}
-//
-//	cout << "A soma dos numeros é: " << *somar << endl;
-//
-//	delete somar;
+//	}	
+//	return somar;
 //}
 //
 //
-//void subtrai(int* ptr) {
+//int subtrai(int* ptr) {
 //	int ind = 0;
-//	int* subtrair;
-//	
-//	subtrair = new int;
-//	*subtrair = 0;
-//
+//	int subtrair = 0;
 //	int aux1, aux2;
 //	
 //
@@ -430,19 +434,14 @@ função, exiba o resultado.*/
 //		}	
 //	}
 //
-//	*subtrair = aux1 - aux2;
-//	cout << "A subtração dos numeros é: " << *subtrair << endl;
-//
-//	delete subtrair;
+//	subtrair = aux1 - aux2;
+//	return subtrair;
 //}
 //
 //
-//void multiplica(int* ptr) {
+//int multiplica(int* ptr) {
 //	int ind = 0;
-//	int* multiplicar;
-//	
-//	multiplicar = new int;
-//	*multiplicar = 0;
+//	int multiplicar = 0;
 //	int aux1, aux2;
 //	
 //
@@ -455,20 +454,15 @@ função, exiba o resultado.*/
 //		}
 //	}
 //
-//	*multiplicar = aux1 * aux2;
-//	cout << "A multiplicação dos numeros é: " << *multiplicar << endl;
-//
-//	delete multiplicar;	
+//	multiplicar = aux1 * aux2;
+//	return multiplicar;	
 //}
 //
 //
-//void divide(int* ptr) {
+//float divide(int* ptr) {
 //	int ind = 0;
-//	float* dividir;
+//	float dividir = 0;
 //	float aux1, aux2;
-//
-//	dividir = new float;
-//	*dividir = 0;
 //
 //
 //	for (ind = 0; ind < 10; ind++) {
@@ -480,11 +474,8 @@ função, exiba o resultado.*/
 //		}
 //	}
 //
-//	*dividir = aux1 / aux2;
-//	cout.precision(2);
-//	cout << "A divisao dos numeros é: " <<fixed<< *dividir << endl;
-//
-//	delete dividir;
+//	dividir = aux1 / aux2;
+//	return dividir;
 //	
 //}
 //
@@ -493,7 +484,7 @@ função, exiba o resultado.*/
 //	int ind = 0;
 //	
 //	for (ind = 0; ind < 10; ind++) {
-//		if (ind == 5) {
+//		if (ind == 5) {//posicao 6
 //			if (*(ptr + ind) % 5 == 0)
 //				return true;
 //			else {
@@ -534,6 +525,8 @@ venda.
 //
 //Veiculos* alocar_memoria();
 //void desalocar_memoria(Veiculos* veiculos);
+//
+//
 //void inserir_dados(Veiculos* veiculos);
 //void alterar_dados(Veiculos* veiculos);
 //void exibir(Veiculos* veiculos);
@@ -541,6 +534,7 @@ venda.
 //
 //int main() {
 //	setlocale(LC_ALL, "Portuguese");
+//	cout << fixed << setprecision(2);
 //
 //	Veiculos* veiculos;
 //	veiculos = alocar_memoria();
@@ -589,5 +583,5 @@ venda.
 //	cout << "Quilometragem " << veiculos->quilometragem << endl;
 //	cout << "Valor de venda " << veiculos->valor_venda << endl;		
 //}
-//
+
 
