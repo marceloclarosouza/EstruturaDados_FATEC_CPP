@@ -316,251 +316,260 @@ chamada medEmEstoque e exiba seus dados.
 Crie uma função que soma todos os preços de compra e venda dos medicamentos da lista
 medEmEstoque e exiba os resultados.*/
 
-
-#include <iostream>
-#include <locale.h>
-#include <stdlib.h> // system
-#include <string> // Textos em geral
-#include <iomanip>
-
-using namespace std;
-
-struct Dados {
-	string medicamento;
-	float p_compra;
-	float p_venda;
-};
-
-struct No {
-	Dados dados;
-	No* proxNo;
-};
-
-struct Lista {
-	int qtdNo;
-	No* inicio;
-};
-
-Lista* criarLista();
-void liberarLista(Lista * ptrLista);
-void exibirLista(Lista * ptrLista);
-bool inserirListaOrdenada(Lista * ptrLista, string medicamento, float p_compra, float p_venda);
-void concatenarLista(Lista* medControlado, Lista* medGenerico, Lista* medEmEstoque);
-void somarpreco(Lista* medEmEstoque);
-
-
-int main() {
-
-	setlocale(LC_ALL, "Portuguese");
-
-	Lista* medControlado;
-	Lista* medGenerico;
-	Lista* medEmEstoque;
-
-	medControlado = criarLista();
-	medGenerico = criarLista();
-	medEmEstoque = criarLista();
-
-	inserirListaOrdenada(medControlado, "myrtazapina", 100.40, 160.35);
-	inserirListaOrdenada(medControlado, "alprazolan", 90.23, 130.40);
-	inserirListaOrdenada(medControlado, "reconter", 150.14, 213.69);
-	inserirListaOrdenada(medControlado, "gardenal", 35.17, 60.36);
-	inserirListaOrdenada(medControlado, "vicodin", 70.45, 150.25);
-	exibirLista(medControlado);
-	cout << endl;
-
-	inserirListaOrdenada(medGenerico, "paracetamol", 15.12, 30.60);
-	inserirListaOrdenada(medGenerico, "aas", 5.13, 10.98);
-	inserirListaOrdenada(medGenerico, "dipirona", 4.26, 7.55);
-	inserirListaOrdenada(medGenerico, "ibuprofeno", 11.83, 22.56);
-	inserirListaOrdenada(medGenerico, "omeprazol", 13.67, 35.14);
-	exibirLista(medGenerico);
-	cout << endl;
-
-	concatenarLista(medControlado, medGenerico, medEmEstoque);
-	exibirLista(medEmEstoque);
-	cout << endl;
-
-	somarpreco(medEmEstoque);
-	cout << endl;
-
-	liberarLista(medControlado);
-	liberarLista(medGenerico);
-	liberarLista(medEmEstoque);
-
-	system("pause");
-	return 0;
-}
-
-
-Lista* criarLista() {
-
-	Lista* ptrLista;
-	ptrLista = new Lista;
-
-	
-	if (ptrLista == NULL) {
-		cout << "Não foi possível criar a lista!" << endl;
-		return NULL;
-	}
-
-	ptrLista->qtdNo = 0;
-	ptrLista->inicio = NULL;
-
-	return ptrLista;
-}
-
-
-void liberarLista(Lista * ptrLista) {
-
-	No* ptrNoAtual;
-
-	if (ptrLista == NULL) {
-		cout << "A lista não está criada!" << endl;
-		return;
-	}
-	
-	while (ptrLista->inicio != NULL)
-	{
-		ptrNoAtual = ptrLista->inicio;
-		ptrLista->inicio = ptrNoAtual->proxNo;
-		delete ptrNoAtual;
-	}
-
-	delete ptrLista;
-}
-
-
-void exibirLista(Lista * ptrLista) {
-
-	No* ptrNoAtual;
-
-	if (ptrLista == NULL) {
-		cout << "A lista não está criada!" << endl;
-		return;
-	}
-	
-	if (ptrLista->inicio == NULL) {
-		cout << "A lista esta vazia!" << endl;
-		return;
-	}
-
-	ptrNoAtual = ptrLista->inicio;
-
-	while (ptrNoAtual != NULL) {
-
-		cout << "Medicamento: " << ptrNoAtual->dados.medicamento << endl;
-		cout << "Preço de compra: " << ptrNoAtual->dados.p_compra << endl;
-		cout << "Preço de venda: " << ptrNoAtual->dados.p_venda << endl << endl;
-
-		ptrNoAtual = ptrNoAtual->proxNo;
-	}	
-}
-
-
-bool inserirListaOrdenada(Lista* ptrLista, string medicamento, float p_compra, float p_venda) {
-	No* ptrNoNovo;
-	No* ptrNoAnterior;
-	No* ptrNoAtual;
-
-	if (ptrLista == NULL) {
-		cout << "Lista não foi criada" << endl;
-		return false;
-	}
-
-	ptrNoNovo = new No;
-
-	if (ptrNoNovo == NULL) {
-		cout << "Memoria insulficiente!" << endl;
-		return false;
-	}
-
-	ptrNoNovo->dados.medicamento = medicamento;
-	ptrNoNovo->dados.p_compra = p_compra;
-	ptrNoNovo->dados.p_venda = p_venda;
-	ptrNoNovo->proxNo = NULL;
-
-	if (ptrLista->inicio == NULL) {
-		ptrLista->inicio = ptrNoNovo;
-	}
-	else
-	{
-		ptrNoAnterior = NULL;
-		ptrNoAtual = ptrLista->inicio;
-
-		while (ptrNoAtual != NULL && ptrNoAtual->dados.medicamento < medicamento) {
-			ptrNoAnterior = ptrNoAtual;
-			ptrNoAtual = ptrNoAtual->proxNo;
-		}
-
-		if (ptrNoAtual == ptrLista->inicio) {
-			ptrNoNovo->proxNo = ptrLista->inicio;
-			ptrLista->inicio = ptrNoNovo;
-		}
-		else 
-		{
-			ptrNoNovo->proxNo = ptrNoAtual;
-			ptrNoAnterior->proxNo = ptrNoNovo;
-		}
-	}
-
-	ptrLista->qtdNo++;
-
-	return true;
-}
-
-
-void concatenarLista(Lista* medControlado, Lista* medGenerico, Lista* medEmEstoque) {
-	No* ptrNoAtual;
-
-	string medicamento;
-	float p_compra;
-	float p_venda;
-
-	ptrNoAtual = medControlado->inicio;
-
-	while (ptrNoAtual != NULL) {
-
-		medicamento = ptrNoAtual->dados.medicamento;
-		p_compra = ptrNoAtual->dados.p_compra;
-		p_venda = ptrNoAtual->dados.p_venda;
-
-		inserirListaOrdenada(medEmEstoque, medicamento, p_compra, p_venda);
-
-		ptrNoAtual = ptrNoAtual->proxNo;
-	}
-
-	ptrNoAtual = medGenerico->inicio;
-
-	while (ptrNoAtual != NULL) {
-
-		medicamento = ptrNoAtual->dados.medicamento;
-		p_compra = ptrNoAtual->dados.p_compra;
-		p_venda = ptrNoAtual->dados.p_venda;
-
-		inserirListaOrdenada(medEmEstoque, medicamento, p_compra, p_venda);
-
-		ptrNoAtual = ptrNoAtual->proxNo;
-	}
-}
-
-
-void somarpreço(Lista* medEmEstoque) {
-	No* ptrNoAtual;
-	float somacompra = 0;
-	float somavenda = 0;
-	
-	ptrNoAtual = medEmEstoque->inicio;
-
-	while (ptrNoAtual != NULL) {
-		somacompra += ptrNoAtual->dados.p_compra;
-		somavenda += ptrNoAtual->dados.p_venda;
-
-		ptrNoAtual = ptrNoAtual->proxNo;
-		
-	}
-	cout << "A Soma dos preços de compra dos medicamentos é: " << somacompra << endl;
-	cout << "A Soma dos preços de venda dos medicamentos é: " << somavenda << endl;
-}
-
+//#include <iostream>
+//#include <locale.h>
+//#include <stdlib.h> // system
+//#include <string> // Textos em geral
+//#include <iomanip>
+//
+//using namespace std;
+//
+//struct Dados {
+//	string medicamento;
+//	float p_compra;
+//	float p_venda;
+//};
+//
+//struct No {
+//	Dados dados;
+//	No* proxNo;
+//};
+//
+//struct Lista {
+//	int qtdNo;
+//	No* inicio;
+//};
+//
+//Lista* criarLista();
+//void liberarLista(Lista * ptrLista);
+//void exibirLista(Lista * ptrLista);
+//bool inserirListaOrdenada(Lista * ptrLista, string medicamento, float p_compra, float p_venda);
+//void concatenarLista(Lista* medControlado, Lista* medGenerico, Lista* medEmEstoque);
+//void somarpreco(Lista* medEmEstoque);
+//
+//
+//int main() {
+//
+//	setlocale(LC_ALL, "Portuguese");
+//	cout << fixed << setprecision(2);
+//
+//	Lista* medControlado;
+//	Lista* medGenerico;
+//	Lista* medEmEstoque;
+//
+//	medControlado = criarLista();
+//	medGenerico = criarLista();
+//	medEmEstoque = criarLista();
+//
+//	inserirListaOrdenada(medControlado, "myrtazapina", 100.40, 160.35);
+//	inserirListaOrdenada(medControlado, "alprazolan", 90.23, 130.40);
+//	inserirListaOrdenada(medControlado, "reconter", 150.14, 213.69);
+//	inserirListaOrdenada(medControlado, "gardenal", 35.17, 60.36);
+//	inserirListaOrdenada(medControlado, "vicodin", 70.45, 150.25);
+//	cout << "------------------------" << endl;
+//	cout << "Medicamantos controlados" << endl;
+//	cout << "------------------------" << endl << endl;
+//	exibirLista(medControlado);
+//	
+//	
+//	inserirListaOrdenada(medGenerico, "paracetamol", 15.12, 30.60);
+//	inserirListaOrdenada(medGenerico, "aas", 5.13, 10.98);
+//	inserirListaOrdenada(medGenerico, "dipirona", 4.26, 7.55);
+//	inserirListaOrdenada(medGenerico, "ibuprofeno", 11.83, 22.56);
+//	inserirListaOrdenada(medGenerico, "omeprazol", 13.67, 35.14);
+//	cout << "-----------------------" << endl;
+//	cout << "Medicamantos genéricos" << endl;
+//	cout << "-----------------------" << endl<<endl;
+//	exibirLista(medGenerico);
+//	
+//
+//	concatenarLista(medControlado, medGenerico, medEmEstoque);
+//	cout << "-----------------------" << endl;
+//	cout << "Medicamantos em estoque" << endl;
+//	cout << "-----------------------" << endl << endl;
+//	exibirLista(medEmEstoque);
+//	cout << endl;
+//
+//	somarpreco(medEmEstoque);
+//	cout << endl;
+//
+//	liberarLista(medControlado);
+//	liberarLista(medGenerico);
+//	liberarLista(medEmEstoque);
+//
+//	system("pause");
+//	return 0;
+//}
+//
+//
+//Lista* criarLista() {
+//
+//	Lista* ptrLista;
+//	ptrLista = new Lista;
+//	
+//	if (ptrLista == NULL) {
+//		cout << "Não foi possível criar a lista!" << endl;
+//		return NULL;
+//	}
+//
+//	ptrLista->qtdNo = 0;
+//	ptrLista->inicio = NULL;
+//
+//	return ptrLista;
+//}
+//
+//
+//void liberarLista(Lista * ptrLista) {
+//
+//	No* ptrNoAtual;
+//
+//	if (ptrLista == NULL) {
+//		cout << "A lista não está criada!" << endl;
+//		return;
+//	}
+//	
+//	while (ptrLista->inicio != NULL)
+//	{
+//		ptrNoAtual = ptrLista->inicio;
+//		ptrLista->inicio = ptrNoAtual->proxNo;
+//		delete ptrNoAtual;
+//	}
+//
+//	delete ptrLista;
+//}
+//
+//
+//void exibirLista(Lista * ptrLista) {
+//
+//	No* ptrNoAtual;
+//
+//	if (ptrLista == NULL) {
+//		cout << "A lista não está criada!" << endl;
+//		return;
+//	}
+//	
+//	if (ptrLista->inicio == NULL) {
+//		cout << "A lista esta vazia!" << endl;
+//		return;
+//	}
+//
+//	ptrNoAtual = ptrLista->inicio;
+//
+//	while (ptrNoAtual != NULL) {
+//
+//		cout << "Medicamento: " << ptrNoAtual->dados.medicamento << endl;
+//		cout << "Preço de compra: " << ptrNoAtual->dados.p_compra << endl;
+//		cout << "Preço de venda: " << ptrNoAtual->dados.p_venda << endl << endl;
+//
+//		ptrNoAtual = ptrNoAtual->proxNo;
+//	}	
+//}
+//
+//
+//bool inserirListaOrdenada(Lista* ptrLista, string medicamento, float p_compra, float p_venda) {
+//	No* ptrNoNovo;
+//	No* ptrNoAnterior;
+//	No* ptrNoAtual;
+//
+//	if (ptrLista == NULL) {
+//		cout << "Lista não foi criada" << endl;
+//		return false;
+//	}
+//
+//	ptrNoNovo = new No;
+//
+//	if (ptrNoNovo == NULL) {
+//		cout << "Memoria insulficiente!" << endl;
+//		return false;
+//	}
+//
+//	ptrNoNovo->dados.medicamento = medicamento;
+//	ptrNoNovo->dados.p_compra = p_compra;
+//	ptrNoNovo->dados.p_venda = p_venda;
+//	ptrNoNovo->proxNo = NULL;
+//
+//	if (ptrLista->inicio == NULL) {
+//		ptrLista->inicio = ptrNoNovo;
+//	}
+//	else
+//	{
+//		ptrNoAnterior = NULL;
+//		ptrNoAtual = ptrLista->inicio;
+//
+//		while (ptrNoAtual != NULL && ptrNoAtual->dados.medicamento < medicamento) {
+//			ptrNoAnterior = ptrNoAtual;
+//			ptrNoAtual = ptrNoAtual->proxNo;
+//		}
+//
+//		if (ptrNoAtual == ptrLista->inicio) {
+//			ptrNoNovo->proxNo = ptrLista->inicio;
+//			ptrLista->inicio = ptrNoNovo;
+//		}
+//		else 
+//		{
+//			ptrNoNovo->proxNo = ptrNoAtual;
+//			ptrNoAnterior->proxNo = ptrNoNovo;
+//		}
+//	}
+//
+//	ptrLista->qtdNo++;
+//
+//	return true;
+//}
+//
+//
+//void concatenarLista(Lista* medControlado, Lista* medGenerico, Lista* medEmEstoque) {
+//	No* ptrNoAtual;
+//
+//	string medicamento;
+//	float p_compra;
+//	float p_venda;
+//
+//	ptrNoAtual = medControlado->inicio;
+//
+//	while (ptrNoAtual != NULL) {
+//
+//		medicamento = ptrNoAtual->dados.medicamento;
+//		p_compra = ptrNoAtual->dados.p_compra;
+//		p_venda = ptrNoAtual->dados.p_venda;
+//
+//		inserirListaOrdenada(medEmEstoque, medicamento, p_compra, p_venda);
+//
+//		ptrNoAtual = ptrNoAtual->proxNo;
+//	}
+//
+//	ptrNoAtual = medGenerico->inicio;
+//
+//	while (ptrNoAtual != NULL) {
+//
+//		medicamento = ptrNoAtual->dados.medicamento;
+//		p_compra = ptrNoAtual->dados.p_compra;
+//		p_venda = ptrNoAtual->dados.p_venda;
+//
+//		inserirListaOrdenada(medEmEstoque, medicamento, p_compra, p_venda);
+//
+//		ptrNoAtual = ptrNoAtual->proxNo;
+//	}
+//}
+//
+//
+//void somarpreco(Lista* medEmEstoque) {
+//	No* ptrNoAtual;
+//	float somacompra = 0;
+//	float somavenda = 0;
+//	
+//	ptrNoAtual = medEmEstoque->inicio;
+//
+//	while (ptrNoAtual != NULL) {
+//		somacompra += ptrNoAtual->dados.p_compra;
+//		somavenda += ptrNoAtual->dados.p_venda;
+//
+//		ptrNoAtual = ptrNoAtual->proxNo;		
+//	}
+//	cout << "-------------------------------------------------------" << endl;
+//	cout << "A Soma dos preços de compra dos medicamentos é: " << somacompra << endl;
+//	cout << "A Soma dos preços de venda dos medicamentos é: " << somavenda << endl;
+//	cout << "-------------------------------------------------------" << endl << endl;
+//}
+//
 
