@@ -10,11 +10,11 @@ A terceira deve receber, a lista, o mês e o ano de vencimento do produto.Deverá 
 os medicamentos que terão a data de validade vencida nos próximos 3 meses a partir da data
 informada na função.*/
 
-//
+
 //#include <iostream>
 //#include <locale.h>
-//#include <stdlib.h> // system
-//#include <string> // Textos em geral
+//#include <stdlib.h>
+//#include <string>
 //#include <iomanip>
 //
 //using namespace std;
@@ -30,8 +30,8 @@ informada na função.*/
 //
 //
 //struct No {
-//	Dados dados; // estrutura guardada dentro da lista
-//	No* proxNo; // aponta para o próximo Nó da lista
+//	Dados dados;
+//	No* proxNo;
 //};
 //
 //
@@ -214,6 +214,7 @@ informada na função.*/
 //
 //void pesquisarPrincipioAtivo(Lista* ptrLista, string p_ativo) {
 //	No* ptrNoAtual;
+//	int flag = 0;
 //
 //	cout << "Lista de medicamentos com o principio ativo " << p_ativo << endl << endl;
 //		
@@ -225,9 +226,15 @@ informada na função.*/
 //			cout << "Ano de vencimento: " << ptrNoAtual->dados.ano_vencimento << endl;
 //			cout << "Mês de vencimento: " << ptrNoAtual->dados.mes_vencimento << endl;
 //			cout << "Preço de venda: " << ptrNoAtual->dados.p_venda << endl << endl << endl;
-//		}
+//			flag = 1;
+//		}						
 //		ptrNoAtual = ptrNoAtual->proxNo;
 //	}
+//
+//	if (flag == 0) {
+//		cout << "Medicamento inexistente no sistema!" << endl << endl;
+//	}
+//		
 //}
 //
 //
@@ -291,6 +298,7 @@ informada na função.*/
 //
 //void vencimento3meses(Lista* ptrLista, int vencimento) {
 //	No* ptrNoAtual;
+//	int flag = 0;
 //
 //	cout << "Lista de medicamentos que vencerão em 3 meses a partir do mes  " << vencimento << endl << endl;
 //
@@ -302,8 +310,12 @@ informada na função.*/
 //			cout << "Ano de vencimento: " << ptrNoAtual->dados.ano_vencimento << endl;
 //			cout << "Mês de vencimento: " << ptrNoAtual->dados.mes_vencimento << endl;
 //			cout << "Preço de venda: " << ptrNoAtual->dados.p_venda << endl << endl << endl;
+//			flag = 1;
 //		}
 //		ptrNoAtual = ptrNoAtual->proxNo;
+//	}
+//	if (flag == 0) {
+//		cout << "Não há medicamentos próximos a data de vencimento" << endl << endl;
 //	}
 //}
 
