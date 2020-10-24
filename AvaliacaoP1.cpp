@@ -21,11 +21,14 @@ informada na função.*/
 //
 //
 //struct Dados {
-//	string medicamento;
+//	int codigo;
+//	string nomeMedicamento;
+//	string laboratorio;
 //	string p_ativo;
 //	int ano_vencimento;
 //	int mes_vencimento;
-//	float p_venda;
+//	float p_compra;
+//	float p_venda;	
 //};
 //
 //
@@ -42,7 +45,7 @@ informada na função.*/
 //
 //Lista* criarLista();
 //void liberarLista(Lista* ptrLista);
-//bool inserirListaFim(Lista* ptrLista, string medicamento, string p_ativo, int ano_vencimento, int mes_vencimento, float p_venda);
+//bool inserirListaFim(Lista* ptrLista, int codigo, string nomeMedicamento, string laboratorio, string p_ativo, int ano_vencimento, int mes_vencimento, float p_compra, float p_venda);
 //void exibirLista(Lista* ptrLista);
 //
 //void pesquisarPrincipioAtivo(Lista* ptrLista, string p_ativo);
@@ -61,17 +64,16 @@ informada na função.*/
 //
 //	pLista = criarLista();
 //
-//	
-//	inserirListaFim(pLista, "buscopan", "escopolamina", 2020, 5, 22.12);
-//	inserirListaFim(pLista, "dorflex", "dipirona", 2020, 12, 10.0);
-//	inserirListaFim(pLista, "tegretol", "carbamazepina", 2020, 11, 35.0);
-//	inserirListaFim(pLista, "gelol", "salicilato", 2020, 8, 27.30);
-//	inserirListaFim(pLista, "ibuprofen", "ibuprofeno", 2020, 3, 6.75);
-//	inserirListaFim(pLista, "aspirina", "aas", 2020, 11, 8.75);
-//	inserirListaFim(pLista, "menelat", "mirtazapina", 2020, 10, 152.30);
-//	inserirListaFim(pLista, "benegripe", "paracetamol", 2020, 7, 32.45);
-//	inserirListaFim(pLista, "eno", "bicarbonato", 2020, 11, 17.35);
-//	inserirListaFim(pLista, "omeprazol", "omeprazol", 2020, 12, 5.32);
+//	inserirListaFim(pLista, 10, "buscopan", "boehringer", "escopolamina", 2020, 5, 13.65, 22.12);
+//	inserirListaFim(pLista, 20, "dorflex", "sanofi", "dipirona", 2020, 12, 5.67, 10.0);
+//	inserirListaFim(pLista, 30, "tegretol", "novartes", "carbamazepina", 2020, 11, 23.91, 35.0);
+//	inserirListaFim(pLista, 40, "gelol", "services", "salicilato", 2020, 8, 14.16, 27.30);
+//	inserirListaFim(pLista, 50, "ibuprofen", "fecofar", "ibuprofeno", 2020, 3, 2.12, 6.75);
+//	inserirListaFim(pLista, 60, "aspirina", "bayer", "aas", 2020, 11, 4.23, 8.75);
+//	inserirListaFim(pLista, 70, "menelat", "philipines", "mirtazapina", 2020, 10, 120.43, 152.30);
+//	inserirListaFim(pLista, 80, "benegripe", "hypera pharma","paracetamol", 2020, 7, 27.27, 32.45);
+//	inserirListaFim(pLista, 90, "eno", "gsk", "bicarbonato", 2020, 11, 12.67, 17.35);
+//	inserirListaFim(pLista, 100, "omeprazol", "ems", "omeprazol", 2020, 12, 2.34, 5.32);
 //
 //	exibirLista(pLista);
 //	cout << endl << endl;
@@ -159,18 +161,20 @@ informada na função.*/
 //	ptrNoAtual = ptrLista->inicio;
 //
 //	while (ptrNoAtual != NULL) {
-//
-//		cout << "Medicamento: " << ptrNoAtual->dados.medicamento << endl;
+//		cout << "Codigo: " << ptrNoAtual->dados.codigo << endl;
+//		cout << "Medicamento: " << ptrNoAtual->dados.nomeMedicamento << endl;
+//		cout << "Laboratorio: " << ptrNoAtual->dados.laboratorio << endl;
 //		cout << "Principio ativo: " << ptrNoAtual->dados.p_ativo << endl;
 //		cout << "Ano de vencimento: " << ptrNoAtual->dados.ano_vencimento<< endl;
 //		cout << "Mês de vencimento: " << ptrNoAtual->dados.mes_vencimento << endl;
+//		cout << "Preço de compra: " << ptrNoAtual->dados.p_compra << endl;
 //		cout << "Preço de venda: " << ptrNoAtual->dados.p_venda << endl << endl << endl;
 //		
 //		ptrNoAtual = ptrNoAtual->proxNo;
 //	}		
 //}
 //
-//bool inserirListaFim(Lista* ptrLista, string medicamento, string p_ativo, int ano_vencimento, int mes_vencimento, float p_venda) {
+//bool inserirListaFim(Lista* ptrLista, int codigo, string nomeMedicamento, string laboratorio, string p_ativo, int ano_vencimento, int mes_vencimento, float p_compra, float p_venda){
 //	No* ptrNoNovo;
 //	No* ptrNoAtual;
 //
@@ -185,11 +189,14 @@ informada na função.*/
 //		cout << "Memoria insulficiente!" << endl;
 //		return false;
 //	}
-//	
-//	ptrNoNovo->dados.medicamento = medicamento;
+//		
+//	ptrNoNovo->dados.codigo = codigo;
+//	ptrNoNovo->dados.nomeMedicamento = nomeMedicamento;
+//	ptrNoNovo->dados.laboratorio = laboratorio;
 //	ptrNoNovo->dados.p_ativo = p_ativo;
 //	ptrNoNovo->dados.ano_vencimento = ano_vencimento;
 //	ptrNoNovo->dados.mes_vencimento = mes_vencimento;
+//	ptrNoNovo->dados.p_compra = p_compra;
 //	ptrNoNovo->dados.p_venda = p_venda;
 //	ptrNoNovo->proxNo = NULL;
 //
@@ -217,14 +224,17 @@ informada na função.*/
 //	int flag = 0;
 //
 //	cout << "Lista de medicamentos com o principio ativo " << p_ativo << endl << endl;
-//		
+//
 //	ptrNoAtual = ptrLista->inicio;
 //	while (ptrNoAtual != NULL) {
 //		if (ptrNoAtual->dados.p_ativo == p_ativo) {
-//			cout << "Medicamento: " << ptrNoAtual->dados.medicamento << endl;
+//			cout << "Codigo: " << ptrNoAtual->dados.codigo << endl;
+//			cout << "Medicamento: " << ptrNoAtual->dados.nomeMedicamento << endl;
+//			cout << "Laboratorio: " << ptrNoAtual->dados.laboratorio << endl;
 //			cout << "Principio ativo: " << ptrNoAtual->dados.p_ativo << endl;
 //			cout << "Ano de vencimento: " << ptrNoAtual->dados.ano_vencimento << endl;
 //			cout << "Mês de vencimento: " << ptrNoAtual->dados.mes_vencimento << endl;
+//			cout << "Preço de compra: " << ptrNoAtual->dados.p_compra << endl;
 //			cout << "Preço de venda: " << ptrNoAtual->dados.p_venda << endl << endl << endl;
 //			flag = 1;
 //		}						
@@ -260,10 +270,13 @@ informada na função.*/
 //	ptrNoAtual = ptrLista->inicio;
 //	while (ptrNoAtual != NULL) {
 //		if (ptrNoAtual->dados.p_venda == maior) {
-//			cout << "Medicamento: " << ptrNoAtual->dados.medicamento << endl;
+//			cout << "Codigo: " << ptrNoAtual->dados.codigo << endl;
+//			cout << "Medicamento: " << ptrNoAtual->dados.nomeMedicamento << endl;
+//			cout << "Laboratorio: " << ptrNoAtual->dados.laboratorio << endl;
 //			cout << "Principio ativo: " << ptrNoAtual->dados.p_ativo << endl;
 //			cout << "Ano de vencimento: " << ptrNoAtual->dados.ano_vencimento << endl;
 //			cout << "Mês de vencimento: " << ptrNoAtual->dados.mes_vencimento << endl;
+//			cout << "Preço de compra: " << ptrNoAtual->dados.p_compra << endl;
 //			cout << "Preço de venda: " << ptrNoAtual->dados.p_venda << endl << endl << endl;
 //		}
 //		ptrNoAtual = ptrNoAtual->proxNo;
@@ -285,10 +298,13 @@ informada na função.*/
 //	ptrNoAtual = ptrLista->inicio;
 //	while (ptrNoAtual != NULL) {
 //		if (ptrNoAtual->dados.p_venda == menor) {
-//			cout << "Medicamento: " << ptrNoAtual->dados.medicamento << endl;
+//			cout << "Codigo: " << ptrNoAtual->dados.codigo << endl;
+//			cout << "Medicamento: " << ptrNoAtual->dados.nomeMedicamento << endl;
+//			cout << "Laboratorio: " << ptrNoAtual->dados.laboratorio << endl;
 //			cout << "Principio ativo: " << ptrNoAtual->dados.p_ativo << endl;
 //			cout << "Ano de vencimento: " << ptrNoAtual->dados.ano_vencimento << endl;
 //			cout << "Mês de vencimento: " << ptrNoAtual->dados.mes_vencimento << endl;
+//			cout << "Preço de compra: " << ptrNoAtual->dados.p_compra << endl;
 //			cout << "Preço de venda: " << ptrNoAtual->dados.p_venda << endl << endl << endl;
 //		}
 //		ptrNoAtual = ptrNoAtual->proxNo;
@@ -296,19 +312,22 @@ informada na função.*/
 //
 //}
 //
-//void vencimento3meses(Lista* ptrLista, int vencimento) {
+//void vencimento3meses(Lista* ptrLista, int mes_vencimento) {
 //	No* ptrNoAtual;
 //	int flag = 0;
 //
-//	cout << "Lista de medicamentos que vencerão em 3 meses a partir do mes  " << vencimento << endl << endl;
+//	cout << "Lista de medicamentos que vencerão em 3 meses a partir do mes  " << mes_vencimento << endl << endl;
 //
 //	ptrNoAtual = ptrLista->inicio;
 //	while (ptrNoAtual != NULL) {
-//		if (ptrNoAtual->dados.mes_vencimento >= vencimento && ptrNoAtual->dados.mes_vencimento <= vencimento + 3) {
-//			cout << "Medicamento: " << ptrNoAtual->dados.medicamento << endl;
+//		if (ptrNoAtual->dados.mes_vencimento >= mes_vencimento && ptrNoAtual->dados.mes_vencimento <= mes_vencimento + 3) {
+//			cout << "Codigo: " << ptrNoAtual->dados.codigo << endl;
+//			cout << "Medicamento: " << ptrNoAtual->dados.nomeMedicamento << endl;
+//			cout << "Laboratorio: " << ptrNoAtual->dados.laboratorio << endl;
 //			cout << "Principio ativo: " << ptrNoAtual->dados.p_ativo << endl;
 //			cout << "Ano de vencimento: " << ptrNoAtual->dados.ano_vencimento << endl;
 //			cout << "Mês de vencimento: " << ptrNoAtual->dados.mes_vencimento << endl;
+//			cout << "Preço de compra: " << ptrNoAtual->dados.p_compra << endl;
 //			cout << "Preço de venda: " << ptrNoAtual->dados.p_venda << endl << endl << endl;
 //			flag = 1;
 //		}
