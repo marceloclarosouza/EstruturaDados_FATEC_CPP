@@ -356,9 +356,14 @@ medEmEstoque e exiba os resultados.*/
 //using namespace std;
 //
 //struct Dados {
-//	string medicamento;
+//	int codigo;
+//	string nomeMedicamento;
+//	string laboratorio;
+//	string p_ativo;
+//	int ano_vencimento;
+//	int mes_vencimento;
 //	float p_compra;
-//	float p_venda;
+//	float p_venda;	
 //};
 //
 //struct No {
@@ -374,7 +379,7 @@ medEmEstoque e exiba os resultados.*/
 //Lista* criarLista();
 //void liberarLista(Lista * ptrLista);
 //void exibirLista(Lista * ptrLista);
-//bool inserirListaOrdenada(Lista * ptrLista, string medicamento, float p_compra, float p_venda);
+//bool inserirListaOrdenada(Lista* ptrLista, int codigo, string nomeMedicamento, string laboratorio, string p_ativo, int ano_vencimento, int mes_vencimento, float p_compra, float p_venda);
 //void concatenarLista(Lista* medControlado, Lista* medGenerico, Lista* medEmEstoque);
 //void somarpreco(Lista* medEmEstoque);
 //
@@ -392,22 +397,22 @@ medEmEstoque e exiba os resultados.*/
 //	medGenerico = criarLista();
 //	medEmEstoque = criarLista();
 //
-//	inserirListaOrdenada(medControlado, "myrtazapina", 100.40, 160.35);
-//	inserirListaOrdenada(medControlado, "alprazolan", 90.23, 130.40);
-//	inserirListaOrdenada(medControlado, "reconter", 150.14, 213.69);
-//	inserirListaOrdenada(medControlado, "gardenal", 35.17, 60.36);
-//	inserirListaOrdenada(medControlado, "vicodin", 70.45, 150.25);
+//	inserirListaOrdenada(medControlado, 10, "buscopan", "boehringer", "escopolamina", 2020, 5, 13.65, 22.12);
+//	inserirListaOrdenada(medControlado, 20, "dorflex", "sanofi", "dipirona", 2020, 12, 5.67, 10.0);
+//	inserirListaOrdenada(medControlado, 30, "tegretol", "novartes", "carbamazepina", 2020, 11, 23.91, 35.0);
+//	inserirListaOrdenada(medControlado, 40, "gelol", "services", "salicilato", 2020, 8, 14.16, 27.30);
+//	inserirListaOrdenada(medControlado, 50, "ibuprofen", "fecofar", "ibuprofeno", 2020, 3, 2.12, 6.75);
 //	cout << "------------------------" << endl;
 //	cout << "Medicamantos controlados" << endl;
 //	cout << "------------------------" << endl << endl;
 //	exibirLista(medControlado);
 //	
 //	
-//	inserirListaOrdenada(medGenerico, "paracetamol", 15.12, 30.60);
-//	inserirListaOrdenada(medGenerico, "aas", 5.13, 10.98);
-//	inserirListaOrdenada(medGenerico, "dipirona", 4.26, 7.55);
-//	inserirListaOrdenada(medGenerico, "ibuprofeno", 11.83, 22.56);
-//	inserirListaOrdenada(medGenerico, "omeprazol", 13.67, 35.14);
+//	inserirListaOrdenada(medGenerico, 60, "aspirina", "bayer", "aas", 2020, 11, 4.23, 8.75);
+//	inserirListaOrdenada(medGenerico, 70, "menelat", "philipines", "mirtazapina", 2020, 10, 120.43, 152.30);
+//	inserirListaOrdenada(medGenerico, 80, "benegripe", "hypera pharma","paracetamol", 2020, 7, 27.27, 32.45);
+//	inserirListaOrdenada(medGenerico, 90, "eno", "gsk", "bicarbonato", 2020, 11, 12.67, 17.35);
+//	inserirListaOrdenada(medGenerico, 100, "omeprazol", "ems", "omeprazol", 2020, 12, 2.34, 5.32);
 //	cout << "-----------------------" << endl;
 //	cout << "Medicamantos genéricos" << endl;
 //	cout << "-----------------------" << endl<<endl;
@@ -450,7 +455,7 @@ medEmEstoque e exiba os resultados.*/
 //}
 //
 //
-//void liberarLista(Lista * ptrLista) {
+//void liberarLista(Lista* ptrLista) {
 //
 //	No* ptrNoAtual;
 //
@@ -470,7 +475,7 @@ medEmEstoque e exiba os resultados.*/
 //}
 //
 //
-//void exibirLista(Lista * ptrLista) {
+//void exibirLista(Lista* ptrLista) {
 //
 //	No* ptrNoAtual;
 //
@@ -488,16 +493,21 @@ medEmEstoque e exiba os resultados.*/
 //
 //	while (ptrNoAtual != NULL) {
 //
-//		cout << "Medicamento: " << ptrNoAtual->dados.medicamento << endl;
+//		cout << "Codigo: " << ptrNoAtual->dados.codigo << endl;
+//		cout << "Medicamento: " << ptrNoAtual->dados.nomeMedicamento << endl;
+//		cout << "Laboratorio: " << ptrNoAtual->dados.laboratorio << endl;
+//		cout << "Principio ativo: " << ptrNoAtual->dados.p_ativo << endl;
+//		cout << "Ano de vencimento: " << ptrNoAtual->dados.ano_vencimento<< endl;
+//		cout << "Mês de vencimento: " << ptrNoAtual->dados.mes_vencimento << endl;
 //		cout << "Preço de compra: " << ptrNoAtual->dados.p_compra << endl;
-//		cout << "Preço de venda: " << ptrNoAtual->dados.p_venda << endl << endl;
+//		cout << "Preço de venda: " << ptrNoAtual->dados.p_venda << endl << endl << endl;
 //
 //		ptrNoAtual = ptrNoAtual->proxNo;
 //	}	
 //}
 //
 //
-//bool inserirListaOrdenada(Lista* ptrLista, string medicamento, float p_compra, float p_venda) {
+//bool inserirListaOrdenada(Lista* ptrLista, int codigo, string nomeMedicamento, string laboratorio, string p_ativo, int ano_vencimento, int mes_vencimento, float p_compra, float p_venda) {
 //	No* ptrNoNovo;
 //	No* ptrNoAnterior;
 //	No* ptrNoAtual;
@@ -514,7 +524,12 @@ medEmEstoque e exiba os resultados.*/
 //		return false;
 //	}
 //
-//	ptrNoNovo->dados.medicamento = medicamento;
+//	ptrNoNovo->dados.codigo = codigo;
+//	ptrNoNovo->dados.nomeMedicamento = nomeMedicamento;
+//	ptrNoNovo->dados.laboratorio = laboratorio;
+//	ptrNoNovo->dados.p_ativo = p_ativo;
+//	ptrNoNovo->dados.ano_vencimento = ano_vencimento;
+//	ptrNoNovo->dados.mes_vencimento = mes_vencimento;
 //	ptrNoNovo->dados.p_compra = p_compra;
 //	ptrNoNovo->dados.p_venda = p_venda;
 //	ptrNoNovo->proxNo = NULL;
@@ -527,7 +542,7 @@ medEmEstoque e exiba os resultados.*/
 //		ptrNoAnterior = NULL;
 //		ptrNoAtual = ptrLista->inicio;
 //
-//		while (ptrNoAtual != NULL && ptrNoAtual->dados.medicamento < medicamento) {
+//		while (ptrNoAtual != NULL && ptrNoAtual->dados.nomeMedicamento < nomeMedicamento) {
 //			ptrNoAnterior = ptrNoAtual;
 //			ptrNoAtual = ptrNoAtual->proxNo;
 //		}
@@ -552,7 +567,12 @@ medEmEstoque e exiba os resultados.*/
 //void concatenarLista(Lista* medControlado, Lista* medGenerico, Lista* medEmEstoque) {
 //	No* ptrNoAtual;
 //
-//	string medicamento;
+//	int codigo;
+//	string nomeMedicamento;
+//	string laboratorio;
+//	string p_ativo;
+//	int ano_vencimento;
+//	int mes_vencimento;
 //	float p_compra;
 //	float p_venda;
 //
@@ -560,11 +580,16 @@ medEmEstoque e exiba os resultados.*/
 //
 //	while (ptrNoAtual != NULL) {
 //
-//		medicamento = ptrNoAtual->dados.medicamento;
+//		codigo = ptrNoAtual->dados.codigo;
+//		nomeMedicamento = ptrNoAtual->dados.nomeMedicamento;
+//		laboratorio = ptrNoAtual->dados.laboratorio;
+//		p_ativo = ptrNoAtual->dados.p_ativo;
+//		ano_vencimento = ptrNoAtual->dados.ano_vencimento;
+//		mes_vencimento = ptrNoAtual->dados.mes_vencimento;
 //		p_compra = ptrNoAtual->dados.p_compra;
 //		p_venda = ptrNoAtual->dados.p_venda;
 //
-//		inserirListaOrdenada(medEmEstoque, medicamento, p_compra, p_venda);
+//		inserirListaOrdenada(medEmEstoque, codigo, nomeMedicamento, laboratorio, p_ativo, ano_vencimento, mes_vencimento, p_compra, p_venda);
 //
 //		ptrNoAtual = ptrNoAtual->proxNo;
 //	}
@@ -573,11 +598,16 @@ medEmEstoque e exiba os resultados.*/
 //
 //	while (ptrNoAtual != NULL) {
 //
-//		medicamento = ptrNoAtual->dados.medicamento;
+//		codigo = ptrNoAtual->dados.codigo;
+//		nomeMedicamento = ptrNoAtual->dados.nomeMedicamento;
+//		laboratorio = ptrNoAtual->dados.laboratorio;
+//		p_ativo = ptrNoAtual->dados.p_ativo;
+//		ano_vencimento = ptrNoAtual->dados.ano_vencimento;
+//		mes_vencimento = ptrNoAtual->dados.mes_vencimento;
 //		p_compra = ptrNoAtual->dados.p_compra;
 //		p_venda = ptrNoAtual->dados.p_venda;
 //
-//		inserirListaOrdenada(medEmEstoque, medicamento, p_compra, p_venda);
+//		inserirListaOrdenada(medEmEstoque, codigo, nomeMedicamento, laboratorio, p_ativo, ano_vencimento, mes_vencimento, p_compra, p_venda);
 //
 //		ptrNoAtual = ptrNoAtual->proxNo;
 //	}
