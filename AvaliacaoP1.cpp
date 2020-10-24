@@ -583,5 +583,5 @@ medEmEstoque e exiba os resultados.*/
 //	cout << "A Soma dos preços de venda dos medicamentos é: " << somavenda << endl;
 //	cout << "-------------------------------------------------------" << endl << endl;
 //}
-//
+
 
