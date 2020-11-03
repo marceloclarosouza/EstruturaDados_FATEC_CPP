@@ -28,6 +28,11 @@ struct Lista {
 
 Lista* criarLista();
 void liberarLista(Lista* ptrLista);
+void exibirLista(Lista* ptrLista);
+bool inserirListaInicio(Lista* ptrLista, int matricula, string nome, float media);
+bool inserirListaFim(Lista* ptrLista, int matricula, string nome, float media);
+bool inserirListaOrdenada(Lista* ptrLista, int matricula, string nome, float media);
+bool removerListaInicio(Lista* ptrLista);
 
 int main() {
 	setlocale(LC_ALL, "Portuguese");
@@ -36,12 +41,40 @@ int main() {
 	pLista = criarLista();
 
 
+	int matricula;
+	string nome;
+	float media;
+
+	//--------------------------------------
+	matricula = 10;
+	nome = "Maria";
+	media = 8.0;
+
+	//--------------------------------------
+	// Insere no INÍCIO da lista
+	//--------------------------------------
+	/*inserirListaInicio(pLista, matricula, nome, media);
+	inserirListaInicio(pLista, 20, "José", 7.5);
+	inserirListaInicio(pLista, 30, "Jesus", 10.0);*/
+
+	//--------------------------------------
+	// Insere no FINAL da lista
+	//--------------------------------------
+	/*inserirListaFim(pLista, matricula, nome, media);
+	inserirListaFim(pLista, 20, "José", 7.5);
+	inserirListaFim(pLista, 30, "Jesus", 10.0);*/
+
+	//--------------------------------------
+	// Insere ORDENADO na lista
+	//--------------------------------------
+	inserirListaOrdenada(pLista, 30, "Maria", 9.5);
+	inserirListaOrdenada(pLista, 10, "Jesus", 10.0);
+	inserirListaOrdenada(pLista, 20, "José", 9.0);
+	inserirListaOrdenada(pLista, 50, "Paulo", 7.5);
+	inserirListaOrdenada(pLista, 40, "Pedro", 8.0);
 
 
-
-
-
-
+	exibirLista(pLista);
 
 
 
@@ -125,3 +158,200 @@ void exibirLista(Lista* ptrLista) {
 		ptrNoAtual = ptrNoAtual->proxNo;
 	}
 }
+
+//--------------------------------------------------------
+// INSERIR NO INÍCIO DA LISTA
+//--------------------------------------------------------
+bool inserirListaInicio(Lista* ptrLista, int matricula, string nome, float media) {
+	No* ptrNoNovo;
+	No* ptrNoAtual;
+
+	//Se a lista NÃO foi criada
+	if (ptrLista == NULL) {
+		cout << "A lista não está criada!" << endl;
+		return false;
+	}
+
+	//---------------------------------------------------------------
+	//	Cria o novo nó
+	//---------------------------------------------------------------
+	ptrNoNovo = new No;
+
+	if (ptrNoNovo == NULL) {
+		cout << "Memória insulficiente!" << endl;
+		return false;
+	}
+
+	ptrNoNovo->dados.matricula = matricula;
+	ptrNoNovo->dados.nome = nome;
+	ptrNoNovo->dados.media = media;
+
+	ptrNoNovo->antNo = NULL;
+	ptrNoNovo->proxNo = ptrLista->inicio;
+
+	ptrNoAtual = ptrLista->inicio;
+
+	// Se a lista não estiver vazia
+	if (ptrLista->inicio != NULL) {
+		ptrNoAtual->antNo = ptrNoNovo;
+	}
+
+	ptrLista->inicio = ptrNoNovo;
+
+	// Incrementa o quantidade de Nós
+	ptrLista->qtdNo++;
+
+	return true;
+}
+
+//--------------------------------------------------------
+// INSERIR NO FINAL DA LISTA
+//--------------------------------------------------------
+bool inserirListaFim(Lista* ptrLista, int matricula, string nome, float media) {
+	No* ptrNoNovo;
+	No* ptrNoAtual;
+
+	//Se a lista NÃO foi criada
+	if (ptrLista == NULL) {
+		cout << "A lista não está criada!" << endl;
+		return false;
+	}
+
+	//---------------------------------------------------------------
+	//	Cria o novo nó
+	//---------------------------------------------------------------
+	ptrNoNovo = new No;
+
+	if (ptrNoNovo == NULL) {
+		cout << "Memória insulficiente!" << endl;
+		return false;
+	}
+
+	ptrNoNovo->dados.matricula = matricula;
+	ptrNoNovo->dados.nome = nome;
+	ptrNoNovo->dados.media = media;
+
+	ptrNoNovo->antNo = NULL;
+	ptrNoNovo->proxNo = NULL;
+
+	ptrNoAtual = ptrLista->inicio;
+
+	// Se não houver nenhum nó na lista
+	if (ptrNoAtual == NULL) {
+
+		ptrLista->inicio = ptrNoNovo;
+	}
+	else {
+
+		// Localiza o último nó
+		while (ptrNoAtual->proxNo != NULL) {
+			ptrNoAtual = ptrNoAtual->proxNo;
+		}
+		ptrNoAtual->proxNo = ptrNoNovo;
+		ptrNoNovo->antNo = ptrNoAtual;
+	}
+
+	// Incrementa o quantidade de Nós
+	ptrLista->qtdNo++;
+
+	return true;
+}
+
+//--------------------------------------------------------
+// INSERIR EM LISTA ORDENADA
+//--------------------------------------------------------
+bool inserirListaOrdenada(Lista* ptrLista, int matricula, string nome, float media) {
+	No* ptrNoNovo;
+	No* ptrNoAnterior;
+	No* ptrNoAtual;
+
+	//---------------------------------------------------------------
+	//	Cria o novo nó
+	//---------------------------------------------------------------
+	ptrNoNovo = new No;
+
+	if (ptrNoNovo == NULL) {
+		cout << "Memória insulficiente!" << endl;
+		return false;
+	}
+
+	ptrNoNovo->dados.matricula = matricula;
+	ptrNoNovo->dados.nome = nome;
+	ptrNoNovo->dados.media = media;
+
+	ptrNoNovo->antNo = NULL;
+	ptrNoNovo->proxNo = NULL;
+
+	//Se a lista estiver vazia
+	if (ptrLista->inicio == NULL) {
+		ptrLista->inicio = ptrNoNovo;
+	}
+	else
+	{
+		ptrNoAnterior = NULL;
+		ptrNoAtual = ptrLista->inicio;
+
+		// Localiza a posição de inserção
+		while (ptrNoAtual != NULL && ptrNoAtual->dados.matricula < matricula) {
+			ptrNoAnterior = ptrNoAtual;
+			ptrNoAtual = ptrNoAtual->proxNo;
+		}
+
+		// Insere no INÍCIO da lista
+		if (ptrNoAtual == ptrLista->inicio) {
+			ptrNoNovo->proxNo = ptrLista->inicio;
+			ptrLista->inicio->antNo = ptrNoNovo;
+			ptrLista->inicio = ptrNoNovo;
+		}
+		else { // Insere no MEIO ou FIM da lista
+
+			ptrNoNovo->proxNo = ptrNoAtual;
+			ptrNoNovo->antNo = ptrNoAnterior;
+
+			ptrNoAnterior->proxNo = ptrNoNovo;
+
+			// Se for o meio da lista
+			if (ptrNoAtual != NULL) {
+				ptrNoAtual->antNo = ptrNoNovo;
+			}
+		}
+	}
+
+	// Incrementa o quantidade de Nós
+	ptrLista->qtdNo++;
+
+	return true;
+}
+
+//--------------------------------------------------------
+// REMOVER DO INÍCIO DA LISTA
+//--------------------------------------------------------
+bool removerListaInicio(Lista* ptrLista) {
+	No* ptrNoAtual;
+
+	// Se a lista NÃO foi criada
+	if (ptrLista == NULL) {
+		cout << "A lista não está criada!" << endl;
+		return false;
+	}
+
+
+	// Ajusta o INÍCIO
+	ptrNoAtual = ptrLista->inicio;
+
+	ptrLista->inicio = ptrNoAtual->proxNo;
+
+	// Se houver mais que um nó na lista
+	if (ptrNoAtual->proxNo != NULL) {
+		ptrNoAtual->proxNo->antNo = NULL;
+	}
+
+	// Exclui o primeiro nó
+	delete ptrNoAtual;
+
+	// Decrementa o quantidade de Nós
+	ptrLista->qtdNo--;
+
+	return true;
+}
+
