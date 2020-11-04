@@ -63,5 +63,8 @@
     <ClCompile Include="09_Lista_duplamente_encadeada.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="09_exe1.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
