@@ -38,6 +38,8 @@ bool inserirListaOrdenada(Lista* ptrLista, int matricula, string nome, float med
 bool removerListaInicio(Lista* ptrLista);
 bool removerListaFim(Lista* ptrLista);
 bool removerListaOrdenada(Lista* ptrLista, int matricula);
+//Pesquisar matricula
+No* pesquisarDado(Lista* ptrLista, int matricula);
 
 int main() {
 	setlocale(LC_ALL, "Portuguese");
@@ -78,21 +80,32 @@ int main() {
 	inserirListaOrdenada(pLista, 50, "Paulo", 7.5);
 	inserirListaOrdenada(pLista, 40, "Pedro", 8.0);
 
+	//exibirLista(pLista);
 
-	exibirLista(pLista);
 	//---------------------------------------
 	//Remover
 	//---------------------------------------
 	//removerListaInicio(pLista);
 	//removerListaFim(pLista);
-	removerListaOrdenada(pLista, 10);
+	/*removerListaOrdenada(pLista, 10);
 	removerListaOrdenada(pLista, 30);
-	removerListaOrdenada(pLista, 50);
+	removerListaOrdenada(pLista, 50);*/
 
+
+	//pesquisar matricula
+	No* pNoAluno;
+
+	pNoAluno = pesquisarDado(pLista, 20);
+
+	if (pNoAluno != NULL) {
+		pNoAluno->dados.nome = "José Maria";
+		pNoAluno->dados.media = 8.0;
+		cout << "\n\n";
+
+		exibirLista(pLista);
+	}
 	cout << "\n\n";
-
-
-	exibirLista(pLista);
+	
 	liberarLista (pLista);
 	system("pause");
 	return 0;
@@ -462,4 +475,30 @@ bool removerListaOrdenada(Lista* ptrLista, int matricula) {
 	ptrLista->qtdNo--;
 
 	return true;
+}
+
+//--------------------------------------------------------
+// PESQUISAR MATRÍCULA
+//--------------------------------------------------------
+No* pesquisarDado(Lista* ptrLista, int matricula) {
+	No* ptrNoAtual;
+
+	// Se a lista NÃO foi criada
+	if (ptrLista == NULL) {
+		cout << "A lista não está criada!" << endl;
+		return NULL;
+	}
+
+	ptrNoAtual = ptrLista->inicio;
+
+	// Localiza a posição do nó
+	while (ptrNoAtual != NULL && ptrNoAtual->dados.matricula != matricula) {
+		ptrNoAtual = ptrNoAtual->proxNo;
+	}
+
+	if (ptrNoAtual == NULL) {
+		cout << "A matrícula " << matricula << " não foi encontrada!" << endl;
+	}
+
+	return ptrNoAtual;
 }
