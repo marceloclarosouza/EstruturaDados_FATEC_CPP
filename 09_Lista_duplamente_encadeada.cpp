@@ -37,6 +37,7 @@ bool inserirListaOrdenada(Lista* ptrLista, int matricula, string nome, float med
 //Remover
 bool removerListaInicio(Lista* ptrLista);
 bool removerListaFim(Lista* ptrLista);
+bool removerListaOrdenada(Lista* ptrLista, int matricula);
 
 int main() {
 	setlocale(LC_ALL, "Portuguese");
@@ -84,10 +85,13 @@ int main() {
 	//---------------------------------------
 	//removerListaInicio(pLista);
 	//removerListaFim(pLista);
-
-
+	removerListaOrdenada(pLista, 10);
+	removerListaOrdenada(pLista, 30);
+	removerListaOrdenada(pLista, 50);
 
 	cout << "\n\n";
+
+
 	exibirLista(pLista);
 	liberarLista (pLista);
 	system("pause");
@@ -398,6 +402,60 @@ bool removerListaFim(Lista* ptrLista) {
 	}
 
 	// Exclui o primeiro nó
+	delete ptrNoAtual;
+
+	// Decrementa o quantidade de Nós
+	ptrLista->qtdNo--;
+
+	return true;
+}
+
+//--------------------------------------------------------
+// REMOVER DO MEIO DA LISTA
+//--------------------------------------------------------
+bool removerListaOrdenada(Lista* ptrLista, int matricula) {
+	No* ptrNoAnterior;
+	No* ptrNoAtual;
+
+	// Se a lista NÃO foi criada
+	if (ptrLista == NULL) {
+		cout << "A lista não está criada!" << endl;
+		return false;
+	}
+
+	ptrNoAnterior = NULL;
+	ptrNoAtual = ptrLista->inicio;
+
+	// Localizao nó que será excluído
+	while (ptrNoAtual != NULL && ptrNoAtual->dados.matricula != matricula) {
+		ptrNoAnterior = ptrNoAtual;
+		ptrNoAtual = ptrNoAtual->proxNo;
+	}
+
+	if (ptrNoAtual == NULL) {
+		cout << "A matrícula " << matricula << " não foi encontrada!" << endl;
+		return false;
+	}
+
+	// Se for o primeiro nó da lista
+	if (ptrNoAtual->antNo == NULL) {
+		ptrLista->inicio = ptrNoAtual->proxNo;
+
+		// Se houver mais que um nó na lista
+		if (ptrNoAtual->proxNo != NULL) {
+			ptrNoAtual->proxNo->antNo = NULL;
+		}
+	}
+	else {
+		ptrNoAnterior->proxNo = ptrNoAtual->proxNo;
+
+		// Se houver mais que um nó na lista
+		if (ptrNoAtual->proxNo != NULL) {
+			ptrNoAtual->proxNo->antNo = ptrNoAnterior;
+		}
+	}
+
+	// Exclui o nó atual
 	delete ptrNoAtual;
 
 	// Decrementa o quantidade de Nós
