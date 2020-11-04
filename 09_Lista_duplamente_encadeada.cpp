@@ -29,10 +29,14 @@ struct Lista {
 Lista* criarLista();
 void liberarLista(Lista* ptrLista);
 void exibirLista(Lista* ptrLista);
+
+//Inserir
 bool inserirListaInicio(Lista* ptrLista, int matricula, string nome, float media);
 bool inserirListaFim(Lista* ptrLista, int matricula, string nome, float media);
 bool inserirListaOrdenada(Lista* ptrLista, int matricula, string nome, float media);
+//Remover
 bool removerListaInicio(Lista* ptrLista);
+bool removerListaFim(Lista* ptrLista);
 
 int main() {
 	setlocale(LC_ALL, "Portuguese");
@@ -75,9 +79,16 @@ int main() {
 
 
 	exibirLista(pLista);
+	//---------------------------------------
+	//Remover
+	//---------------------------------------
+	//removerListaInicio(pLista);
+	//removerListaFim(pLista);
 
 
 
+	cout << "\n\n";
+	exibirLista(pLista);
 	liberarLista (pLista);
 	system("pause");
 	return 0;
@@ -355,3 +366,42 @@ bool removerListaInicio(Lista* ptrLista) {
 	return true;
 }
 
+//--------------------------------------------------------
+// REMOVER DO FIM DA LISTA
+//--------------------------------------------------------
+bool removerListaFim(Lista* ptrLista) {
+	No* ptrNoAnterior;
+	No* ptrNoAtual;
+
+	// Se a lista NÃO foi criada
+	if (ptrLista == NULL) {
+		cout << "A lista não está criada!" << endl;
+		return false;
+	}
+
+	ptrNoAnterior = NULL;
+	ptrNoAtual = ptrLista->inicio;
+
+	// Localiza o nó final da lista
+	while (ptrNoAtual->proxNo != NULL) {
+		ptrNoAnterior = ptrNoAtual;
+		ptrNoAtual = ptrNoAtual->proxNo;
+	}
+
+
+	// Se for o primeiro nó da lista
+	if (ptrNoAtual == ptrLista->inicio) {
+		ptrLista->inicio = NULL;
+	}
+	else {
+		ptrNoAnterior->proxNo = NULL;
+	}
+
+	// Exclui o primeiro nó
+	delete ptrNoAtual;
+
+	// Decrementa o quantidade de Nós
+	ptrLista->qtdNo--;
+
+	return true;
+}
