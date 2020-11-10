@@ -31,6 +31,7 @@ Lista* criarLista();
 void liberarLista(Lista* ptrLista);
 void exibirLista(Lista* ptrLista);
 bool inserirListaOrdenada(Lista* ptrLista, int matricula, string nome, float media, char sexo);
+bool inputUser(Lista* pListaM, Lista* pListaF);
 
 
 int main() {
@@ -48,33 +49,14 @@ int main() {
 	float media;
 	char sexo;
 
+	inputUser(pListaM, pListaF);
 
-	for (ind = 0; ind < 4; ind++) {
-		cout << "Matricula: ";
-		cin >> matricula;
-
-		cin.ignore();
-
-		cout << "Nome: ";
-		cin >> nome;
-
-		cout << "Media : ";
-		cin >> media;
-
-		cout << "Sexo: ";
-		cin >> sexo;
-
-		if (sexo == 'F') {
-			inserirListaOrdenada(pListaF, matricula, nome, media, sexo);
-		}
-		else {
-			inserirListaOrdenada(pListaM, matricula, nome, media, sexo);
-		}
-	}
-
+	cout << "Masculino" << endl << endl;
 	exibirLista(pListaM);
+	cout << endl << endl;
+	cout << "Feminino" << endl << endl;
 	exibirLista(pListaF);
-	
+	cout << endl << endl;
 	
 	liberarLista (pListaM);
 	liberarLista (pListaF);
@@ -227,3 +209,35 @@ bool inserirListaOrdenada(Lista* ptrLista, int matricula, string nome, float med
 	return true;
 }
 
+bool inputUser(Lista* pListaM, Lista* pListaF) {
+
+	int matricula, ind;
+	string nome;
+	float media;
+	char sexo;
+	
+
+	for (ind = 0; ind < 4; ind++) {
+		cout << "Matricula: ";
+		cin >> matricula;
+		cin.ignore();
+
+		cout << "Nome: ";
+		getline(cin, nome);
+
+		cout << "Media : ";
+		cin >> media;
+
+		cout << "Sexo: ";
+		cin >> sexo;
+
+		if (sexo == 'F' || sexo == 'f') {
+			inserirListaOrdenada(pListaF, matricula, nome, media, sexo);
+		}
+		else if (sexo == 'M' || sexo == 'm') {
+			inserirListaOrdenada(pListaM, matricula, nome, media, sexo);
+		}
+
+	}
+	return true;
+}
