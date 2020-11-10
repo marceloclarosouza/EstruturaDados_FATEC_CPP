@@ -149,6 +149,7 @@
     <ClCompile Include="07_ListaEncadeadaIntroducao.cpp" />
     <ClCompile Include="08_ListaSimplesmenteEncadeada.cpp" />
     <ClCompile Include="09_exe1.cpp" />
+    <ClCompile Include="09_exe2.cpp" />
     <ClCompile Include="09_Lista_duplamente_encadeada.cpp" />
     <ClCompile Include="exercicios_20_10_2020.cpp" />
     <ClCompile Include="Exercicio_Alunos.cpp" />
