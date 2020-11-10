@@ -58,7 +58,7 @@
 //
 //	inserirListaFim(ListaB, 40, "Alberto", 9.5);
 //	inserirListaFim(ListaB, 50, "Luiza", 7.8);
-//	inserirListaFim(ListaC, 60, "Creusa", 8.2);
+//	inserirListaFim(ListaB, 60, "Creusa", 8.2);
 //
 //	concatenarLista(ListaA, ListaB, ListaC);
 //
