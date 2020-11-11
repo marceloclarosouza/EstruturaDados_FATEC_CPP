@@ -154,6 +154,7 @@
     <ClCompile Include="09_exe4.cpp" />
     <ClCompile Include="09_exe5.cpp" />
     <ClCompile Include="09_Lista_duplamente_encadeada.cpp" />
+    <ClCompile Include="10_pilha.cpp" />
     <ClCompile Include="exercicios_20_10_2020.cpp" />
     <ClCompile Include="Exercicio_Alunos.cpp" />
     <ClCompile Include="Exercicio_Arvore.cpp" />
