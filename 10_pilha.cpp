@@ -18,6 +18,15 @@ struct No {
 	No* proxNo;			// aponta para o próximo Nó da lista
 };
 
+
+Pilha* criarPilha();
+void liberarPilha(Pilha* ptrPilha);
+void exibirPilha(Pilha* ptrPilha);
+bool empilharPush(Pilha* ptrPilha, int matricula, string nome, float media);
+bool desempilharPop(Pilha* ptrPilha);
+No* consultarPilhaTop(Pilha* ptrPilha);
+
+
 // Nó topo da Pilha
 struct Pilha {
 	int qtdNo;
@@ -80,3 +89,117 @@ void liberarPilha(Pilha* ptrPilha) {
 	delete ptrPilha;
 }
 
+//--------------------------------------------------------
+// EXIBIR A PILHA
+//--------------------------------------------------------
+void exibirPilha(Pilha* ptrPilha) {
+	No* ptrNoAtual;
+
+	//Se a PILLHA NÃO foi criada
+	if (ptrPilha == NULL) {
+		cout << "A pilha não está criada!" << endl;
+		return;
+	}
+
+
+	//Se não tiver nenhum Nó na pilha
+	if (ptrPilha->topo == NULL) {
+		cout << "A pilha esta vazia!" << endl;
+		return;
+	}
+
+	ptrNoAtual = ptrPilha->topo;
+
+	while (ptrNoAtual != NULL) {
+		cout << "Matrícula: " << ptrNoAtual->dados.matricula << endl;
+		cout << "Nome: " << ptrNoAtual->dados.nome << endl;
+		cout << "Média: " << ptrNoAtual->dados.media << endl << endl;
+
+		ptrNoAtual = ptrNoAtual->proxNo;
+	}
+}
+
+
+//--------------------------------------------------------
+// EMPILHA NO TOPO DA PILHA
+//--------------------------------------------------------
+bool empilharPush(Pilha* ptrPilha, int matricula, string nome, float media) {
+	No* ptrNoNovo;
+
+	//Se a pilha NÃO foi criada
+	if (ptrPilha == NULL) {
+		cout << "A pilha não está criada!" << endl;
+		return false;
+	}
+
+	//---------------------------------------------------------------
+	//	Cria o novo nó
+	//---------------------------------------------------------------
+	ptrNoNovo = new No;
+
+	if (ptrNoNovo == NULL) {
+		cout << "Memória insulficiente!" << endl;
+		return false;
+	}
+
+	ptrNoNovo->dados.matricula = matricula;
+	ptrNoNovo->dados.nome = nome;
+	ptrNoNovo->dados.media = media;
+	ptrNoNovo->proxNo = ptrPilha->topo;
+
+	// Empilha
+	ptrPilha->topo = ptrNoNovo;
+
+	// Incrementa o quantidade de Nós
+	ptrPilha->qtdNo++;
+
+	return true;
+}
+
+//--------------------------------------------------------
+// DESEMPILHA DO TOPO DA PILHA
+//--------------------------------------------------------
+bool desempilharPop(Pilha* ptrPilha) {
+	No* ptrNoAtual;
+
+	// Se a PILHA NÃO foi criada
+	if (ptrPilha == NULL) {
+		cout << "A pilha não está criada!" << endl;
+		return false;
+	}
+
+	//Se não tiver nenhum Nó na pilha
+	if (ptrPilha->topo == NULL) {
+		cout << "A pilha está vazia!" << endl;
+		return false;
+	}
+
+	// Ajusta o topo
+	ptrNoAtual = ptrPilha->topo;
+	ptrPilha->topo = ptrNoAtual->proxNo;
+
+	// Exclui o nó do topo
+	delete ptrNoAtual;
+
+	// Decrementa o quantidade de Nós
+	ptrPilha->qtdNo--;
+
+	return true;
+}
+
+//--------------------------------------------------------
+// CONSULTAR O TOPO DA PILHA
+//--------------------------------------------------------
+No* consultarPilhaTop(Pilha* ptrPilha) {
+	No* ptrNoAtual;
+
+	// Se a PILHA NÃO foi criada
+	if (ptrPilha == NULL) {
+		cout << "A pilha não está criada!" << endl;
+		return NULL;
+	}
+
+	ptrNoAtual = ptrPilha->topo;
+
+	return ptrNoAtual;
+}
