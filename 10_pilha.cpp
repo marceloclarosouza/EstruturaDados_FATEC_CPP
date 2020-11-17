@@ -535,3 +535,287 @@ informando o resultado */
 //	}
 //
 //}
+
+//Exercicio2
+/*Crie duas pilhas (pPilhaX e pPilhaY), a primeira com 5
+elementos, a segunda com 3. Faça uma função que
+verifique se a pPilhaY e uma subpilha de pPilhaX, ou
+seja, se todos os elementos de pPilhaY estão contidos
+em pPilhaX. Se for uma subpilha, a função retorna
+verdadeiro, caso contrário, falso.*/
+
+
+#include <iostream>
+#include <stdlib.h> 
+#include <string>
+
+using namespace std;
+
+
+// Dados sobre o ALUNO
+struct Dados {
+	int matricula;
+	string nome;
+	float media;
+};
+
+// Estrutura do Nó
+struct No {
+	Dados dados;	// estrutura guardada dentro da lista
+	No* proxNo;			// aponta para o próximo Nó da lista
+};
+
+// Nó topo da Pilha
+struct Pilha {
+	int qtdNo;
+	No* topo;
+};
+
+
+Pilha* criarPilha();
+void liberarPilha(Pilha* ptrPilha);
+void exibirPilha(Pilha* ptrPilha);
+
+bool empilharPush(Pilha* ptrPilha, int matricula, string nome, float media);
+bool compararPilha(Pilha* ptrPilhaX, Pilha* ptrPilhaY);
+
+
+int main() {
+	setlocale(LC_ALL, "Portuguese");
+
+	Pilha* pPilhaX;
+	Pilha* pPilhaY;
+	bool resultado;
+
+	pPilhaX = criarPilha();
+	pPilhaY = criarPilha();
+
+	empilharPush(pPilhaX, 10, "Luis", 7.5);
+	empilharPush(pPilhaX, 20, "Claudia", 9.1);
+	empilharPush(pPilhaX, 30, "Luffy", 3.5);
+	empilharPush(pPilhaX, 40, "Claudia", 9.1);
+	empilharPush(pPilhaX, 50, "Luffy", 3.5);
+
+
+	empilharPush(pPilhaY, 10, "Alberto", 8.2);
+	empilharPush(pPilhaY, 20, "Richard", 7.4);
+	empilharPush(pPilhaY, 30, "Jimbei", 6.7);
+
+
+	resultado = compararPilha(pPilhaX, pPilhaY);
+	if (resultado == true) {
+		cout << "Verdadeiro" << endl;
+	}
+	else {
+		cout << "False" << endl;
+	}
+
+	liberarPilha(pPilhaX);
+	liberarPilha(pPilhaY);
+
+
+	system("pause");
+	return 0;
+}
+
+//--------------------------------------------------------
+// CRIAR PILHA
+//--------------------------------------------------------
+Pilha* criarPilha() {
+	Pilha* ptrPilha;
+
+	ptrPilha = new Pilha;
+
+	// Se a PILHA NÃO pode ser criada
+	if (ptrPilha == NULL) {
+		cout << "Não foi possível criar a pilha!" << endl;
+		return NULL;
+	}
+
+	// Como a pilha está vazia o INÍCIO aponta para NULL	
+	ptrPilha->qtdNo = 0;
+	ptrPilha->topo = NULL;
+
+	return ptrPilha;
+}
+
+//--------------------------------------------------------
+// LIBERAR PILHA
+//--------------------------------------------------------
+void liberarPilha(Pilha* ptrPilha) {
+	No* ptrNoAtual;
+
+	//Se a PILHA NÃO foi criada
+	if (ptrPilha == NULL) {
+		cout << "A pilha não está criada!" << endl;
+		return;
+	}
+
+	// Exclui cada Nó da pilha
+	while (ptrPilha->topo != NULL)
+	{
+		ptrNoAtual = ptrPilha->topo;
+
+		ptrPilha->topo = ptrNoAtual->proxNo;
+
+		delete  ptrNoAtual;
+	}
+
+	delete ptrPilha;
+}
+
+//--------------------------------------------------------
+// EXIBIR A PILHA
+//--------------------------------------------------------
+void exibirPilha(Pilha* ptrPilha) {
+	No* ptrNoAtual;
+
+	//Se a PILLHA NÃO foi criada
+	if (ptrPilha == NULL) {
+		cout << "A pilha não está criada!" << endl;
+		return;
+	}
+
+
+	//Se não tiver nenhum Nó na pilha
+	if (ptrPilha->topo == NULL) {
+		cout << "A pilha esta vazia!" << endl;
+		return;
+	}
+
+	ptrNoAtual = ptrPilha->topo;
+
+	while (ptrNoAtual != NULL) {
+		cout << "Matrícula: " << ptrNoAtual->dados.matricula << endl;
+		cout << "Nome: " << ptrNoAtual->dados.nome << endl;
+		cout << "Média: " << ptrNoAtual->dados.media << endl << endl;
+
+		ptrNoAtual = ptrNoAtual->proxNo;
+	}
+}
+
+
+//--------------------------------------------------------
+// EMPILHA NO TOPO DA PILHA
+//--------------------------------------------------------
+bool empilharPush(Pilha* ptrPilha, int matricula, string nome, float media) {
+	No* ptrNoNovo;
+
+	//Se a pilha NÃO foi criada
+	if (ptrPilha == NULL) {
+		cout << "A pilha não está criada!" << endl;
+		return false;
+	}
+
+	//---------------------------------------------------------------
+	//	Cria o novo nó
+	//---------------------------------------------------------------
+	ptrNoNovo = new No;
+
+	if (ptrNoNovo == NULL) {
+		cout << "Memória insulficiente!" << endl;
+		return false;
+	}
+
+	ptrNoNovo->dados.matricula = matricula;
+	ptrNoNovo->dados.nome = nome;
+	ptrNoNovo->dados.media = media;
+	ptrNoNovo->proxNo = ptrPilha->topo;
+
+	// Empilha
+	ptrPilha->topo = ptrNoNovo;
+
+	// Incrementa o quantidade de Nós
+	ptrPilha->qtdNo++;
+
+	return true;
+}
+
+//--------------------------------------------------------
+// DESEMPILHA DO TOPO DA PILHA
+//--------------------------------------------------------
+bool desempilharPop(Pilha* ptrPilha) {
+	No* ptrNoAtual;
+
+	// Se a PILHA NÃO foi criada
+	if (ptrPilha == NULL) {
+		cout << "A pilha não está criada!" << endl;
+		return false;
+	}
+
+	//Se não tiver nenhum Nó na pilha
+	if (ptrPilha->topo == NULL) {
+		cout << "A pilha está vazia!" << endl;
+		return false;
+	}
+
+	// Ajusta o topo
+	ptrNoAtual = ptrPilha->topo;
+	ptrPilha->topo = ptrNoAtual->proxNo;
+
+	// Exclui o nó do topo
+	delete ptrNoAtual;
+
+	// Decrementa o quantidade de Nós
+	ptrPilha->qtdNo--;
+
+	return true;
+}
+
+//--------------------------------------------------------
+// CONSULTAR O TOPO DA PILHA
+//--------------------------------------------------------
+No* consultarPilhaTop(Pilha* ptrPilha) {
+	No* ptrNoAtual;
+
+	// Se a PILHA NÃO foi criada
+	if (ptrPilha == NULL) {
+		cout << "A pilha não está criada!" << endl;
+		return NULL;
+	}
+
+	ptrNoAtual = ptrPilha->topo;
+
+	return ptrNoAtual;
+}
+
+//--------------------------------------------------------
+// CONSULTAR PILHA
+//--------------------------------------------------------
+bool compararPilha(Pilha* ptrPilhaX, Pilha* ptrPilhaY) {
+	No* ptrNoAtualX;
+	No* ptrNoAtualY;
+	int flag = 0;
+	
+
+	// Se a PILHA NÃO foi criada
+	if (ptrPilhaX == NULL || ptrPilhaY == NULL) {
+		cout << "A pilha não está criada!" << endl;
+		return NULL;
+	}
+
+	ptrNoAtualX = ptrPilhaX->topo;
+	ptrNoAtualY = ptrPilhaY->topo;
+		
+		//Localiza o no a ser alteraldo
+	while (ptrNoAtualY != NULL) {
+		while (ptrNoAtualX != NULL) {
+			if (ptrNoAtualX->dados.matricula == ptrNoAtualY->dados.matricula) {
+				flag ++;
+			}
+			ptrNoAtualX = ptrNoAtualX->proxNo;
+		}	
+			
+		ptrNoAtualY = ptrNoAtualY->proxNo;
+		ptrNoAtualX = ptrPilhaX->topo;
+	}
+
+
+	if (flag == 3) {
+		return true;
+	}		
+	else {
+		return false;
+	}
+
+}
