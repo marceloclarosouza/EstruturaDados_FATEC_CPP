@@ -989,7 +989,7 @@ No* consultarPrimeiroFila(Fila* ptrFila) {
 ////--------------------------------------
 //// Altera Media < 4
 ////--------------------------------------
-//----------------------------------------
+//---------------------------------------
 void uniao(Fila* ptrFilaX, Fila* ptrFilaY, Fila* ptrFilaZ){
 	No* ptrNoAtualX;
 	No* ptrNoAtualY;
