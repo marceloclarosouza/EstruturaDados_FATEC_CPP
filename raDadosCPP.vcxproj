@@ -162,6 +162,7 @@
     <ClCompile Include="Exercicio_Discos.cpp" />
     <ClCompile Include="Lista_exercicios_P1.cpp" />
     <ClCompile Include="AvaliacaoP1.cpp" />
+    <ClCompile Include="11_fila.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
