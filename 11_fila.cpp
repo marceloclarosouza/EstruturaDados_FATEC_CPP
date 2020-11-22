@@ -1,4 +1,4 @@
-//#include <iostream>
+Ôªø//#include <iostream>
 //#include <stdlib.h> 
 //#include <string>
 //
@@ -11,16 +11,16 @@
 //	float media;
 //};
 //
-//// Estrutura do NÛ
+//// Estrutura do N√≥
 //struct No {
 //	Dados dados;	// estrutura guardada dentro da lista
-//	No* proxNo;			// aponta para o prÛximo NÛ da lista
+//	No* proxNo;			// aponta para o pr√≥ximo N√≥ da lista
 //};
 //
 //// Fila
 //struct Fila {
 //	int qtdNo;
-//	No* inicio;  // cabeÁa para inÌcio
+//	No* inicio;  // cabe√ßa para in√≠cio
 //	No* final;   // cauda para fim
 //};
 //
@@ -43,7 +43,7 @@
 //
 //	pFila = criarFila();
 //
-//	enfileirarPush(pFila, 20, "JosÈ", 7.0);
+//	enfileirarPush(pFila, 20, "Jos√©", 7.0);
 //	enfileirarPush(pFila, 30, "Jesus", 10.0);
 //	enfileirarPush(pFila, 40, "Paulo", 6.0f);
 //	enfileirarPush(pFila, 50, "Pedro", 7.0f);
@@ -60,13 +60,13 @@
 //
 //	ptrFila = new Fila;
 //
-//	// Se a FILA N√O pode ser criada
+//	// Se a FILA N√ÉO pode ser criada
 //	if (ptrFila == NULL) {
-//		cout << "N„o foi possÌvel criar a fila!" << endl;
+//		cout << "N√£o foi poss√≠vel criar a fila!" << endl;
 //		return NULL;
 //	}
 //
-//	// Como a FILA est· vazia o INÕCIO e o FINAL apontaM para NULL	
+//	// Como a FILA est√° vazia o IN√çCIO e o FINAL apontaM para NULL	
 //	ptrFila->qtdNo = 0;
 //	ptrFila->inicio = NULL;
 //	ptrFila->final = NULL;
@@ -77,13 +77,13 @@
 //void liberarFila(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	//Se a FILA N√O foi criada
+//	//Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A fila n„o est· criada!" << endl;
+//		cout << "A fila n√£o est√° criada!" << endl;
 //		return;
 //	}
 //
-//	// Exclui cada NÛ da FILA
+//	// Exclui cada N√≥ da FILA
 //	while (ptrFila->inicio != NULL)
 //	{
 //		ptrNoAtual = ptrFila->inicio;
@@ -99,13 +99,13 @@
 //void exibirFila(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	//Se a FILA N√O foi criada
+//	//Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A pilha n„o est· criada!" << endl;
+//		cout << "A pilha n√£o est√° criada!" << endl;
 //		return;
 //	}
 //
-//	//Se n„o tiver nenhum NÛ na FILA
+//	//Se n√£o tiver nenhum N√≥ na FILA
 //	if (ptrFila->inicio == NULL) {
 //		cout << "A fila esta vazia!" << endl;
 //		return;
@@ -114,9 +114,9 @@
 //	ptrNoAtual = ptrFila->inicio;
 //
 //	while (ptrNoAtual != NULL) {
-//		cout << "MatrÌcula: " << ptrNoAtual->dados.matricula << endl;
+//		cout << "Matr√≠cula: " << ptrNoAtual->dados.matricula << endl;
 //		cout << "Nome: " << ptrNoAtual->dados.nome << endl;
-//		cout << "MÈdia: " << ptrNoAtual->dados.media << endl << endl;
+//		cout << "M√©dia: " << ptrNoAtual->dados.media << endl << endl;
 //
 //		ptrNoAtual = ptrNoAtual->proxNo;
 //	}
@@ -125,13 +125,13 @@
 //void exibirPilhaAvancada(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	//Se a FILA N√O foi criada
+//	//Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A pilha n„o est· criada!" << endl;
+//		cout << "A pilha n√£o est√° criada!" << endl;
 //		return;
 //	}
 //
-//	//Se n„o tiver nenhum NÛ na FILA
+//	//Se n√£o tiver nenhum N√≥ na FILA
 //	if (ptrFila->inicio == NULL) {
 //		cout << "A fila esta vazia!" << endl;
 //		return;
@@ -142,17 +142,17 @@
 //	cout << "===========================================" << endl;
 //	cout << "                   FILA" << endl;
 //	cout << "  Quantidade: " << ptrFila->qtdNo << endl;
-//	cout << "  \tInÌcio: " << ptrFila->inicio << endl;
+//	cout << "  \tIn√≠cio: " << ptrFila->inicio << endl;
 //	cout << "===========================================" << endl << endl;
 //
 //
 //	while (ptrNoAtual != NULL) {
 //		cout << "-------------------------------------------" << endl;
 //		cout << "        " << ptrNoAtual << endl;
-//		cout << "MatrÌcula: " << ptrNoAtual->dados.matricula << endl;
+//		cout << "Matr√≠cula: " << ptrNoAtual->dados.matricula << endl;
 //		cout << "Nome: " << ptrNoAtual->dados.nome << endl;
-//		cout << "MÈdia: " << ptrNoAtual->dados.media << endl;
-//		cout << "\tPrÛximo-> " << ptrNoAtual->proxNo << endl;
+//		cout << "M√©dia: " << ptrNoAtual->dados.media << endl;
+//		cout << "\tPr√≥ximo-> " << ptrNoAtual->proxNo << endl;
 //
 //		ptrNoAtual = ptrNoAtual->proxNo;
 //	}
@@ -164,16 +164,16 @@
 //	No* ptrNoNovo;
 //
 //
-//	//Se a FILA N√O foi criada
+//	//Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A fila n„o est· criada!" << endl;
+//		cout << "A fila n√£o est√° criada!" << endl;
 //		return false;
 //	}
 //
 //	ptrNoNovo = new No;
 //
 //	if (ptrNoNovo == NULL) {
-//		cout << "MemÛria insulficiente!" << endl;
+//		cout << "Mem√≥ria insulficiente!" << endl;
 //		return false;
 //	}
 //
@@ -190,7 +190,7 @@
 //
 //	ptrFila->final = ptrNoNovo;
 //
-//	// Incrementa o quantidade de NÛs
+//	// Incrementa o quantidade de N√≥s
 //	ptrFila->qtdNo++;
 //
 //	return true;
@@ -199,27 +199,27 @@
 //bool desenfileiraPop(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	// Se a FILA N√O foi criada
+//	// Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A pilha n„o est· criada!" << endl;
+//		cout << "A pilha n√£o est√° criada!" << endl;
 //		return false;
 //	}
 //
 //	// Cria um ponteiro auxiliar
 //	ptrNoAtual = ptrFila->inicio;
 //
-//	// Ajusta o inÌcio da fila
+//	// Ajusta o in√≠cio da fila
 //	ptrFila->inicio = ptrFila->inicio->proxNo;
 //
-//	// Se for o ˙ltimo nÛ da fila
+//	// Se for o √∫ltimo n√≥ da fila
 //	if (ptrFila->inicio == NULL) {          // caso tivesse apenas 1 elemento, fica vazia
 //		ptrFila->final = NULL;
 //	}
 //
-//	// Exclui o nÛ 
+//	// Exclui o n√≥ 
 //	delete ptrNoAtual;
 //
-//	// Decrementa o quantidade de NÛs
+//	// Decrementa o quantidade de N√≥s
 //	ptrFila->qtdNo--;
 //
 //	return true;
@@ -228,9 +228,9 @@
 //No* consultarPrimeiroFila(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	// Se a FILA N√O foi criada
+//	// Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A fila n„o est· criada!" << endl;
+//		cout << "A fila n√£o est√° criada!" << endl;
 //		return NULL;
 //	}
 //
@@ -241,8 +241,8 @@
 
 //Exercicio 01
 /*Insira 5 elementos em uma fila.
-Escreva uma funÁ„o que receba a fila e adicione 1 ponto
-extra para quem tem mÈdia abaixo ou igual a 4.
+Escreva uma fun√ß√£o que receba a fila e adicione 1 ponto
+extra para quem tem m√©dia abaixo ou igual a 4.
 Por fim, imprima a fila novamente com os dados alterados.*/
 
 //#include <iostream>
@@ -258,16 +258,16 @@ Por fim, imprima a fila novamente com os dados alterados.*/
 //	float media;
 //};
 //
-//// Estrutura do NÛ
+//// Estrutura do N√≥
 //struct No {
 //	Dados dados;	// estrutura guardada dentro da lista
-//	No* proxNo;			// aponta para o prÛximo NÛ da lista
+//	No* proxNo;			// aponta para o pr√≥ximo N√≥ da lista
 //};
 //
 //// Fila
 //struct Fila {
 //	int qtdNo;
-//	No* inicio;  // cabeÁa para inÌcio
+//	No* inicio;  // cabe√ßa para in√≠cio
 //	No* final;   // cauda para fim
 //};
 //
@@ -289,7 +289,7 @@ Por fim, imprima a fila novamente com os dados alterados.*/
 //	pFila = criarFila();
 //
 //	enfileirarPush(pFila, 10, "Raul", 8.0);
-//	enfileirarPush(pFila, 20, "JosÈ", 4.0);
+//	enfileirarPush(pFila, 20, "Jos√©", 4.0);
 //	enfileirarPush(pFila, 30, "Jesus", 10.0);
 //	enfileirarPush(pFila, 40, "Paulo", 3.5);
 //	enfileirarPush(pFila, 50, "Pedro", 7.0);
@@ -309,13 +309,13 @@ Por fim, imprima a fila novamente com os dados alterados.*/
 //
 //	ptrFila = new Fila;
 //
-//	// Se a FILA N√O pode ser criada
+//	// Se a FILA N√ÉO pode ser criada
 //	if (ptrFila == NULL) {
-//		cout << "N„o foi possÌvel criar a fila!" << endl;
+//		cout << "N√£o foi poss√≠vel criar a fila!" << endl;
 //		return NULL;
 //	}
 //
-//	// Como a FILA est· vazia o INÕCIO e o FINAL apontaM para NULL	
+//	// Como a FILA est√° vazia o IN√çCIO e o FINAL apontaM para NULL	
 //	ptrFila->qtdNo = 0;
 //	ptrFila->inicio = NULL;
 //	ptrFila->final = NULL;
@@ -326,13 +326,13 @@ Por fim, imprima a fila novamente com os dados alterados.*/
 //void liberarFila(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	//Se a FILA N√O foi criada
+//	//Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A fila n„o est· criada!" << endl;
+//		cout << "A fila n√£o est√° criada!" << endl;
 //		return;
 //	}
 //
-//	// Exclui cada NÛ da FILA
+//	// Exclui cada N√≥ da FILA
 //	while (ptrFila->inicio != NULL)
 //	{
 //		ptrNoAtual = ptrFila->inicio;
@@ -348,13 +348,13 @@ Por fim, imprima a fila novamente com os dados alterados.*/
 //void exibirFila(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	//Se a FILA N√O foi criada
+//	//Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A pilha n„o est· criada!" << endl;
+//		cout << "A pilha n√£o est√° criada!" << endl;
 //		return;
 //	}
 //
-//	//Se n„o tiver nenhum NÛ na FILA
+//	//Se n√£o tiver nenhum N√≥ na FILA
 //	if (ptrFila->inicio == NULL) {
 //		cout << "A fila esta vazia!" << endl;
 //		return;
@@ -363,9 +363,9 @@ Por fim, imprima a fila novamente com os dados alterados.*/
 //	ptrNoAtual = ptrFila->inicio;
 //
 //	while (ptrNoAtual != NULL) {
-//		cout << "MatrÌcula: " << ptrNoAtual->dados.matricula << endl;
+//		cout << "Matr√≠cula: " << ptrNoAtual->dados.matricula << endl;
 //		cout << "Nome: " << ptrNoAtual->dados.nome << endl;
-//		cout << "MÈdia: " << ptrNoAtual->dados.media << endl << endl;
+//		cout << "M√©dia: " << ptrNoAtual->dados.media << endl << endl;
 //
 //		ptrNoAtual = ptrNoAtual->proxNo;
 //	}
@@ -374,13 +374,13 @@ Por fim, imprima a fila novamente com os dados alterados.*/
 //void exibirPilhaAvancada(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	//Se a FILA N√O foi criada
+//	//Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A pilha n„o est· criada!" << endl;
+//		cout << "A pilha n√£o est√° criada!" << endl;
 //		return;
 //	}
 //
-//	//Se n„o tiver nenhum NÛ na FILA
+//	//Se n√£o tiver nenhum N√≥ na FILA
 //	if (ptrFila->inicio == NULL) {
 //		cout << "A fila esta vazia!" << endl;
 //		return;
@@ -391,17 +391,17 @@ Por fim, imprima a fila novamente com os dados alterados.*/
 //	cout << "===========================================" << endl;
 //	cout << "                   FILA" << endl;
 //	cout << "  Quantidade: " << ptrFila->qtdNo << endl;
-//	cout << "  \tInÌcio: " << ptrFila->inicio << endl;
+//	cout << "  \tIn√≠cio: " << ptrFila->inicio << endl;
 //	cout << "===========================================" << endl << endl;
 //
 //
 //	while (ptrNoAtual != NULL) {
 //		cout << "-------------------------------------------" << endl;
 //		cout << "        " << ptrNoAtual << endl;
-//		cout << "MatrÌcula: " << ptrNoAtual->dados.matricula << endl;
+//		cout << "Matr√≠cula: " << ptrNoAtual->dados.matricula << endl;
 //		cout << "Nome: " << ptrNoAtual->dados.nome << endl;
-//		cout << "MÈdia: " << ptrNoAtual->dados.media << endl;
-//		cout << "\tPrÛximo-> " << ptrNoAtual->proxNo << endl;
+//		cout << "M√©dia: " << ptrNoAtual->dados.media << endl;
+//		cout << "\tPr√≥ximo-> " << ptrNoAtual->proxNo << endl;
 //
 //		ptrNoAtual = ptrNoAtual->proxNo;
 //	}
@@ -413,16 +413,16 @@ Por fim, imprima a fila novamente com os dados alterados.*/
 //	No* ptrNoNovo;
 //
 //
-//	//Se a FILA N√O foi criada
+//	//Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A fila n„o est· criada!" << endl;
+//		cout << "A fila n√£o est√° criada!" << endl;
 //		return false;
 //	}
 //
 //	ptrNoNovo = new No;
 //
 //	if (ptrNoNovo == NULL) {
-//		cout << "MemÛria insulficiente!" << endl;
+//		cout << "Mem√≥ria insulficiente!" << endl;
 //		return false;
 //	}
 //
@@ -439,7 +439,7 @@ Por fim, imprima a fila novamente com os dados alterados.*/
 //
 //	ptrFila->final = ptrNoNovo;
 //
-//	// Incrementa o quantidade de NÛs
+//	// Incrementa o quantidade de N√≥s
 //	ptrFila->qtdNo++;
 //
 //	return true;
@@ -448,27 +448,27 @@ Por fim, imprima a fila novamente com os dados alterados.*/
 //bool desenfileiraPop(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	// Se a FILA N√O foi criada
+//	// Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A pilha n„o est· criada!" << endl;
+//		cout << "A pilha n√£o est√° criada!" << endl;
 //		return false;
 //	}
 //
 //	// Cria um ponteiro auxiliar
 //	ptrNoAtual = ptrFila->inicio;
 //
-//	// Ajusta o inÌcio da fila
+//	// Ajusta o in√≠cio da fila
 //	ptrFila->inicio = ptrFila->inicio->proxNo;
 //
-//	// Se for o ˙ltimo nÛ da fila
+//	// Se for o √∫ltimo n√≥ da fila
 //	if (ptrFila->inicio == NULL) {          // caso tivesse apenas 1 elemento, fica vazia
 //		ptrFila->final = NULL;
 //	}
 //
-//	// Exclui o nÛ 
+//	// Exclui o n√≥ 
 //	delete ptrNoAtual;
 //
-//	// Decrementa o quantidade de NÛs
+//	// Decrementa o quantidade de N√≥s
 //	ptrFila->qtdNo--;
 //
 //	return true;
@@ -477,9 +477,9 @@ Por fim, imprima a fila novamente com os dados alterados.*/
 //No* consultarPrimeiroFila(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	// Se a FILA N√O foi criada
+//	// Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A fila n„o est· criada!" << endl;
+//		cout << "A fila n√£o est√° criada!" << endl;
 //		return NULL;
 //	}
 //
@@ -502,13 +502,12 @@ Por fim, imprima a fila novamente com os dados alterados.*/
 //}	
 
 //exercicio2
-/*
-Dadas duas filas com as seguintes matrÌculas em ordem
+/* Dadas duas filas com as seguintes matr√≠culas em ordem
 crescente.
 pFilaX ={1, 3, 5, 9,12, 16, 23} e
 pFilaY = {1, 2, 6, 7, 9, 15, 23},
-Implemente a operaÁ„o UNI√O, que cria uma terceira fila,
-com a uni„o entre as duas anteriores, tambÈm em ordem
+Implemente a opera√ß√£o UNI√ÉO, que cria uma terceira fila,
+com a uni√£o entre as duas anteriores, tamb√©m em ordem
 crescente.
 pFilaZ = {1, 2, 3, 5, 6, 7, 9, 12, 15, 16, 23}
 */
@@ -526,16 +525,16 @@ pFilaZ = {1, 2, 3, 5, 6, 7, 9, 12, 15, 16, 23}
 //	float media;
 //};
 //
-//// Estrutura do NÛ
+//// Estrutura do N√≥
 //struct No {
 //	Dados dados;	// estrutura guardada dentro da lista
-//	No* proxNo;			// aponta para o prÛximo NÛ da lista
+//	No* proxNo;			// aponta para o pr√≥ximo N√≥ da lista
 //};
 //
 //// Fila
 //struct Fila {
 //	int qtdNo;
-//	No* inicio;  // cabeÁa para inÌcio
+//	No* inicio;  // cabe√ßa para in√≠cio
 //	No* final;   // cauda para fim
 //};
 //
@@ -561,7 +560,7 @@ pFilaZ = {1, 2, 3, 5, 6, 7, 9, 12, 15, 16, 23}
 //	pFilaZ = criarFila();
 //
 //	enfileirarPush(pFilaX, 1, "Raul", 8.0);
-//	enfileirarPush(pFilaX, 3, "JosÈ", 4.0);
+//	enfileirarPush(pFilaX, 3, "Jos√©", 4.0);
 //	enfileirarPush(pFilaX, 5, "Jesus", 10.0);
 //	enfileirarPush(pFilaX, 9, "Pamela", 3.5);
 //	enfileirarPush(pFilaX, 12, "Henrique", 7.0);
@@ -593,13 +592,13 @@ pFilaZ = {1, 2, 3, 5, 6, 7, 9, 12, 15, 16, 23}
 //
 //	ptrFila = new Fila;
 //
-//	// Se a FILA N√O pode ser criada
+//	// Se a FILA N√ÉO pode ser criada
 //	if (ptrFila == NULL) {
-//		cout << "N„o foi possÌvel criar a fila!" << endl;
+//		cout << "N√£o foi poss√≠vel criar a fila!" << endl;
 //		return NULL;
 //	}
 //
-//	// Como a FILA est· vazia o INÕCIO e o FINAL apontaM para NULL	
+//	// Como a FILA est√° vazia o IN√çCIO e o FINAL apontaM para NULL	
 //	ptrFila->qtdNo = 0;
 //	ptrFila->inicio = NULL;
 //	ptrFila->final = NULL;
@@ -610,13 +609,13 @@ pFilaZ = {1, 2, 3, 5, 6, 7, 9, 12, 15, 16, 23}
 //void liberarFila(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	//Se a FILA N√O foi criada
+//	//Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A fila n„o est· criada!" << endl;
+//		cout << "A fila n√£o est√° criada!" << endl;
 //		return;
 //	}
 //
-//	// Exclui cada NÛ da FILA
+//	// Exclui cada N√≥ da FILA
 //	while (ptrFila->inicio != NULL)
 //	{
 //		ptrNoAtual = ptrFila->inicio;
@@ -632,13 +631,13 @@ pFilaZ = {1, 2, 3, 5, 6, 7, 9, 12, 15, 16, 23}
 //void exibirFila(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	//Se a FILA N√O foi criada
+//	//Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A pilha n„o est· criada!" << endl;
+//		cout << "A pilha n√£o est√° criada!" << endl;
 //		return;
 //	}
 //
-//	//Se n„o tiver nenhum NÛ na FILA
+//	//Se n√£o tiver nenhum N√≥ na FILA
 //	if (ptrFila->inicio == NULL) {
 //		cout << "A fila esta vazia!" << endl;
 //		return;
@@ -647,9 +646,9 @@ pFilaZ = {1, 2, 3, 5, 6, 7, 9, 12, 15, 16, 23}
 //	ptrNoAtual = ptrFila->inicio;
 //
 //	while (ptrNoAtual != NULL) {
-//		cout << "MatrÌcula: " << ptrNoAtual->dados.matricula << endl;
+//		cout << "Matr√≠cula: " << ptrNoAtual->dados.matricula << endl;
 //		cout << "Nome: " << ptrNoAtual->dados.nome << endl;
-//		cout << "MÈdia: " << ptrNoAtual->dados.media << endl << endl;
+//		cout << "M√©dia: " << ptrNoAtual->dados.media << endl << endl;
 //
 //		ptrNoAtual = ptrNoAtual->proxNo;
 //	}
@@ -658,13 +657,13 @@ pFilaZ = {1, 2, 3, 5, 6, 7, 9, 12, 15, 16, 23}
 //void exibirPilhaAvancada(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	//Se a FILA N√O foi criada
+//	//Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A pilha n„o est· criada!" << endl;
+//		cout << "A pilha n√£o est√° criada!" << endl;
 //		return;
 //	}
 //
-//	//Se n„o tiver nenhum NÛ na FILA
+//	//Se n√£o tiver nenhum N√≥ na FILA
 //	if (ptrFila->inicio == NULL) {
 //		cout << "A fila esta vazia!" << endl;
 //		return;
@@ -675,17 +674,17 @@ pFilaZ = {1, 2, 3, 5, 6, 7, 9, 12, 15, 16, 23}
 //	cout << "===========================================" << endl;
 //	cout << "                   FILA" << endl;
 //	cout << "  Quantidade: " << ptrFila->qtdNo << endl;
-//	cout << "  \tInÌcio: " << ptrFila->inicio << endl;
+//	cout << "  \tIn√≠cio: " << ptrFila->inicio << endl;
 //	cout << "===========================================" << endl << endl;
 //
 //
 //	while (ptrNoAtual != NULL) {
 //		cout << "-------------------------------------------" << endl;
 //		cout << "        " << ptrNoAtual << endl;
-//		cout << "MatrÌcula: " << ptrNoAtual->dados.matricula << endl;
+//		cout << "Matr√≠cula: " << ptrNoAtual->dados.matricula << endl;
 //		cout << "Nome: " << ptrNoAtual->dados.nome << endl;
-//		cout << "MÈdia: " << ptrNoAtual->dados.media << endl;
-//		cout << "\tPrÛximo-> " << ptrNoAtual->proxNo << endl;
+//		cout << "M√©dia: " << ptrNoAtual->dados.media << endl;
+//		cout << "\tPr√≥ximo-> " << ptrNoAtual->proxNo << endl;
 //
 //		ptrNoAtual = ptrNoAtual->proxNo;
 //	}
@@ -697,16 +696,16 @@ pFilaZ = {1, 2, 3, 5, 6, 7, 9, 12, 15, 16, 23}
 //	No* ptrNoNovo;
 //
 //
-//	//Se a FILA N√O foi criada
+//	//Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A fila n„o est· criada!" << endl;
+//		cout << "A fila n√£o est√° criada!" << endl;
 //		return false;
 //	}
 //
 //	ptrNoNovo = new No;
 //
 //	if (ptrNoNovo == NULL) {
-//		cout << "MemÛria insulficiente!" << endl;
+//		cout << "Mem√≥ria insulficiente!" << endl;
 //		return false;
 //	}
 //
@@ -723,7 +722,7 @@ pFilaZ = {1, 2, 3, 5, 6, 7, 9, 12, 15, 16, 23}
 //
 //	ptrFila->final = ptrNoNovo;
 //
-//	// Incrementa o quantidade de NÛs
+//	// Incrementa o quantidade de N√≥s
 //	ptrFila->qtdNo++;
 //
 //	return true;
@@ -732,27 +731,27 @@ pFilaZ = {1, 2, 3, 5, 6, 7, 9, 12, 15, 16, 23}
 //bool desenfileiraPop(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	// Se a FILA N√O foi criada
+//	// Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A pilha n„o est· criada!" << endl;
+//		cout << "A pilha n√£o est√° criada!" << endl;
 //		return false;
 //	}
 //
 //	// Cria um ponteiro auxiliar
 //	ptrNoAtual = ptrFila->inicio;
 //
-//	// Ajusta o inÌcio da fila
+//	// Ajusta o in√≠cio da fila
 //	ptrFila->inicio = ptrFila->inicio->proxNo;
 //
-//	// Se for o ˙ltimo nÛ da fila
+//	// Se for o √∫ltimo n√≥ da fila
 //	if (ptrFila->inicio == NULL) {          // caso tivesse apenas 1 elemento, fica vazia
 //		ptrFila->final = NULL;
 //	}
 //
-//	// Exclui o nÛ 
+//	// Exclui o n√≥ 
 //	delete ptrNoAtual;
 //
-//	// Decrementa o quantidade de NÛs
+//	// Decrementa o quantidade de N√≥s
 //	ptrFila->qtdNo--;
 //
 //	return true;
@@ -761,9 +760,9 @@ pFilaZ = {1, 2, 3, 5, 6, 7, 9, 12, 15, 16, 23}
 //No* consultarPrimeiroFila(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	// Se a FILA N√O foi criada
+//	// Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A fila n„o est· criada!" << endl;
+//		cout << "A fila n√£o est√° criada!" << endl;
 //		return NULL;
 //	}
 //
@@ -859,12 +858,12 @@ pFilaZ = {1, 2, 3, 5, 6, 7, 9, 12, 15, 16, 23}
 //}
 
 //exercicio3
-/*Dadas duas filas com as seguintes matrÌculas em ordem
+/*Dadas duas filas com as seguintes matr√≠culas em ordem
 crescente.
 pFilaX ={1, 3, 5, 9,12, 16, 23} e
 pFilaY = {1, 2, 6, 7, 9, 15, 23},
-implemente a operaÁ„o INTERSEC«√O, que cria uma
-terceira fila com a intersecÁ„o entre as duas anteriores.
+implemente a opera√ß√£o INTERSEC√á√ÉO, que cria uma
+terceira fila com a intersec√ß√£o entre as duas anteriores.
 pFilaZ = {1, 9, 23}*/
 
 //#include <iostream>
@@ -880,16 +879,16 @@ pFilaZ = {1, 9, 23}*/
 //	float media;
 //};
 //
-//// Estrutura do NÛ
+//// Estrutura do N√≥
 //struct No {
 //	Dados dados;	// estrutura guardada dentro da lista
-//	No* proxNo;			// aponta para o prÛximo NÛ da lista
+//	No* proxNo;			// aponta para o pr√≥ximo N√≥ da lista
 //};
 //
 //// Fila
 //struct Fila {
 //	int qtdNo;
-//	No* inicio;  // cabeÁa para inÌcio
+//	No* inicio;  // cabe√ßa para in√≠cio
 //	No* final;   // cauda para fim
 //};
 //
@@ -915,7 +914,7 @@ pFilaZ = {1, 9, 23}*/
 //	pFilaZ = criarFila();
 //
 //	enfileirarPush(pFilaX, 1, "Raul", 8.0);
-//	enfileirarPush(pFilaX, 3, "JosÈ", 4.0);
+//	enfileirarPush(pFilaX, 3, "Jos√©", 4.0);
 //	enfileirarPush(pFilaX, 5, "Jesus", 10.0);
 //	enfileirarPush(pFilaX, 9, "Pamela", 3.5);
 //	enfileirarPush(pFilaX, 12, "Henrique", 7.0);
@@ -947,13 +946,13 @@ pFilaZ = {1, 9, 23}*/
 //
 //	ptrFila = new Fila;
 //
-//	// Se a FILA N√O pode ser criada
+//	// Se a FILA N√ÉO pode ser criada
 //	if (ptrFila == NULL) {
-//		cout << "N„o foi possÌvel criar a fila!" << endl;
+//		cout << "N√£o foi poss√≠vel criar a fila!" << endl;
 //		return NULL;
 //	}
 //
-//	// Como a FILA est· vazia o INÕCIO e o FINAL apontaM para NULL	
+//	// Como a FILA est√° vazia o IN√çCIO e o FINAL apontaM para NULL	
 //	ptrFila->qtdNo = 0;
 //	ptrFila->inicio = NULL;
 //	ptrFila->final = NULL;
@@ -964,13 +963,13 @@ pFilaZ = {1, 9, 23}*/
 //void liberarFila(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	//Se a FILA N√O foi criada
+//	//Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A fila n„o est· criada!" << endl;
+//		cout << "A fila n√£o est√° criada!" << endl;
 //		return;
 //	}
 //
-//	// Exclui cada NÛ da FILA
+//	// Exclui cada N√≥ da FILA
 //	while (ptrFila->inicio != NULL)
 //	{
 //		ptrNoAtual = ptrFila->inicio;
@@ -986,13 +985,13 @@ pFilaZ = {1, 9, 23}*/
 //void exibirFila(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	//Se a FILA N√O foi criada
+//	//Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A pilha n„o est· criada!" << endl;
+//		cout << "A pilha n√£o est√° criada!" << endl;
 //		return;
 //	}
 //
-//	//Se n„o tiver nenhum NÛ na FILA
+//	//Se n√£o tiver nenhum N√≥ na FILA
 //	if (ptrFila->inicio == NULL) {
 //		cout << "A fila esta vazia!" << endl;
 //		return;
@@ -1001,9 +1000,9 @@ pFilaZ = {1, 9, 23}*/
 //	ptrNoAtual = ptrFila->inicio;
 //
 //	while (ptrNoAtual != NULL) {
-//		cout << "MatrÌcula: " << ptrNoAtual->dados.matricula << endl;
+//		cout << "Matr√≠cula: " << ptrNoAtual->dados.matricula << endl;
 //		cout << "Nome: " << ptrNoAtual->dados.nome << endl;
-//		cout << "MÈdia: " << ptrNoAtual->dados.media << endl << endl;
+//		cout << "M√©dia: " << ptrNoAtual->dados.media << endl << endl;
 //
 //		ptrNoAtual = ptrNoAtual->proxNo;
 //	}
@@ -1012,13 +1011,13 @@ pFilaZ = {1, 9, 23}*/
 //void exibirPilhaAvancada(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	//Se a FILA N√O foi criada
+//	//Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A pilha n„o est· criada!" << endl;
+//		cout << "A pilha n√£o est√° criada!" << endl;
 //		return;
 //	}
 //
-//	//Se n„o tiver nenhum NÛ na FILA
+//	//Se n√£o tiver nenhum N√≥ na FILA
 //	if (ptrFila->inicio == NULL) {
 //		cout << "A fila esta vazia!" << endl;
 //		return;
@@ -1029,17 +1028,17 @@ pFilaZ = {1, 9, 23}*/
 //	cout << "===========================================" << endl;
 //	cout << "                   FILA" << endl;
 //	cout << "  Quantidade: " << ptrFila->qtdNo << endl;
-//	cout << "  \tInÌcio: " << ptrFila->inicio << endl;
+//	cout << "  \tIn√≠cio: " << ptrFila->inicio << endl;
 //	cout << "===========================================" << endl << endl;
 //
 //
 //	while (ptrNoAtual != NULL) {
 //		cout << "-------------------------------------------" << endl;
 //		cout << "        " << ptrNoAtual << endl;
-//		cout << "MatrÌcula: " << ptrNoAtual->dados.matricula << endl;
+//		cout << "Matr√≠cula: " << ptrNoAtual->dados.matricula << endl;
 //		cout << "Nome: " << ptrNoAtual->dados.nome << endl;
-//		cout << "MÈdia: " << ptrNoAtual->dados.media << endl;
-//		cout << "\tPrÛximo-> " << ptrNoAtual->proxNo << endl;
+//		cout << "M√©dia: " << ptrNoAtual->dados.media << endl;
+//		cout << "\tPr√≥ximo-> " << ptrNoAtual->proxNo << endl;
 //
 //		ptrNoAtual = ptrNoAtual->proxNo;
 //	}
@@ -1051,16 +1050,16 @@ pFilaZ = {1, 9, 23}*/
 //	No* ptrNoNovo;
 //
 //
-//	//Se a FILA N√O foi criada
+//	//Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A fila n„o est· criada!" << endl;
+//		cout << "A fila n√£o est√° criada!" << endl;
 //		return false;
 //	}
 //
 //	ptrNoNovo = new No;
 //
 //	if (ptrNoNovo == NULL) {
-//		cout << "MemÛria insulficiente!" << endl;
+//		cout << "Mem√≥ria insulficiente!" << endl;
 //		return false;
 //	}
 //
@@ -1077,7 +1076,7 @@ pFilaZ = {1, 9, 23}*/
 //
 //	ptrFila->final = ptrNoNovo;
 //
-//	// Incrementa o quantidade de NÛs
+//	// Incrementa o quantidade de N√≥s
 //	ptrFila->qtdNo++;
 //
 //	return true;
@@ -1086,27 +1085,27 @@ pFilaZ = {1, 9, 23}*/
 //bool desenfileiraPop(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	// Se a FILA N√O foi criada
+//	// Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A pilha n„o est· criada!" << endl;
+//		cout << "A pilha n√£o est√° criada!" << endl;
 //		return false;
 //	}
 //
 //	// Cria um ponteiro auxiliar
 //	ptrNoAtual = ptrFila->inicio;
 //
-//	// Ajusta o inÌcio da fila
+//	// Ajusta o in√≠cio da fila
 //	ptrFila->inicio = ptrFila->inicio->proxNo;
 //
-//	// Se for o ˙ltimo nÛ da fila
+//	// Se for o √∫ltimo n√≥ da fila
 //	if (ptrFila->inicio == NULL) {          // caso tivesse apenas 1 elemento, fica vazia
 //		ptrFila->final = NULL;
 //	}
 //
-//	// Exclui o nÛ 
+//	// Exclui o n√≥ 
 //	delete ptrNoAtual;
 //
-//	// Decrementa o quantidade de NÛs
+//	// Decrementa o quantidade de N√≥s
 //	ptrFila->qtdNo--;
 //
 //	return true;
@@ -1115,9 +1114,9 @@ pFilaZ = {1, 9, 23}*/
 //No* consultarPrimeiroFila(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
-//	// Se a FILA N√O foi criada
+//	// Se a FILA N√ÉO foi criada
 //	if (ptrFila == NULL) {
-//		cout << "A fila n„o est· criada!" << endl;
+//		cout << "A fila n√£o est√° criada!" << endl;
 //		return NULL;
 //	}
 //
@@ -1155,3 +1154,295 @@ pFilaZ = {1, 9, 23}*/
 //		ptrNoAtualX = ptrNoAtualX->proxNo;
 //	}
 //}
+
+//exercicio4
+/*Insira 5 elementos em uma fila.
+Crie uma fun√ß√£o que retire o primeiro elemento da fila e
+coloque-o no final.
+Chame a fun√ß√£o 5 vezes para trocar de posi√ß√£o todos os
+elementos da fila.
+Entre uma chamada e outra da fun√ß√£o, o programa deve
+limpar os dados da tela, imprimir a lista e aguardar 5 seg.
+Dica:
+#include <Windows.h> // Biblioteca que contem o Sleep
+Sleep(5000); // Aguarda 5 segundos
+system("cls"); // Limpa a telaExemplo:
+Fila inicial ÔÉ® { 1, 2, 3, 4, 5 }
+1¬™ Chamada ÔÉ® { 2, 3, 4, 5, 1 }
+Limpa a tela e Aguarda 5 s.
+2¬™ Chamada ÔÉ® { 3, 4, 5, 1, 2 }
+Limpa a tela e Aguarda 5 s.
+3¬™ Chamada ÔÉ® { 4, 5, 1, 2, 3 }
+Limpa a tela e Aguarda 5 s.
+4¬™ Chamada ÔÉ® { 5, 1, 2, 3, 4 }
+Limpa a tela e Aguarda 5 s.
+5¬™ Chamada ÔÉ® { 1, 2, 3, 4, 5 }*/
+
+//#include <iostream>
+//#include <stdlib.h> 
+//#include <string>
+//#include <Windows.h>
+//
+//using namespace std;
+//
+//// Dados sobre o ALUNO
+//struct Dados {
+//	int matricula;
+//	string nome;
+//	float media;
+//};
+//
+//// Estrutura do N√≥
+//struct No {
+//	Dados dados;	// estrutura guardada dentro da lista
+//	No* proxNo;			// aponta para o pr√≥ximo N√≥ da lista
+//};
+//
+//// Fila
+//struct Fila {
+//	int qtdNo;
+//	No* inicio;  // cabe√ßa para in√≠cio
+//	No* final;   // cauda para fim
+//};
+//
+//Fila* criarFila();
+//void liberarFila(Fila* ptrFila);
+//void exibirFila(Fila* ptrFila);
+//void exibirPilhaAvancada(Fila* ptrFila);
+//
+//bool enfileirarPush(Fila* ptrFila, int matricula, string nome, float media);
+//bool desenfileiraPop(Fila* ptrFila);
+//No* consultarPrimeiroFila(Fila* ptrFila);
+//void vaiProFim(Fila* ptrFila);
+//
+//int main() {
+//	setlocale(LC_ALL, "Portuguese");
+//
+//	Fila* pFila;
+//	int i = 0;
+//
+//	pFila = criarFila();
+//
+//	enfileirarPush(pFila, 10, "Raul", 10.0);
+//	enfileirarPush(pFila, 20, "Jos√©", 7.0);
+//	enfileirarPush(pFila, 30, "Jesus", 10.0);
+//	enfileirarPush(pFila, 40, "Paulo", 6.0);
+//	enfileirarPush(pFila, 50, "Pedro", 7.0);
+//
+//	exibirFila(pFila);
+//	while (i < 5)
+//	{
+//		Sleep(5000);
+//		vaiProFim(pFila);
+//		system("cls");
+//		exibirFila(pFila);
+//		i++;
+//	}
+//
+//	liberarFila(pFila);
+//
+//	system("pause");
+//	return 0;
+//}
+//
+//Fila* criarFila() {
+//	Fila* ptrFila;
+//
+//	ptrFila = new Fila;
+//
+//	// Se a FILA N√ÉO pode ser criada
+//	if (ptrFila == NULL) {
+//		cout << "N√£o foi poss√≠vel criar a fila!" << endl;
+//		return NULL;
+//	}
+//
+//	// Como a FILA est√° vazia o IN√çCIO e o FINAL apontaM para NULL	
+//	ptrFila->qtdNo = 0;
+//	ptrFila->inicio = NULL;
+//	ptrFila->final = NULL;
+//
+//	return ptrFila;
+//}
+//
+//void liberarFila(Fila* ptrFila) {
+//	No* ptrNoAtual;
+//
+//	//Se a FILA N√ÉO foi criada
+//	if (ptrFila == NULL) {
+//		cout << "A fila n√£o est√° criada!" << endl;
+//		return;
+//	}
+//
+//	// Exclui cada N√≥ da FILA
+//	while (ptrFila->inicio != NULL)
+//	{
+//		ptrNoAtual = ptrFila->inicio;
+//
+//		ptrFila->inicio = ptrNoAtual->proxNo;
+//
+//		delete  ptrNoAtual;
+//	}
+//
+//	delete ptrFila;
+//}
+//
+//void exibirFila(Fila* ptrFila) {
+//	No* ptrNoAtual;
+//
+//	//Se a FILA N√ÉO foi criada
+//	if (ptrFila == NULL) {
+//		cout << "A pilha n√£o est√° criada!" << endl;
+//		return;
+//	}
+//
+//	//Se n√£o tiver nenhum N√≥ na FILA
+//	if (ptrFila->inicio == NULL) {
+//		cout << "A fila esta vazia!" << endl;
+//		return;
+//	}
+//
+//	ptrNoAtual = ptrFila->inicio;
+//
+//	while (ptrNoAtual != NULL) {
+//		cout << "Matr√≠cula: " << ptrNoAtual->dados.matricula << endl;
+//		cout << "Nome: " << ptrNoAtual->dados.nome << endl;
+//		cout << "M√©dia: " << ptrNoAtual->dados.media << endl << endl;
+//
+//		ptrNoAtual = ptrNoAtual->proxNo;
+//	}
+//}
+//
+//void exibirPilhaAvancada(Fila* ptrFila) {
+//	No* ptrNoAtual;
+//
+//	//Se a FILA N√ÉO foi criada
+//	if (ptrFila == NULL) {
+//		cout << "A pilha n√£o est√° criada!" << endl;
+//		return;
+//	}
+//
+//	//Se n√£o tiver nenhum N√≥ na FILA
+//	if (ptrFila->inicio == NULL) {
+//		cout << "A fila esta vazia!" << endl;
+//		return;
+//	}
+//
+//	ptrNoAtual = ptrFila->inicio;
+//
+//	cout << "===========================================" << endl;
+//	cout << "                   FILA" << endl;
+//	cout << "  Quantidade: " << ptrFila->qtdNo << endl;
+//	cout << "  \tIn√≠cio: " << ptrFila->inicio << endl;
+//	cout << "===========================================" << endl << endl;
+//
+//
+//	while (ptrNoAtual != NULL) {
+//		cout << "-------------------------------------------" << endl;
+//		cout << "        " << ptrNoAtual << endl;
+//		cout << "Matr√≠cula: " << ptrNoAtual->dados.matricula << endl;
+//		cout << "Nome: " << ptrNoAtual->dados.nome << endl;
+//		cout << "M√©dia: " << ptrNoAtual->dados.media << endl;
+//		cout << "\tPr√≥ximo-> " << ptrNoAtual->proxNo << endl;
+//
+//		ptrNoAtual = ptrNoAtual->proxNo;
+//	}
+//	cout << "-------------------------------------------" << endl;
+//	cout << endl;
+//}
+//
+//bool enfileirarPush(Fila* ptrFila, int matricula, string nome, float media) {
+//	No* ptrNoNovo;
+//
+//
+//	//Se a FILA N√ÉO foi criada
+//	if (ptrFila == NULL) {
+//		cout << "A fila n√£o est√° criada!" << endl;
+//		return false;
+//	}
+//
+//	ptrNoNovo = new No;
+//
+//	if (ptrNoNovo == NULL) {
+//		cout << "Mem√≥ria insulficiente!" << endl;
+//		return false;
+//	}
+//
+//	ptrNoNovo->dados.matricula = matricula;
+//	ptrNoNovo->dados.nome = nome;
+//	ptrNoNovo->dados.media = media;
+//	ptrNoNovo->proxNo = NULL;
+//
+//	// Se a fila estiver vazia
+//	if (ptrFila->final == NULL)
+//		ptrFila->inicio = ptrNoNovo;
+//	else
+//		ptrFila->final->proxNo = ptrNoNovo;
+//
+//	ptrFila->final = ptrNoNovo;
+//
+//	// Incrementa o quantidade de N√≥s
+//	ptrFila->qtdNo++;
+//
+//	return true;
+//}
+//
+//bool desenfileiraPop(Fila* ptrFila) {
+//	No* ptrNoAtual;
+//
+//	// Se a FILA N√ÉO foi criada
+//	if (ptrFila == NULL) {
+//		cout << "A pilha n√£o est√° criada!" << endl;
+//		return false;
+//	}
+//
+//	// Cria um ponteiro auxiliar
+//	ptrNoAtual = ptrFila->inicio;
+//
+//	// Ajusta o in√≠cio da fila
+//	ptrFila->inicio = ptrFila->inicio->proxNo;
+//
+//	// Se for o √∫ltimo n√≥ da fila
+//	if (ptrFila->inicio == NULL) {          // caso tivesse apenas 1 elemento, fica vazia
+//		ptrFila->final = NULL;
+//	}
+//
+//	// Exclui o n√≥ 
+//	delete ptrNoAtual;
+//
+//	// Decrementa o quantidade de N√≥s
+//	ptrFila->qtdNo--;
+//
+//	return true;
+//}
+//
+//No* consultarPrimeiroFila(Fila* ptrFila) {
+//	No* ptrNoAtual;
+//
+//	// Se a FILA N√ÉO foi criada
+//	if (ptrFila == NULL) {
+//		cout << "A fila n√£o est√° criada!" << endl;
+//		return NULL;
+//	}
+//
+//	ptrNoAtual = ptrFila->inicio;
+//
+//	return ptrNoAtual;
+//}
+//
+//void vaiProFim(Fila* ptrFila) {
+//	No* minhaVez;
+//
+//	int matricula;
+//	string nome;
+//	float media;
+//
+//	minhaVez = consultarPrimeiroFila(ptrFila);
+//
+//	matricula = minhaVez->dados.matricula;
+//	nome = minhaVez->dados.nome;
+//	media = minhaVez->dados.media;
+//
+//	desenfileiraPop(ptrFila);
+//	enfileirarPush(ptrFila, matricula, nome, media);
+//}
+
