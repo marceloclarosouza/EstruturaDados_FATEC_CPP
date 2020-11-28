@@ -677,13 +677,19 @@ PilhaC 6, 5, 4, 3, 2, 1 */
 //}
 
 // Exercicio 04
+/*Crie uma função que receba duas FILAS ENCADEADAS. A primeira fila (Fila A) deverá ter 5
+elementos, a segunda (Fila B) deverá estar vazia. A função deverá inserir os elementos da Fila A
+na Fila B de forma que a Fila B fique invertida da Fila A.
+Exemplo:
+Fila A: 1 <– 2 <– 3 <– 4 <– 5
+Fila B: 5 <– 4 <– 3 <– 2 <– 1*/
 
 //#include <iostream>
 //#include <stdlib.h> 
 //#include <string>
-//#include <Windows.h>
 //
 //using namespace std;
+//
 //
 //// Dados sobre o ALUNO
 //struct Dados {
@@ -703,21 +709,33 @@ PilhaC 6, 5, 4, 3, 2, 1 */
 //	No* final;   // cauda para fim
 //};
 //
+//
 //Fila* criarFila();
 //void liberarFila(Fila* ptrFila);
 //void exibirFila(Fila* ptrFila);
-//bool enfileirarPush(Fila* ptrFila, int numero);
-//void inverteFila(Fila* ptrFilaX, Fila* ptrFilaY);
 //
+//bool enfileirarPush(Fila* ptrFila, int numero);
+//bool desenfileiraPop(Fila* ptrFila);
+//void inverteFila(Fila* ptrFilaA, Fila* ptrFilaB);
+//
+////--------------------------------------------------------
+////						M A I N
+////--------------------------------------------------------
 //int main() {
 //	setlocale(LC_ALL, "Portuguese");
 //
-//	Fila* pFilaA;
-//	Fila* pFilaB;
+//	Fila* pFilaA, * pFilaB;
 //
+//	int num;
+//
+//	// Cria a FILA
 //	pFilaA = criarFila();
 //	pFilaB = criarFila();
 //
+//
+//	//--------------------------------------
+//	// Enfileira
+//	//--------------------------------------
 //	enfileirarPush(pFilaA, 1);
 //	enfileirarPush(pFilaA, 2);
 //	enfileirarPush(pFilaA, 3);
@@ -725,19 +743,25 @@ PilhaC 6, 5, 4, 3, 2, 1 */
 //	enfileirarPush(pFilaA, 5);
 //
 //	inverteFila(pFilaA, pFilaB);
-//	
-//	cout << "Fila A" << endl << endl;
+//
+//	cout << "Fila A: " << endl;
 //	exibirFila(pFilaA);
-//	cout << "\nFila B" << endl << endl;
+//	cout << "\n\nFila B: " << endl;
 //	exibirFila(pFilaB);
 //
+//
+//	// Libera a memória alocada para a FILA
 //	liberarFila(pFilaA);
 //	liberarFila(pFilaB);
+//
 //
 //	system("pause");
 //	return 0;
 //}
 //
+////--------------------------------------------------------
+//// CRIAR FILA
+////--------------------------------------------------------
 //Fila* criarFila() {
 //	Fila* ptrFila;
 //
@@ -757,6 +781,9 @@ PilhaC 6, 5, 4, 3, 2, 1 */
 //	return ptrFila;
 //}
 //
+////--------------------------------------------------------
+//// LIBERAR FILA
+////--------------------------------------------------------
 //void liberarFila(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
@@ -770,13 +797,20 @@ PilhaC 6, 5, 4, 3, 2, 1 */
 //	while (ptrFila->inicio != NULL)
 //	{
 //		ptrNoAtual = ptrFila->inicio;
+//
 //		ptrFila->inicio = ptrNoAtual->proxNo;
+//
 //		delete  ptrNoAtual;
 //	}
 //
 //	delete ptrFila;
 //}
 //
+//
+//
+////--------------------------------------------------------
+//// EXIBIR A FILA
+////--------------------------------------------------------
 //void exibirFila(Fila* ptrFila) {
 //	No* ptrNoAtual;
 //
@@ -795,12 +829,15 @@ PilhaC 6, 5, 4, 3, 2, 1 */
 //	ptrNoAtual = ptrFila->inicio;
 //
 //	while (ptrNoAtual != NULL) {
-//		cout << "Numero: " << ptrNoAtual->dados.numero << endl;
+//		cout << "Valor: " << ptrNoAtual->dados.numero << endl;
 //
 //		ptrNoAtual = ptrNoAtual->proxNo;
 //	}
 //}
 //
+////--------------------------------------------------------
+//// ENFILEIRA
+////--------------------------------------------------------
 //bool enfileirarPush(Fila* ptrFila, int numero) {
 //	No* ptrNoNovo;
 //
@@ -811,6 +848,9 @@ PilhaC 6, 5, 4, 3, 2, 1 */
 //		return false;
 //	}
 //
+//	//---------------------------------------------------------------
+//	//	Cria o novo nó
+//	//---------------------------------------------------------------
 //	ptrNoNovo = new No;
 //
 //	if (ptrNoNovo == NULL) {
@@ -835,38 +875,56 @@ PilhaC 6, 5, 4, 3, 2, 1 */
 //	return true;
 //}
 //
-//void inverteFila(Fila* ptrFilaX, Fila* ptrFilaY) {
-//	No* ptrNoAtualX;
-//	int numero;
-//	int cont = 0;
-//	int i;
-//	int j;
+////--------------------------------------------------------
+//// DESENFILEIRA
+////--------------------------------------------------------
+//bool desenfileiraPop(Fila* ptrFila) {
+//	No* ptrNoAtual;
 //
-//	if (ptrFilaX == NULL) {
-//		cout << "A fila não está criada!" << endl;
+//	// Se a FILA NÃO foi criada
+//	if (ptrFila == NULL) {
+//		cout << "A pilha não está criada!" << endl;
+//		return false;
 //	}
 //
-//	if (ptrFilaX->inicio == NULL) {
-//		cout << "A fila está vazia!" << endl;
+//	// Cria um ponteiro auxiliar
+//	ptrNoAtual = ptrFila->inicio;
+//
+//	// Ajusta o início da fila
+//	ptrFila->inicio = ptrFila->inicio->proxNo;
+//
+//	// Se for o último nó da fila
+//	if (ptrFila->inicio == NULL) {          // caso tivesse apenas 1 elemento, fica vazia
+//		ptrFila->final = NULL;
 //	}
 //
-//	ptrNoAtualX = ptrFilaX->inicio;
-//	while (ptrNoAtualX != NULL) {
-//		ptrNoAtualX = ptrNoAtualX->proxNo;
-//		cont++;
-//	}
+//	// Exclui o nó 
+//	delete ptrNoAtual;
 //
-//	for (i = 0; i < cont; i++) 
-//	{
-//		ptrNoAtualX = ptrFilaX->inicio;
-//		for (j = 0; j < cont; j++)
-//		{
-//			if (j == cont - (i + 1)) 
-//			{
-//				numero = ptrNoAtualX->dados.numero;
-//				enfileirarPush(ptrFilaY, numero);
+//	// Decrementa o quantidade de Nós
+//	ptrFila->qtdNo--;
+//
+//	return true;
+//}
+//
+////-------------------------------------
+////INVERTE FILA
+////-------------------------------------
+//void inverteFila(Fila* ptrFilaA, Fila* ptrFilaB) {
+//	int num, i, j;
+//	No* ptrNoAtual;
+//
+//	ptrNoAtual = ptrFilaA->inicio;
+//
+//	for (i = 0; i < ptrFilaA->qtdNo; i++) {
+//		ptrNoAtual = ptrFilaA->inicio;
+//		for (j = 0; j < ptrFilaA->qtdNo; j++) {
+//			if (j == (ptrFilaA->qtdNo - (i + 1))) {
+//				num = ptrNoAtual->dados.numero;
+//				enfileirarPush(ptrFilaB, num);
 //			}
-//			ptrNoAtualX = ptrNoAtualX->proxNo;
+//			ptrNoAtual = ptrNoAtual->proxNo;
 //		}
 //	}
+//
 //}
