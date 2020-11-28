@@ -1,12 +1,17 @@
-//Exercicio 01
-/*Crie uma função que receba uma LISTA DUPLAMENTE ENCADEADA. A função deverá somar
-o primeiro nó com o último e exibir o resultado na tela, em seguida, o segundo com o penúltimo e
-exibir, o terceiro com o antepenúltimo e exibir, assim sucessivamente até que se tenha somado a
-primeira metade da lista com a segunda.
-Exemplo:
-LDE: 1 <–> 3 <–> 5 <–> 9 <–> 9 <–> 11 <–> 12 <–> 13 <–> 14 <–> 15
-Saída: 16 – 17 – 18 – 21 - 20*/
+//Avaliação Efetuada em Dupla pelos Alunos
+//MARCELO CLARO DE SOUZA
+//MARCELO GIACOMINI BONATO
 
+
+////Exercicio 01
+///*Crie uma função que receba uma LISTA DUPLAMENTE ENCADEADA. A função deverá somar
+//o primeiro nó com o último e exibir o resultado na tela, em seguida, o segundo com o penúltimo e
+//exibir, o terceiro com o antepenúltimo e exibir, assim sucessivamente até que se tenha somado a
+//primeira metade da lista com a segunda.
+//Exemplo:
+//LDE: 1 <–> 3 <–> 5 <–> 9 <–> 9 <–> 11 <–> 12 <–> 13 <–> 14 <–> 15
+//Saída: 16 – 17 – 18 – 21 - 20*/
+//
 //#include <iostream>
 //#include <locale.h> // setlocale
 //#include <stdlib.h> // system
@@ -58,9 +63,12 @@ Saída: 16 – 17 – 18 – 21 - 20*/
 //	inserirListaFim(pLista1, 13);
 //	inserirListaFim(pLista1, 14);
 //	inserirListaFim(pLista1, 15);
+//	cout << "Lista: " << endl;
+//	exibirLista(pLista1);
 //	
 //	somarPrimeiroUltimo(pLista1, pLista2);
 //
+//	cout << "\n\nLista da Soma: " << endl;
 //	exibirLista(pLista2);
 //
 //	liberarLista(pLista1);
@@ -237,15 +245,15 @@ Saída: 16 – 17 – 18 – 21 - 20*/
 //
 //}
 
-// Exercicio 02
-/*Crie uma função que receba uma LISTA DUPLAMENTE ENCADEADA (deve estar ordenada) e
-remova os nós que estejam duplicados. Em seguida, exiba a lista sem os nós duplicados.
-Exemplo:
-Antes da função
-LDE: 1 <–> 1 <–> 2 <–> 2 <–> 2 <–> 3 <–> 4 <–> 5 <–> 5 <–> 5 <–> 5
-Depois da função
-LDE: 1 <–> 2 <–> 3 <–> 4 <–> 5*/
-
+//// Exercicio 02
+///*Crie uma função que receba uma LISTA DUPLAMENTE ENCADEADA (deve estar ordenada) e
+//remova os nós que estejam duplicados. Em seguida, exiba a lista sem os nós duplicados.
+//Exemplo:
+//Antes da função
+//LDE: 1 <–> 1 <–> 2 <–> 2 <–> 2 <–> 3 <–> 4 <–> 5 <–> 5 <–> 5 <–> 5
+//Depois da função
+//LDE: 1 <–> 2 <–> 3 <–> 4 <–> 5*/
+//
 //#include <iostream>
 //#include <locale.h> // setlocale
 //#include <stdlib.h> // system
@@ -299,9 +307,11 @@ LDE: 1 <–> 2 <–> 3 <–> 4 <–> 5*/
 //	inserirListaOrdenada(pLista1, 5);
 //	inserirListaOrdenada(pLista1, 5);
 //	inserirListaOrdenada(pLista1, 5);
+//	cout << "Lista Sem Tratamento: " << endl;
+//	exibirLista(pLista1);
 //	
 //	removeNumDuplicado(pLista1, pLista2);
-//
+//	cout << "\n\nLista Tratada: " << endl;
 //	exibirLista(pLista2);
 //
 //	liberarLista(pLista1);
@@ -468,13 +478,13 @@ LDE: 1 <–> 2 <–> 3 <–> 4 <–> 5*/
 //
 //}
 
-// Exercicio 03
-/*Dada duas PILHAS ENCADEADAS (Pilha A e Pilha B), com 3 elementos cada, crie uma terceira
-(Pilha C), também encadeada, com os elementos em ordem crescente.
-PilhaA 1, 3, 5
-PilhaB 2, 4, 6
-PilhaC 6, 5, 4, 3, 2, 1 */
-
+//// Exercicio 03
+///*Dada duas PILHAS ENCADEADAS (Pilha A e Pilha B), com 3 elementos cada, crie uma terceira
+//(Pilha C), também encadeada, com os elementos em ordem crescente.
+//PilhaA 1, 3, 5
+//PilhaB 2, 4, 6
+//PilhaC 6, 5, 4, 3, 2, 1 */
+//
 //#include <iostream>
 //#include <stdlib.h> 
 //#include <string>
@@ -517,13 +527,18 @@ PilhaC 6, 5, 4, 3, 2, 1 */
 //	empilharPush(pPilha1, 5);
 //	empilharPush(pPilha1, 3);
 //	empilharPush(pPilha1, 1);
-//
+//	cout << "Pilha 1: " << endl;
+//	exibirPilha(pPilha1);
+//	cout << endl;
 //	empilharPush(pPilha2, 6);
 //	empilharPush(pPilha2, 4);
 //	empilharPush(pPilha2, 2);
+//	cout << "Pilha 2: " << endl;
+//	exibirPilha(pPilha2);
+//	cout << endl;
 //
 //	unirPilhas(pPilha1, pPilha2, pPilha3);
-//	
+//	cout << "Pilha 3: " << endl;
 //	exibirPilha(pPilha3);
 //
 //	liberarPilha(pPilha1);
@@ -676,14 +691,13 @@ PilhaC 6, 5, 4, 3, 2, 1 */
 //	}
 //}
 
-// Exercicio 04
-/*Crie uma função que receba duas FILAS ENCADEADAS. A primeira fila (Fila A) deverá ter 5
-elementos, a segunda (Fila B) deverá estar vazia. A função deverá inserir os elementos da Fila A
-na Fila B de forma que a Fila B fique invertida da Fila A.
-Exemplo:
-Fila A: 1 <– 2 <– 3 <– 4 <– 5
-Fila B: 5 <– 4 <– 3 <– 2 <– 1*/
-
+////Exercício 04
+////Crie uma função que receba duas FILAS ENCADEADAS.A primeira fila(Fila A) deverá ter 5 elementos, a segunda(Fila B) deverá estar vazia.
+////A função deverá inserir os elementos da Fila A na Fila B de forma que a Fila B fique invertida da Fila A.
+////Exemplo:
+////Fila A : 1 < – 2 < – 3 < – 4 < – 5
+////Fila B : 5 < – 4 < – 3 < – 2 < – 1
+//
 //#include <iostream>
 //#include <stdlib.h> 
 //#include <string>
@@ -724,7 +738,7 @@ Fila B: 5 <– 4 <– 3 <– 2 <– 1*/
 //int main() {
 //	setlocale(LC_ALL, "Portuguese");
 //
-//	Fila* pFilaA, * pFilaB;
+//	Fila* pFilaA, *pFilaB;
 //
 //	int num;
 //
@@ -741,7 +755,7 @@ Fila B: 5 <– 4 <– 3 <– 2 <– 1*/
 //	enfileirarPush(pFilaA, 3);
 //	enfileirarPush(pFilaA, 4);
 //	enfileirarPush(pFilaA, 5);
-//
+//	
 //	inverteFila(pFilaA, pFilaB);
 //
 //	cout << "Fila A: " << endl;
@@ -928,3 +942,4 @@ Fila B: 5 <– 4 <– 3 <– 2 <– 1*/
 //	}
 //
 //}
+
