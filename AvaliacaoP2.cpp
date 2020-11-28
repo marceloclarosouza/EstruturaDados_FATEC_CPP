@@ -238,6 +238,13 @@ Saída: 16 – 17 – 18 – 21 - 20*/
 //}
 
 // Exercicio 02
+/*Crie uma função que receba uma LISTA DUPLAMENTE ENCADEADA (deve estar ordenada) e
+remova os nós que estejam duplicados. Em seguida, exiba a lista sem os nós duplicados.
+Exemplo:
+Antes da função
+LDE: 1 <–> 1 <–> 2 <–> 2 <–> 2 <–> 3 <–> 4 <–> 5 <–> 5 <–> 5 <–> 5
+Depois da função
+LDE: 1 <–> 2 <–> 3 <–> 4 <–> 5*/
 
 //#include <iostream>
 //#include <locale.h> // setlocale
@@ -268,73 +275,70 @@ Saída: 16 – 17 – 18 – 21 - 20*/
 //Lista* criarLista();
 //void liberarLista(Lista* ptrLista);
 //void exibirLista(Lista* ptrLista);
-//bool inserirListaOrdenada(Lista* ptrLista, int numeros);
-//bool inserirListaFim(Lista* ptrLista, int numeros);
-//void removeDuplicado(Lista* ptrListaX, Lista* ptrListaY);
+//bool inserirListaOrdenada(Lista* ptrLista, int num);
+//void removeNumDuplicado(Lista* ptrLista1, Lista* ptrLista2);
 //
 //int main() {
 //	setlocale(LC_ALL, "Portuguese");
 //	cout << fixed << setprecision(2); // Define o nro de casas decimais
 //
-//	Lista* pListaX;
-//	Lista* pListaY;
+//	Lista* pLista1;
+//	Lista* pLista2;
 //
-//	pListaX = criarLista();
-//	pListaY = criarLista();
+//	pLista1 = criarLista();
+//	pLista2 = criarLista();
 //
-//	inserirListaOrdenada(pListaX, 1);
-//	inserirListaOrdenada(pListaX, 1);
-//	inserirListaOrdenada(pListaX, 2);
-//	inserirListaOrdenada(pListaX, 2);
-//	inserirListaOrdenada(pListaX, 2);
-//	inserirListaOrdenada(pListaX, 3);
-//	inserirListaOrdenada(pListaX, 4);
-//	inserirListaOrdenada(pListaX, 5);
-//	inserirListaOrdenada(pListaX, 5);
-//	inserirListaOrdenada(pListaX, 5);
-//	inserirListaOrdenada(pListaX, 5);
+//	inserirListaOrdenada(pLista1, 1);
+//	inserirListaOrdenada(pLista1, 1);
+//	inserirListaOrdenada(pLista1, 2);
+//	inserirListaOrdenada(pLista1, 2);
+//	inserirListaOrdenada(pLista1, 2);
+//	inserirListaOrdenada(pLista1, 3);
+//	inserirListaOrdenada(pLista1, 4);
+//	inserirListaOrdenada(pLista1, 5);
+//	inserirListaOrdenada(pLista1, 5);
+//	inserirListaOrdenada(pLista1, 5);
+//	inserirListaOrdenada(pLista1, 5);
 //	
-//	removeDuplicado(pListaX, pListaY);
+//	removeNumDuplicado(pLista1, pLista2);
 //
-//	exibirLista(pListaY);
+//	exibirLista(pLista2);
 //
-//	liberarLista(pListaX);
-//	liberarLista(pListaY);
+//	liberarLista(pLista1);
+//	liberarLista(pLista2);
 //
 //	system("pause");
 //	return 0;
 //}
 //
-//// Criar lista
 //Lista* criarLista() {
 //	Lista* ptrLista;
 //
 //	ptrLista = new Lista;
 //
-//	// Se a lista NÃO pode ser criada
+//	// Lista não foi criada
 //	if (ptrLista == NULL) {
 //		cout << "Não foi possível criar a lista!" << endl;
 //		return NULL;
 //	}
 //
-//	// Como a lista está vazia o INÍCIO aponta para NULL	
+//	// Início da lista aponta par null	
 //	ptrLista->qtdNo = 0;
 //	ptrLista->inicio = NULL;
 //
 //	return ptrLista;
 //}
 //
-////Liberar lista
 //void liberarLista(Lista* ptrLista) {
 //	No* ptrNoAtual;
 //
-//	//Se a lista NÃO foi criada
+//	// Lista não foi criada
 //	if (ptrLista == NULL) {
-//		cout << "A lista não está criada!" << endl;
+//		cout << "Lista inexistente" << endl;
 //		return;
 //	}
 //
-//	// Exclui cada Nó da lista
+//	// Excluir os Nós da lista
 //	while (ptrLista->inicio != NULL)
 //	{
 //		ptrNoAtual = ptrLista->inicio;
@@ -347,20 +351,18 @@ Saída: 16 – 17 – 18 – 21 - 20*/
 //	delete ptrLista;
 //}
 //
-//// Exibir lista
 //void exibirLista(Lista* ptrLista) {
 //	No* ptrNoAtual;
 //
-//	//Se a lista NÃO foi criada
+//	// Lista não foi criada
 //	if (ptrLista == NULL) {
 //		cout << "A lista não está criada!" << endl;
 //		return;
 //	}
 //
-//
 //	//Se não tiver nenhum Nó na lista
 //	if (ptrLista->inicio == NULL) {
-//		cout << "A lista esta vazia!" << endl;
+//		cout << "Lista vazia!" << endl;
 //		return;
 //	}
 //
@@ -372,8 +374,7 @@ Saída: 16 – 17 – 18 – 21 - 20*/
 //	}
 //}
 //
-////Inserir lista Ordenada
-//bool inserirListaOrdenada(Lista* ptrLista, int numeros) {
+//bool inserirListaOrdenada(Lista* ptrLista, int num) {
 //	No* ptrNoNovo;
 //	No* ptrNoAnterior;
 //	No* ptrNoAtual;
@@ -385,7 +386,7 @@ Saída: 16 – 17 – 18 – 21 - 20*/
 //		return false;
 //	}
 //
-//	ptrNoNovo->dados.numeros = numeros;
+//	ptrNoNovo->dados.numeros = num;
 //
 //	ptrNoNovo->antNo = NULL;
 //	ptrNoNovo->proxNo = NULL;
@@ -400,7 +401,7 @@ Saída: 16 – 17 – 18 – 21 - 20*/
 //		ptrNoAtual = ptrLista->inicio;
 //
 //		// Localiza a posição de inserção
-//		while (ptrNoAtual != NULL && ptrNoAtual->dados.numeros < numeros) {
+//		while (ptrNoAtual != NULL && ptrNoAtual->dados.numeros < num) {
 //			ptrNoAnterior = ptrNoAtual;
 //			ptrNoAtual = ptrNoAtual->proxNo;
 //		}
@@ -425,89 +426,44 @@ Saída: 16 – 17 – 18 – 21 - 20*/
 //		}
 //	}
 //
-//	// Incrementa o quantidade de Nós
+//	// Contador de nós
 //	ptrLista->qtdNo++;
 //
 //	return true;
 //}
 //
-//bool inserirListaFim(Lista* ptrLista, int numeros) {
-//	No* ptrNoNovo;
-//	No* ptrNoAtual;
-//	
-//	//Se a lista NÃO foi criada
-//	if (ptrLista == NULL) {
-//		cout << "A lista não está criada!" << endl;
-//		return false;
-//	}
-//
-//	ptrNoNovo = new No;
-//
-//	if (ptrNoNovo == NULL) {
-//		cout << "Memória insulficiente!" << endl;
-//		return false;
-//	}
-//	
-//	ptrNoNovo->dados.numeros = numeros;
-//	
-//	ptrNoNovo->antNo = NULL;
-//	ptrNoNovo->proxNo = NULL;
-//	
-//	ptrNoAtual = ptrLista->inicio;
-//	
-//	// Se não houver nenhum nó na lista
-//	if (ptrNoAtual == NULL) {
-//
-//		ptrLista->inicio = ptrNoNovo;
-//	}
-//	else {
-//
-//		// Localiza o último nó
-//		while (ptrNoAtual->proxNo != NULL) {
-//			ptrNoAtual = ptrNoAtual->proxNo;
-//		}
-//		ptrNoAtual->proxNo = ptrNoNovo;
-//		ptrNoNovo->antNo = ptrNoAtual;
-//	}
-//
-//	// Incrementa o quantidade de Nós
-//	ptrLista->qtdNo++;
-//
-//	return true;
-//}
-//
-//void removeDuplicado(Lista* ptrListaX, Lista* ptrListaY) {
-//	No* ptrNoAtualX;
-//	No* ptrNoAtualY;
-//	int numero;
+//void removeNumDuplicado(Lista* ptrLista1, Lista* ptrLista2) {
+//	No* ptrNoAtual1;
+//	No* ptrNoAtual2;
+//	int num;
 //
 //	//Se a lista NÃO foi criada
-//	if (ptrListaX == NULL) {
+//	if (ptrLista1 == NULL) {
 //		cout << "A lista não está criada!" << endl;
 //		return;
 //	}
 //
 //
 //	//Se não tiver nenhum Nó na lista
-//	if (ptrListaX->inicio == NULL) {
+//	if (ptrLista1->inicio == NULL) {
 //		cout << "A lista esta vazia!" << endl;
 //		return;
 //	}
 //	
-//	ptrNoAtualX = ptrListaX->inicio;
-//	ptrNoAtualY = ptrListaY->inicio;
+//	ptrNoAtual1 = ptrLista1->inicio;
+//	ptrNoAtual2 = ptrLista2->inicio;
 //
-//	while (ptrNoAtualX != NULL) {
-//		numero = ptrNoAtualX->dados.numeros;
-//		if (ptrNoAtualY == NULL) {
-//			inserirListaFim(ptrListaY, numero);
-//			ptrNoAtualY = ptrListaY->inicio;
+//	while (ptrNoAtual1 != NULL) {
+//		num = ptrNoAtual1->dados.numeros;
+//		if (ptrNoAtual2 == NULL) {
+//			inserirListaOrdenada(ptrLista2, num);
+//			ptrNoAtual2 = ptrLista2->inicio;
 //		} 
-//		else if (ptrNoAtualX->dados.numeros != ptrNoAtualY->dados.numeros) {
-//			inserirListaFim(ptrListaY, numero);
-//			ptrNoAtualY = ptrNoAtualY->proxNo;
+//		else if (ptrNoAtual1->dados.numeros != ptrNoAtual2->dados.numeros) {
+//			inserirListaOrdenada(ptrLista2, num);
+//			ptrNoAtual2 = ptrNoAtual2->proxNo;
 //		}
-//		ptrNoAtualX = ptrNoAtualX->proxNo;
+//		ptrNoAtual1 = ptrNoAtual1->proxNo;
 //	}
 //
 //}
