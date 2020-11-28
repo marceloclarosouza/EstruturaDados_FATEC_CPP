@@ -87,5 +87,8 @@
     <ClCompile Include="12_Arvore_binaria.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="AvaliacaoP2.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
