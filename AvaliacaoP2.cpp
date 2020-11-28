@@ -469,209 +469,214 @@ LDE: 1 <–> 2 <–> 3 <–> 4 <–> 5*/
 //}
 
 // Exercicio 03
+/*Dada duas PILHAS ENCADEADAS (Pilha A e Pilha B), com 3 elementos cada, crie uma terceira
+(Pilha C), também encadeada, com os elementos em ordem crescente.
+PilhaA 1, 3, 5
+PilhaB 2, 4, 6
+PilhaC 6, 5, 4, 3, 2, 1 */
 
-//#include <iostream>
-//#include <stdlib.h> 
-//#include <string>
-//
-//using namespace std;
-//
-//
-//// Dados sobre o ALUNO
-//struct Dados {
-//	int numero;
-//};
-//
-//// Estrutura do Nó
-//struct No {
-//	Dados dados;	// estrutura guardada dentro da lista
-//	No* proxNo;			// aponta para o próximo Nó da lista
-//};
-//
-//// Nó topo da Pilha
-//struct Pilha {
-//	int qtdNo;
-//	No* topo;
-//};
-//
-//Pilha* criarPilha();
-//void liberarPilha(Pilha* ptrPilha);
-//void exibirPilha(Pilha* ptrPilha);
-//bool empilharPush(Pilha* ptrPilha, int numero);
-//void unirPilhas(Pilha* ptrPilhaX, Pilha* ptrPilhaY, Pilha* ptrPilhaZ);
-//
-//int main() {
-//	setlocale(LC_ALL, "Portuguese");
-//
-//	Pilha* pPilhaA;
-//	Pilha* pPilhaB;
-//	Pilha* pPilhaC;
-//
-//	pPilhaA = criarPilha();
-//	pPilhaB = criarPilha();
-//	pPilhaC = criarPilha();
-//
-//	empilharPush(pPilhaA, 5);
-//	empilharPush(pPilhaA, 3);
-//	empilharPush(pPilhaA, 1);
-//
-//	empilharPush(pPilhaB, 6);
-//	empilharPush(pPilhaB, 4);
-//	empilharPush(pPilhaB, 2);
-//
-//	unirPilhas(pPilhaA, pPilhaB, pPilhaC);
-//	
-//	exibirPilha(pPilhaC);
-//
-//	liberarPilha(pPilhaA);
-//	liberarPilha(pPilhaB);
-//	liberarPilha(pPilhaC);
-//
-//	system("pause");
-//	return 0;
-//}
-//
-//Pilha* criarPilha() {
-//	Pilha* ptrPilha;
-//
-//	ptrPilha = new Pilha;
-//
-//	// Se a PILHA NÃO pode ser criada
-//	if (ptrPilha == NULL) {
-//		cout << "Não foi possível criar a pilha!" << endl;
-//		return NULL;
-//	}
-//
-//	// Como a pilha está vazia o INÍCIO aponta para NULL	
-//	ptrPilha->qtdNo = 0;
-//	ptrPilha->topo = NULL;
-//
-//	return ptrPilha;
-//}
-//
-//void liberarPilha(Pilha* ptrPilha) {
-//	No* ptrNoAtual;
-//
-//	//Se a PILHA NÃO foi criada
-//	if (ptrPilha == NULL) {
-//		cout << "A pilha não está criada!" << endl;
-//		return;
-//	}
-//
-//	// Exclui cada Nó da pilha
-//	while (ptrPilha->topo != NULL)
-//	{
-//		ptrNoAtual = ptrPilha->topo;
-//
-//		ptrPilha->topo = ptrNoAtual->proxNo;
-//
-//		delete  ptrNoAtual;
-//	}
-//
-//	delete ptrPilha;
-//}
-//
-//void exibirPilha(Pilha* ptrPilha) {
-//	No* ptrNoAtual;
-//
-//	//Se a PILLHA NÃO foi criada
-//	if (ptrPilha == NULL) {
-//		cout << "A pilha não está criada!" << endl;
-//		return;
-//	}
-//
-//
-//	//Se não tiver nenhum Nó na pilha
-//	if (ptrPilha->topo == NULL) {
-//		cout << "A pilha esta vazia!" << endl;
-//		return;
-//	}
-//
-//	ptrNoAtual = ptrPilha->topo;
-//
-//	while (ptrNoAtual != NULL) {
-//		cout << "Numero: " << ptrNoAtual->dados.numero << endl;
-//
-//		ptrNoAtual = ptrNoAtual->proxNo;
-//	}
-//}
-//
-//bool empilharPush(Pilha* ptrPilha, int numero) {
-//	No* ptrNoNovo;
-//
-//	//Se a pilha NÃO foi criada
-//	if (ptrPilha == NULL) {
-//		cout << "A pilha não está criada!" << endl;
-//		return false;
-//	}
-//
-//	ptrNoNovo = new No;
-//
-//	if (ptrNoNovo == NULL) {
-//		cout << "Memória insulficiente!" << endl;
-//		return false;
-//	}
-//
-//	ptrNoNovo->dados.numero = numero;
-//	ptrNoNovo->proxNo = ptrPilha->topo;
-//
-//	// Empilha
-//	ptrPilha->topo = ptrNoNovo;
-//
-//	// Incrementa o quantidade de Nós
-//	ptrPilha->qtdNo++;
-//
-//	return true;
-//}
-//
-//void unirPilhas(Pilha* ptrPilhaX, Pilha* ptrPilhaY, Pilha* ptrPilhaZ) {
-//	No* ptrNoAtualX;
-//	No* ptrNoAtualY;
-//	int menor;
-//	int numero;
-//
-//	// Se a PILHA NÃO foi criada
-//	if (ptrPilhaX == NULL) {
-//		cout << "A pilha não está criada!" << endl;
-//	}
-//
-//	//Se não tiver nenhum Nó na pilha
-//	if (ptrPilhaX->topo == NULL) {
-//		cout << "A pilha está vazia!" << endl;
-//	}
-//
-//	ptrNoAtualX = ptrPilhaX->topo;
-//	ptrNoAtualY = ptrPilhaY->topo;
-//
-//	while (ptrNoAtualX != NULL)
-//	{
-//		if (ptrNoAtualX->dados.numero == ptrNoAtualY->dados.numero) {
-//			numero = ptrNoAtualX->dados.numero;
-//			empilharPush(ptrPilhaZ, numero);
-//			empilharPush(ptrPilhaZ, numero);
-//		}
-//		else
-//		{
-//			menor = ptrNoAtualX->dados.numero;
-//			if (menor < ptrNoAtualY->dados.numero)
-//			{
-//				numero = ptrNoAtualX->dados.numero;
-//				empilharPush(ptrPilhaZ, numero);
-//				numero = ptrNoAtualY->dados.numero;
-//				empilharPush(ptrPilhaZ, numero);
-//			}
-//			else
-//			{
-//				numero = ptrNoAtualY->dados.numero;
-//				empilharPush(ptrPilhaZ, numero);
-//				numero = ptrNoAtualX->dados.numero;
-//				empilharPush(ptrPilhaZ, numero);
-//			}
-//		}
-//		ptrNoAtualX = ptrNoAtualX->proxNo;
-//		ptrNoAtualY = ptrNoAtualY->proxNo;
-//	}
-//}
+#include <iostream>
+#include <stdlib.h> 
+#include <string>
+
+using namespace std;
+
+
+// Dados sobre o ALUNO
+struct Dados {
+	int numero;
+};
+
+// Estrutura do Nó
+struct No {
+	Dados dados;	// estrutura guardada dentro da lista
+	No* proxNo;			// aponta para o próximo Nó da lista
+};
+
+// Nó topo da Pilha
+struct Pilha {
+	int qtdNo;
+	No* topo;
+};
+
+Pilha* criarPilha();
+void liberarPilha(Pilha* ptrPilha);
+void exibirPilha(Pilha* ptrPilha);
+bool empilharPush(Pilha* ptrPilha, int numero);
+void unirPilhas(Pilha* ptrPilhaX, Pilha* ptrPilhaY, Pilha* ptrPilhaZ);
+
+int main() {
+	setlocale(LC_ALL, "Portuguese");
+
+	Pilha* pPilhaA;
+	Pilha* pPilhaB;
+	Pilha* pPilhaC;
+
+	pPilhaA = criarPilha();
+	pPilhaB = criarPilha();
+	pPilhaC = criarPilha();
+
+	empilharPush(pPilhaA, 5);
+	empilharPush(pPilhaA, 3);
+	empilharPush(pPilhaA, 1);
+
+	empilharPush(pPilhaB, 6);
+	empilharPush(pPilhaB, 4);
+	empilharPush(pPilhaB, 2);
+
+	unirPilhas(pPilhaA, pPilhaB, pPilhaC);
+	
+	exibirPilha(pPilhaC);
+
+	liberarPilha(pPilhaA);
+	liberarPilha(pPilhaB);
+	liberarPilha(pPilhaC);
+
+	system("pause");
+	return 0;
+}
+
+Pilha* criarPilha() {
+	Pilha* ptrPilha;
+
+	ptrPilha = new Pilha;
+
+	// Se a PILHA NÃO pode ser criada
+	if (ptrPilha == NULL) {
+		cout << "Não foi possível criar a pilha!" << endl;
+		return NULL;
+	}
+
+	// Como a pilha está vazia o INÍCIO aponta para NULL	
+	ptrPilha->qtdNo = 0;
+	ptrPilha->topo = NULL;
+
+	return ptrPilha;
+}
+
+void liberarPilha(Pilha* ptrPilha) {
+	No* ptrNoAtual;
+
+	//Se a PILHA NÃO foi criada
+	if (ptrPilha == NULL) {
+		cout << "A pilha não está criada!" << endl;
+		return;
+	}
+
+	// Exclui cada Nó da pilha
+	while (ptrPilha->topo != NULL)
+	{
+		ptrNoAtual = ptrPilha->topo;
+
+		ptrPilha->topo = ptrNoAtual->proxNo;
+
+		delete  ptrNoAtual;
+	}
+
+	delete ptrPilha;
+}
+
+void exibirPilha(Pilha* ptrPilha) {
+	No* ptrNoAtual;
+
+	//Se a PILLHA NÃO foi criada
+	if (ptrPilha == NULL) {
+		cout << "A pilha não está criada!" << endl;
+		return;
+	}
+
+
+	//Se não tiver nenhum Nó na pilha
+	if (ptrPilha->topo == NULL) {
+		cout << "A pilha esta vazia!" << endl;
+		return;
+	}
+
+	ptrNoAtual = ptrPilha->topo;
+
+	while (ptrNoAtual != NULL) {
+		cout << "Numero: " << ptrNoAtual->dados.numero << endl;
+
+		ptrNoAtual = ptrNoAtual->proxNo;
+	}
+}
+
+bool empilharPush(Pilha* ptrPilha, int numero) {
+	No* ptrNoNovo;
+
+	//Se a pilha NÃO foi criada
+	if (ptrPilha == NULL) {
+		cout << "A pilha não está criada!" << endl;
+		return false;
+	}
+
+	ptrNoNovo = new No;
+
+	if (ptrNoNovo == NULL) {
+		cout << "Memória insulficiente!" << endl;
+		return false;
+	}
+
+	ptrNoNovo->dados.numero = numero;
+	ptrNoNovo->proxNo = ptrPilha->topo;
+
+	// Empilha
+	ptrPilha->topo = ptrNoNovo;
+
+	// Incrementa o quantidade de Nós
+	ptrPilha->qtdNo++;
+
+	return true;
+}
+
+void unirPilhas(Pilha* ptrPilhaX, Pilha* ptrPilhaY, Pilha* ptrPilhaZ) {
+	No* ptrNoAtualX;
+	No* ptrNoAtualY;
+	int menor;
+	int numero;
+
+	// Se a PILHA NÃO foi criada
+	if (ptrPilhaX == NULL) {
+		cout << "A pilha não está criada!" << endl;
+	}
+
+	//Se não tiver nenhum Nó na pilha
+	if (ptrPilhaX->topo == NULL) {
+		cout << "A pilha está vazia!" << endl;
+	}
+
+	ptrNoAtualX = ptrPilhaX->topo;
+	ptrNoAtualY = ptrPilhaY->topo;
+
+	while (ptrNoAtualX != NULL)
+	{
+		if (ptrNoAtualX->dados.numero == ptrNoAtualY->dados.numero) {
+			numero = ptrNoAtualX->dados.numero;
+			empilharPush(ptrPilhaZ, numero);
+			empilharPush(ptrPilhaZ, numero);
+		}
+		else
+		{
+			menor = ptrNoAtualX->dados.numero;
+			if (menor < ptrNoAtualY->dados.numero)
+			{
+				numero = ptrNoAtualX->dados.numero;
+				empilharPush(ptrPilhaZ, numero);
+				numero = ptrNoAtualY->dados.numero;
+				empilharPush(ptrPilhaZ, numero);
+			}
+			else
+			{
+				numero = ptrNoAtualY->dados.numero;
+				empilharPush(ptrPilhaZ, numero);
+				numero = ptrNoAtualX->dados.numero;
+				empilharPush(ptrPilhaZ, numero);
+			}
+		}
+		ptrNoAtualX = ptrNoAtualX->proxNo;
+		ptrNoAtualY = ptrNoAtualY->proxNo;
+	}
+}
 
 // Exercicio 04
 
